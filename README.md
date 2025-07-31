@@ -8,10 +8,11 @@ Pesquisador em Bioinformática, integrando ciências biológicas e análise de d
 
 ## 🛠️ Ferramentas
 - **Linguagens e Ferramentas**: Python, R, HTML, CSS, JavaScript.
-- **Bioinformática**: Kraken2, Qiime2, Biobakery.
+- **Bioinformática**: Kraken2, Bracken, Qiime2, Biobakery.
 - **Gerenciamento de Dados**: Google Planilhas, MongoDB, MySQL.
 
 ## 🔗 Conecte-se
 - [GitHub Pages](https://christopherwilliamlee.github.io)
 - [LinkedIn](https://www.linkedin.com/in/christopher-lee-390643197/)
 - [Krakenomics no Medium](https://medium.com/@krakenomics)
+- [Lattes](http://lattes.cnpq.br/5196836637403621)
