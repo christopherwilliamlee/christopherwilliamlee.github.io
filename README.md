@@ -7,7 +7,7 @@ Pesquisador em Bioinformática, integrando ciências biológicas e análise de d
 - **Áreas de Foco**: Bioinformática (metagenômica e transcriptômica), Ciência de Dados e Bancos de Dados.
 
 ## 🛠️ Ferramentas
-- **Linguagens e Ferramentas**: Python, R, HTML, CSS, JavaScript.
+- **Linguagens**: Python, R, HTML, CSS, JavaScript.
 - **Bioinformática**: Kraken2, Bracken, Qiime2, Biobakery.
 - **Gerenciamento de Dados**: Google Planilhas, MongoDB, MySQL.
 
