@@ -1,12 +1,155 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="system">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Em construção</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Christopher William Lee — Portfólio</title>
+  <meta name="description" content="Portfólio de Christopher William Lee — Bioinformática, Python, R, Genômica e projetos de dados." />
+  <meta property="og:title" content="Christopher William Lee — Portfólio" />
+  <meta property="og:description" content="Bioinformática, Python, R, Genômica e projetos de dados." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-    <iframe src="https://giphy.com/embed/cfGmVRsJI6wq6noGxP" width="478" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-    <p>>Em construção</a></p>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Página inicial">
+        <span class="logo">🧬</span>
+        <strong>Christopher W. Lee</strong>
+      </a>
+      <nav class="links" aria-label="Navegação primária">
+        <a href="#projetos">Projetos</a>
+        <a href="#publicacoes">Publicações</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div>
+        <span class="badge">Bioinformática • Genômica • Python & R</span>
+        <h1>Portfólio — Análises Metagenômicas, Pipelines Reprodutíveis e Visualização de Dados</h1>
+        <p>Sou bioinformata focado em metagenômica, variantes genéticas e automações com Python/R. Aqui você encontra projetos, tutoriais e provas de conceito (Nextflow, Kraken2, Docker, etc.).</p>
+        <div class="actions">
+          <a class="btn" href="#projetos">Ver projetos</a>
+          <a class="btn ghost" href="/kraken-guide/" target="_self" rel="noopener">Guia: Kraken2 →</a>
+        </div>
+        <div class="meta" style="margin-top:10px">
+          <span>📍 Brasil</span>
+          <a href="https://github.com/christopherwilliamlee" target="_blank" rel="noopener">GitHub</a>
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="#" target="_blank" rel="noopener">Lattes / Google Scholar</a>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Stack rápida</h3>
+          <div class="chips" aria-label="Competências principais">
+            <span class="chip">Kraken2</span>
+            <span class="chip">Bracken</span>
+            <span class="chip">Nextflow DSL2</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Python</span>
+            <span class="chip">R</span>
+            <span class="chip">Bash</span>
+            <span class="chip">Google Sheets API</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <h2>Projetos em destaque</h2>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Kraken2: Guia rápido + pipeline</h3>
+          <p>Instalação, construção de bancos, classificação e visualização (Krona). Inclui scripts e exemplos reprodutíveis.</p>
+          <div class="meta"><span>🗂 Kraken2, Krona</span><a href="/kraken-guide/">Abrir →</a></div>
+        </article>
+        <article class="card">
+          <h3>Nextflow: Hello → Pipeline real</h3>
+          <p>Do básico ao DSL2, canais, processos e executores. Boas práticas, logs e organização de workdir.</p>
+          <div class="meta"><span>⚙️ Nextflow</span><a href="#">Repositório</a></div>
+        </article>
+        <article class="card">
+          <h3>Automação Sheets + WhatsApp</h3>
+          <p>Bot diário com Twilio/Cloud API e integração com Google Sheets para checagens e disparos programados.</p>
+          <div class="meta"><span>🤖 Python</span><a href="#">Visão geral</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="publicacoes">
+      <h2>Publicações & Escritos</h2>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Metagenômica: Fundamentos práticos</h3>
+          <p>Notas curtas para iniciantes: shotgun vs 16S, preparo de amostras, qualidade e classificação.</p>
+          <div class="meta"><span>📝 Série</span><a href="#">Ler</a></div>
+        </article>
+        <article class="card">
+          <h3>Variant calling sem traumas</h3>
+          <p>Panorama de alinhadores, filtros, anotação e interpretação clínica enxuta.</p>
+          <div class="meta"><span>🧪 Genômica</span><a href="#">Ler</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre mim</h2>
+      <div class="card">
+        <p>PhD em andamento em Ciências Farmacêuticas (UNICENTRO). Atuo com pipelines reprodutíveis (Nextflow), metagenômica (Kraken2/Bracken), e integrações de dados (APIs, Google Sheets). Interessa-me documentação clara, versionamento e resultados auditáveis.</p>
+        <p class="meta">Disponível para colaborações, consultorias e aulas práticas.</p>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <div class="card">
+        <p>Prefere falar comigo? Envie um e-mail ou conecte-se nas redes.</p>
+        <div class="chips">
+          <a class="btn" href="mailto:seu.email@exemplo.com">✉️ Enviar e-mail</a>
+          <a class="btn ghost" href="https://github.com/christopherwilliamlee" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Christopher William Lee</div>
+  </footer>
+
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Alternância de tema (claro/escuro/sistema)
+    (function () {
+      const btn = document.getElementById('themeBtn');
+      const root = document.documentElement;
+      const KEY = 'cwlee-theme';
+
+      // aplica tema salvo (ou 'system')
+      const saved = localStorage.getItem(KEY) || 'system';
+      root.setAttribute('data-theme', saved);
+
+      function nextTheme(current) {
+        return current === 'light' ? 'dark' : current === 'dark' ? 'system' : 'light';
+      }
+
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || 'system';
+        const next = nextTheme(current);
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(KEY, next);
+        btn.textContent = '🌗';
+      });
+    })();
+  </script>
 </body>
 </html>
