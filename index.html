@@ -17,7 +17,7 @@
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Página inicial">
         <span class="logo">🧬</span>
-        <strong>Christopher W. Lee</strong>
+        <strong>Christopher William Lee</strong>
       </a>
       <nav class="links" aria-label="Navegação primária">
         <a href="#projetos">Projetos</a>
@@ -33,23 +33,32 @@
     <section id="home" class="hero">
       <div>
         <span class="badge">Bioinformática • Genômica • Python & R</span>
-        <h1>Portfólio — Análises Metagenômicas, Pipelines Reprodutíveis e Visualização de Dados</h1>
-        <p>Sou bioinformata focado em metagenômica, variantes genéticas e automações com Python/R. Aqui você encontra projetos, tutoriais e provas de conceito (Nextflow, Kraken2, Docker, etc.).</p>
-        <div class="actions">
-          <a class="btn" href="#projetos">Ver projetos</a>
-          <a class="btn ghost" href="/kraken-guide/" target="_self" rel="noopener">Guia: Kraken2 →</a>
+        <h1>Análises Metagenômicas, Pipelines e Visualização de Dados</h1>
+        <p>Sou bioinformata focado em metagenômica, variantes genéticas e automações. Aqui você encontra projetos, tutoriais e um pouco sobre mim.</p>
+        <div class="actions" style="flex-direction:column; gap:16px; align-items:flex-start">
+        <a class="btn" href="#projetos">🚀 Ver projetos</a>
+        <div style="display:flex; flex-wrap:wrap; gap:10px">
+            <a class="btn ghost" href="/kraken-guide/">Guia: Kraken2 →</a>
+            <a class="btn ghost" href="/qiime2-guide/">Guia: QIIME2 →</a>
+            <a class="btn ghost" href="/biobakery-guide/">Guia: BioBakery →</a>
         </div>
-        <div class="meta" style="margin-top:10px">
-          <span>📍 Brasil</span>
-          <a href="https://github.com/christopherwilliamlee" target="_blank" rel="noopener">GitHub</a>
-          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="#" target="_blank" rel="noopener">Lattes / Google Scholar</a>
         </div>
+        <div class="chips" style="margin-top:10px">
+            <span class="chip">📍 Brasil</span>
+            <a class="chip" href="https://github.com/christopherwilliamlee" target="_blank" rel="noopener">GitHub</a>
+            <a class="chip" href="https://www.linkedin.com/in/christopher-lee-390643197/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="chip" href="https://lattes.cnpq.br/5196836637403621" target="_blank" rel="noopener">Lattes</a>
+            <a class="chip" href="https://medium.com/@krakenomics" target="_blank" rel="noopener">Medium</a>
+        </div>
+
       </div>
       <div>
+        <div class="right-column">
+        <img src="assets/img/minha_foto.jpg" alt="Minha foto" class="profile-pic">
+        
         <div class="card">
-          <h3>Stack rápida</h3>
-          <div class="chips" aria-label="Competências principais">
+            <h3>Stack rápida</h3>
+            <div class="chips" aria-label="Competências principais">
             <span class="chip">Kraken2</span>
             <span class="chip">Bracken</span>
             <span class="chip">Nextflow DSL2</span>
@@ -58,8 +67,10 @@
             <span class="chip">R</span>
             <span class="chip">Bash</span>
             <span class="chip">Google Sheets API</span>
-          </div>
+            </div>
         </div>
+        </div>
+
       </div>
     </section>
 
@@ -68,18 +79,23 @@
       <div class="grid cards">
         <article class="card">
           <h3>Kraken2: Guia rápido + pipeline</h3>
-          <p>Instalação, construção de bancos, classificação e visualização (Krona). Inclui scripts e exemplos reprodutíveis.</p>
+          <p>Instalação, construção de bancos, classificação e visualização (Krona).</p>
           <div class="meta"><span>🗂 Kraken2, Krona</span><a href="/kraken-guide/">Abrir →</a></div>
         </article>
         <article class="card">
-          <h3>Nextflow: Hello → Pipeline real</h3>
-          <p>Do básico ao DSL2, canais, processos e executores. Boas práticas, logs e organização de workdir.</p>
-          <div class="meta"><span>⚙️ Nextflow</span><a href="#">Repositório</a></div>
+          <h3>Qiime2: Guia rápido + pipeline</h3>
+          <p>Instalação, construção de banco de dados, classificação e visualização.</p>
+          <div class="meta"><span>Qiime2</span><a href="#">Abrir →</a></div>
         </article>
         <article class="card">
-          <h3>Automação Sheets + WhatsApp</h3>
-          <p>Bot diário com Twilio/Cloud API e integração com Google Sheets para checagens e disparos programados.</p>
-          <div class="meta"><span>🤖 Python</span><a href="#">Visão geral</a></div>
+          <h3>Biobakery</h3>
+          <p>Tutorial e exemplos</p>
+          <div class="meta"><span>Biobakery</span><a href="#">Abrir →</a></div>
+        </article>
+        <article class="card">
+          <h3>Google Sheets</h3>
+          <p>Algumas dicas e exemplos com google sheets</p>
+          <div class="meta"><span>Google sheets</span><a href="#">Abrir →</a></div>
         </article>
       </div>
     </section>
@@ -88,14 +104,24 @@
       <h2>Publicações & Escritos</h2>
       <div class="grid cards">
         <article class="card">
-          <h3>Metagenômica: Fundamentos práticos</h3>
-          <p>Notas curtas para iniciantes: shotgun vs 16S, preparo de amostras, qualidade e classificação.</p>
-          <div class="meta"><span>📝 Série</span><a href="#">Ler</a></div>
+            <h3>Microbiota x Microbioma: são a mesma coisa?</h3>
+            <p>Vamos dar uma descontraída e desmistificar esses termos que confundem até aquele amigo que faz kombucha e kefir!</p>
+            <div class="meta">
+                <span>Metagenômica</span>
+                <a href="https://medium.com/@krakenomics/microbiota-x-microbioma-s%C3%A3o-a-mesma-coisa-c3ed7848d8e7" 
+                target="_blank" 
+                rel="noopener">Ler</a>
+            </div>
         </article>
+
         <article class="card">
-          <h3>Variant calling sem traumas</h3>
-          <p>Panorama de alinhadores, filtros, anotação e interpretação clínica enxuta.</p>
-          <div class="meta"><span>🧪 Genômica</span><a href="#">Ler</a></div>
+          <h3>O que existe aqui?</h3>
+          <p>Imagina descobrir centenas de microrganismos em um único pedacinho de terra 
+            (ou tudo o que tiver superfície kkkk) sem precisar cultivar nada em laboratório.</p>
+          <div class="meta"><span>Metagenomica</span>
+                <a href="https://medium.com/@krakenomics/microbiota-x-microbioma-s%C3%A3o-a-mesma-coisa-c3ed7848d8e7" 
+                target="_blank" 
+                rel="noopener">Ler</a>
         </article>
       </div>
     </section>
@@ -103,7 +129,8 @@
     <section id="sobre">
       <h2>Sobre mim</h2>
       <div class="card">
-        <p>PhD em andamento em Ciências Farmacêuticas (UNICENTRO). Atuo com pipelines reprodutíveis (Nextflow), metagenômica (Kraken2/Bracken), e integrações de dados (APIs, Google Sheets). Interessa-me documentação clara, versionamento e resultados auditáveis.</p>
+        <p>PhD em andamento em Ciências Farmacêuticas (UNICENTRO). Atuo com pipelines automatizados, 
+            metagenômica (Kraken2/Bracken/Biobakery/Qiime2) e integrações de dados (APIs, Google Sheets).<p>
         <p class="meta">Disponível para colaborações, consultorias e aulas práticas.</p>
       </div>
     </section>
@@ -113,7 +140,7 @@
       <div class="card">
         <p>Prefere falar comigo? Envie um e-mail ou conecte-se nas redes.</p>
         <div class="chips">
-          <a class="btn" href="mailto:seu.email@exemplo.com">✉️ Enviar e-mail</a>
+          <a class="btn" href="mailto:contato_bioinfo.garbage278@passinbox.com">✉️ Enviar e-mail</a>
           <a class="btn ghost" href="https://github.com/christopherwilliamlee" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
