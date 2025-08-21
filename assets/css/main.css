@@ -101,3 +101,149 @@ section h2{font-size:22px; margin:0 0 14px}
   display: block;
   margin: 0 auto 20px auto;  /* centraliza e dá espaço abaixo */
 }
+
+/* ===== Carrossel Circular (lado a lado com imagens) ===== */
+#involvidos{margin-top:48px}
+#involvidos h2{margin-bottom:14px}
+
+.carousel-wrap{
+  display:grid;
+  place-items:center;
+  gap:14px;
+}
+
+.circle-carousel{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;        /* quebra se faltar espaço */
+  padding:6px;
+}
+
+.circle-item {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--card);
+  padding: 10px;       /* <-- novo */
+}
+
+.circle-item:hover{
+  transform:translateY(-2px);
+  border-color:var(--accent);
+}
+
+.circle-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* joga texto para baixo */
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.circle-thumb {
+  position: absolute;
+  inset: 0;               /* ocupa todo o círculo */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* ou cover, se quiser preencher */
+  border-radius: 50%;
+  z-index: 0;              /* fica atrás */
+}
+
+.circle-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: .72rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg,var(--accent),var(--accent-2));
+  color: #fff;
+  border: 0;
+  box-shadow: var(--shadow);
+  z-index: 1;
+}
+
+.circle-caption {
+  position: relative;
+  z-index: 1;
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  text-align: center;
+  font-size: .85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  background: rgba(0,0,0,.55);
+  border-radius: 6px;
+  max-width: 90%;
+}
+
+
+.circle-tag{
+  position:absolute;
+  top:8px; left:8px;
+  font-size:.72rem;
+  padding:3px 8px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;
+  border:0;
+  box-shadow:var(--shadow);
+}
+
+/* Controles */
+.carousel-controls{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+#prevPg,#nextPg{
+  border:1px solid var(--border);
+  color:var(--text);
+  background:transparent;
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+#prevPg:hover,#nextPg:hover{
+  border-color:var(--accent);
+  color:#fff;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+}
+
+.carousel-note{
+  font-size:.85rem;
+  color:var(--muted);
+  text-align:center;
+}
+
+/* Mobile: rolagem horizontal */
+@media (max-width:640px){
+  .circle-carousel{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+  }
+  .circle-item{
+    flex:0 0 70%;
+    scroll-snap-align:center;
+  }
+}
+
+/* Foco acessível */
+#prevPg:focus-visible,#nextPg:focus-visible,.circle-link:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+  border-color:var(--accent);
+}

@@ -135,6 +135,18 @@
       </div>
     </section>
 
+    <section id="envolvidos" aria-label="Projetos que estou envolvido">
+      <h2>Projetos que estou envolvido</h2>
+      <div class="carousel-wrap">
+        <div class="circle-carousel" id="circleCarousel" aria-live="polite"></div>
+        <div class="carousel-controls">
+          <button class="btn ghost" id="prevPg" aria-label="Projetos anteriores">◀</button>
+          <button class="btn ghost" id="nextPg" aria-label="Próximos projetos">▶</button>
+        </div>
+      </div>
+      <p class="carousel-note">Passe o mouse para pausar a rotação automática.</p>
+    </section>
+
     <section id="contato">
       <h2>Contato</h2>
       <div class="card">
@@ -178,5 +190,117 @@
       });
     })();
   </script>
+
+  <script>
+  (function () {
+    // ---- Lista fixa de projetos envolvidos (atuais e anteriores) ----
+    const envolvidos = [
+      { title: 'MedEpiGen', tag: 'Atual',    link: 'https://medepigen.ufpr.br/', img: 'assets/img/envolvidos/medepigen.png' },
+      { title: 'Mennogen',       tag: 'Atual',    link: 'https://medepigen.ufpr.br/mennogen/', img: 'assets/img/envolvidos/mennogen.png' },
+      { title: 'Genomas PR',      tag: 'Atual',    link: 'https://ipec.org.br/genomas-parana/', img: 'assets/img/envolvidos/genomas_parana.png' },
+      { title: 'Genomas SUS',    tag: 'Atual',    link: 'https://www.gov.br/saude/pt-br/assuntos/noticias/2024/julho/no-para-nisia-participa-da-inauguracao-de-centro-ancora-da-amazonia-do-projeto-genomas-sus', img: 'assets/img/envolvidos/genomas_sus.png' },
+
+      { title: 'S.M.I.L', 
+        tag: 'Anterior', link: 'https://portal.unila.edu.br/noticias/em-missal-pesquisadores-apresentam-primeiros-dados-coletados-em-pesquisa-sobre-cancer', img: 'assets/img/envolvidos/unila.jpg' },
+
+      { title: 'Micropoluentes e biodiversidade', 
+        tag: 'Anterior', link: 'https://documentos.unila.edu.br/sites/default/files/plano_de_trabalho_assinado_micropoluentes_ii.pdf', img: 'assets/img/envolvidos/itaipu.png' },
+    ];
+
+    // ---- Funções utilitárias (iguais à versão anterior) ----
+    function paginar(arr, size=4) {
+      const out = [];
+      for (let i=0;i<arr.length;i+=size) out.push(arr.slice(i, i+size));
+      return out.length ? out : [[]];
+    }
+
+    function gerarAvatar(title) {
+      const initials = title.split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
+      const cnv = document.createElement('canvas');
+      cnv.width = 300; cnv.height = 300;
+      const ctx = cnv.getContext('2d');
+
+      const get = k => getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+      const grad = ctx.createLinearGradient(0,0,300,300);
+      grad.addColorStop(0, get('--accent')); grad.addColorStop(1, get('--accent-2'));
+      ctx.fillStyle = grad; ctx.fillRect(0,0,300,300);
+
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 120px system-ui, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(initials, 150, 160);
+      return cnv.toDataURL('image/png');
+    }
+
+    function criarItem({ title, tag, link, img }) {
+      const wrap = document.createElement('div');
+      wrap.className = 'circle-item';
+
+      const a = document.createElement('a');
+      a.className = 'circle-link';
+      a.href = link || '#';
+      if (link && !link.startsWith('#')) a.target = '_blank', a.rel = 'noopener';
+
+      const im = document.createElement('img');
+      im.className = 'circle-thumb';
+      im.alt = title;
+      im.loading = 'lazy';
+      im.src = img || gerarAvatar(title);
+
+      const caption = document.createElement('div');
+      caption.className = 'circle-caption';
+      caption.textContent = title;
+
+      if (tag) {
+        const badge = document.createElement('span');
+        badge.className = 'circle-tag';
+        badge.textContent = tag;
+        a.appendChild(badge);
+      }
+
+      a.appendChild(im);
+      a.appendChild(caption);
+      wrap.appendChild(a);
+      return wrap;
+    }
+
+    function renderPagina(container, pagina) {
+      container.innerHTML = '';
+      if (!pagina.length) {
+        const msg = document.createElement('div');
+        msg.style.opacity = .7;
+        msg.textContent = 'Nenhum projeto encontrado.';
+        container.appendChild(msg);
+        return;
+      }
+      pagina.forEach(p => container.appendChild(criarItem(p)));
+    }
+
+    // ---- Init: páginas de 4, rotação e controles ----
+    const pages = paginar(envolvidos, 4);
+    const container = document.getElementById('circleCarousel');
+    const prevBtn = document.getElementById('prevPg');
+    const nextBtn = document.getElementById('nextPg');
+
+    let idx = 0, timer = null;
+    const TEMPO = 4000;
+
+    function show(i){ idx = (i + pages.length) % pages.length; renderPagina(container, pages[idx]); }
+    function start(){ if (!timer && pages.length > 1) timer = setInterval(()=>show(idx+1), TEMPO); }
+    function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+
+    prevBtn.addEventListener('click', ()=>{ stop(); show(idx-1); start(); });
+    nextBtn.addEventListener('click', ()=>{ stop(); show(idx+1); start(); });
+
+    container.addEventListener('mouseenter', stop);
+    container.addEventListener('mouseleave', start);
+    container.addEventListener('focusin', stop);
+    container.addEventListener('focusout', start);
+
+    show(0);
+    start();
+  })();
+  </script>
+
 </body>
 </html>
