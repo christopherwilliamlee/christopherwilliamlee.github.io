@@ -40,7 +40,7 @@
 - **Doutorado (em andamento):** Farmácia – Bioinformática e Ciência de Dados
 
 **Áreas de especialização:**  
-Metagenômica • Transcriptômica • Ciência de Dados • Bancos de Dados
+Metagenômica • Transcriptômica
 
 ---
 
@@ -58,3 +58,4 @@ Metagenômica • Transcriptômica • Ciência de Dados • Bancos de Dados
 [![Lattes](https://img.shields.io/badge/Lattes-CNPq-007396?logo=read-the-docs&logoColor=white)](http://lattes.cnpq.br/5196836637403621)
 
 ---
+
