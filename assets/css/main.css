@@ -247,3 +247,19 @@ section h2{font-size:22px; margin:0 0 14px}
   outline-offset:2px;
   border-color:var(--accent);
 }
+
+/* ===== Carrossel de Publicações ===== */
+.pub-carousel {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;   /* esconde cards extras */
+  scroll-behavior: smooth;
+}
+
+.pub-carousel .card {
+  flex: 0 0 calc(33.333% - 10.6px); /* 3 por linha */
+}
+
+@media (max-width: 800px) {
+  .pub-carousel .card { flex: 0 0 80%; } /* mobile: 1 por vez */
+}

@@ -102,29 +102,50 @@
 
     <section id="publicacoes">
       <h2>Publicações & Escritos</h2>
-      <div class="grid cards">
-        <article class="card">
+      <div class="carousel-wrap">
+        <div class="pub-carousel" id="pubCarousel" aria-live="polite">
+          <!-- os artigos já estão aqui dentro -->
+          <article class="card">
             <h3>Microbiota x Microbioma: são a mesma coisa?</h3>
             <p>Vamos dar uma descontraída e desmistificar esses termos que confundem até aquele amigo que faz kombucha e kefir!</p>
             <div class="meta">
-                <span>Metagenômica</span>
-                <a href="https://medium.com/@krakenomics/microbiota-x-microbioma-s%C3%A3o-a-mesma-coisa-c3ed7848d8e7" 
-                target="_blank" 
-                rel="noopener">Ler</a>
+              <span>Metagenômica</span>
+              <a href="https://medium.com/@krakenomics/microbiota-x-microbioma-s%C3%A3o-a-mesma-coisa-c3ed7848d8e7" 
+                target="_blank" rel="noopener">Ler</a>
             </div>
-        </article>
+          </article>
 
-        <article class="card">
-          <h3>O que existe aqui?</h3>
-          <p>Imagina descobrir centenas de microrganismos em um único pedacinho de terra 
-            (ou tudo o que tiver superfície kkkk) sem precisar cultivar nada em laboratório.</p>
-          <div class="meta"><span>Metagenomica</span>
-                <a href="https://krakenomics.medium.com/-d81782e94e67" 
-                target="_blank" 
-                rel="noopener">Ler</a>
-        </article>
+          <article class="card">
+            <h3>O que existe aqui?</h3>
+            <p>Imagina descobrir centenas de microrganismos em um único pedacinho de terra 
+              (ou tudo o que tiver superfície kkkk) sem precisar cultivar nada em laboratório.</p>
+            <div class="meta">
+              <span>Metagenômica</span>
+              <a href="https://krakenomics.medium.com/quem-est%C3%A1-na-festa-metataxonomia-metabarcoding-e-metagen%C3%B4mica-explicados-sem-mist%C3%A9rio-95bd5dcd1582" 
+                target="_blank" rel="noopener">Ler</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Quem está na festa? Metataxonomia, Metabarcoding e Metagenômica explicados sem mistério</h3>
+            <p>Vamos tirar a poeira desses nomes cabeludos e deixar claro de uma vez por todas o que é metataxonomia, metabarcoding e metagenômica!</p>
+            <div class="meta">
+              <span>Metagenômica</span>
+              <a href="https://krakenomics.medium.com/-d81782e94e67" 
+                target="_blank" rel="noopener">Ler</a>
+            </div>
+          </article>
+          <!-- até 6 artigos -->
+        </div>
+
+        <!-- Controles -->
+        <div class="carousel-controls">
+          <button class="btn ghost" id="pubPrev">◀</button>
+          <button class="btn ghost" id="pubNext">▶</button>
+        </div>
       </div>
     </section>
+
 
     <section id="sobre">
       <h2>Sobre mim</h2>
@@ -154,6 +175,7 @@
         <div class="chips">
           <a class="btn" href="mailto:contato_bioinfo.garbage278@passinbox.com">✉️ Enviar e-mail</a>
           <a class="btn ghost" href="https://github.com/christopherwilliamlee" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://api.whatsapp.com/send/?phone=45998147794&text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20o%20Christopher.&type=phone_number&app_absent=0" target="_blank" rel="noopener">Whatsapp</a>
         </div>
       </div>
     </section>
@@ -301,6 +323,26 @@
     start();
   })();
   </script>
+
+  <script>
+  (function(){
+    const carousel = document.getElementById('pubCarousel');
+    const prev = document.getElementById('pubPrev');
+    const next = document.getElementById('pubNext');
+
+    const cardWidth = () => carousel.querySelector('.card').offsetWidth + 16; // largura + gap
+    const maxScroll = () => carousel.scrollWidth - carousel.clientWidth;
+
+    prev.addEventListener('click', () => {
+      carousel.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
+    });
+
+    next.addEventListener('click', () => {
+      carousel.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+    });
+  })();
+  </script>
+
 
 </body>
 </html>
