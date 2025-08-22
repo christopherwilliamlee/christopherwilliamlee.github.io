@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="system">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} — Guias</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+  <style>
+    /* Layout com sidebar fixa */
+    .guides-shell{display:grid;grid-template-columns:280px 1fr;gap:24px;padding:24px 0}
+    .sidebar{
+      background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;height:fit-content;
+      position:sticky;top:76px;
+    }
+    .side-group{margin-bottom:14px}
+    .side-group h3{margin:4px 0 10px;font-size:16px}
+    .side-item{display:block;padding:8px 10px;border-radius:10px;color:var(--text-dim);text-decoration:none}
+    .side-item:hover{background:rgba(148,163,184,.12);color:var(--text)}
+    .side-item.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
+    .reader{
+      background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;min-height:50vh;box-shadow:var(--shadow)
+    }
+    .reader h1,.reader h2,.reader h3{margin-top:1.1em}
+    .reader pre{overflow:auto;padding:12px;border:1px solid var(--border);border-radius:10px;background:rgba(148,163,184,.08)}
+    @media (max-width: 900px){ .guides-shell{grid-template-columns:1fr} .sidebar{position:static} }
+    /* Cabeçalho igual ao da home (mesmas classes do seu main.css) */
+    header .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));}
+    .links{display:flex;gap:18px;align-items:center}
+    .links a{color:var(--text);opacity:.9;text-decoration:none}
+    .links a:hover{opacity:1}
+    .theme-toggle{border:1px solid var(--border);background:transparent;border-radius:12px;padding:8px 10px;cursor:pointer}
+  </style>
+</head>
+<body>
+  {%- assign current = page.url -%}
+
+  {%- comment -%} URLs dos itens (com .html e versão pretty) {%- endcomment -%}
+  {%- assign gui = '/guias/index.html' -%}{% assign gui_pretty = '/guias/' %}
+  {% assign k2 = '/guias/ferramentas/kraken2.html' %}{% assign k2_pretty = '/guias/ferramentas/kraken2/' %}
+  {% assign q2 = '/guias/ferramentas/qiime2.html' %}{% assign q2_pretty = '/guias/ferramentas/qiime2/' %}
+  {% assign bb = '/guias/ferramentas/biobakery.html' %}{% assign bb_pretty = '/guias/ferramentas/biobakery/' %}
+  {% assign an = '/guias/ambientes/anaconda.html' %}{% assign an_pretty = '/guias/ambientes/anaconda/' %}
+  {% assign bcl = '/guias/conversores/bcl2fastq.html' %}{% assign bcl_pretty = '/guias/conversores/bcl2fastq/' %}
+  {% assign wsl = '/guias/plataforma/wsl.html' %}{% assign wsl_pretty = '/guias/plataforma/wsl/' %}
+  {% assign fq  = '/guias/qualidade/fastq.html' %}{% assign fq_pretty  = '/guias/qualidade/fastq/' %}
+  {% assign fqp = '/guias/qualidade/fastp.html' %}{% assign fqp_pretty = '/guias/qualidade/fastp/' %}
+  {% assign flc = '/guias/qualidade/falco.html' %}{% assign flc_pretty = '/guias/qualidade/falco/' %}
+
+  <!-- HEADER igual ao index.html -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="Página inicial">
+        <span class="logo">🧬</span>
+        <strong>Christopher William Lee</strong>
+      </a>
+      <nav class="links" aria-label="Navegação primária">
+        <a href="{{ '/#projetos' | relative_url }}">Projetos</a>
+        <a href="{{ '/#publicacoes' | relative_url }}">Publicações</a>
+        <a href="{{ '/#sobre' | relative_url }}">Sobre</a>
+        <a href="{{ '/#contato' | relative_url }}">Contato</a>
+        <a href="{{ gui | relative_url }}"
+           class="{% if current == gui or current == gui_pretty %}active{% endif %}">Guias</a>
+        <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="guides-shell">
+      <!-- SIDEBAR (o antigo “menu” virou lateral) -->
+      <aside class="sidebar" aria-label="Índice dos guias">
+        <div class="side-group">
+          <h3>Ferramentas</h3>
+          <a href="{{ k2 | relative_url }}" class="side-item {% if current == k2 or current == k2_pretty %}active{% endif %}">Kraken2</a>
+          <a href="{{ q2 | relative_url }}" class="side-item {% if current == q2 or current == q2_pretty %}active{% endif %}">QIIME2</a>
+          <a href="{{ bb | relative_url }}" class="side-item {% if current == bb or current == bb_pretty %}active{% endif %}">BioBakery</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Gerenciamento de ambientes</h3>
+          <a href="{{ an | relative_url }}" class="side-item {% if current == an or current == an_pretty %}active{% endif %}">Anaconda</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Conversor de arquivos</h3>
+          <a href="{{ bcl | relative_url }}" class="side-item {% if current == bcl or current == bcl_pretty %}active{% endif %}">BCL2fastq</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Plataforma</h3>
+          <a href="{{ wsl | relative_url }}" class="side-item {% if current == wsl or current == wsl_pretty %}active{% endif %}">WSL</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Qualidade de dados</h3>
+          <a href="{{ fq  | relative_url }}" class="side-item {% if current == fq  or current == fq_pretty  %}active{% endif %}">FASTQ</a>
+          <a href="{{ fqp | relative_url }}" class="side-item {% if current == fqp or current == fqp_pretty %}active{% endif %}">FASTP</a>
+          <a href="{{ flc | relative_url }}" class="side-item {% if current == flc or current == flc_pretty %}active{% endif %}">FALCO</a>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO -->
+      <section class="reader" id="reader">
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
+  </footer>
+
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Alternância de tema (claro/escuro/sistema) — igual à home
+    (function () {
+      const btn = document.getElementById('themeBtn');
+      if(!btn) return;
+      const root = document.documentElement;
+      const KEY = 'cwlee-theme';
+      const saved = localStorage.getItem(KEY) || 'system';
+      root.setAttribute('data-theme', saved);
+      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || 'system';
+        const next = nextTheme(current);
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(KEY, next);
+        btn.textContent = '🌗';
+      });
+    })();
+  </script>
+</body>
+</html>

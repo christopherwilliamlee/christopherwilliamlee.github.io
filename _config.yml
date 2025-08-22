@@ -1,0 +1,13 @@
+title: "Guia — Christopher William Lee"
+url: "https://christopherwilliamlee.github.io"
+baseurl: ""   # vazio para repositório de usuário
+
+markdown: kramdown
+permalink: pretty
+
+defaults:
+  - scope:
+      path: "guias"
+      type: "pages"
+    values:
+      layout: guia

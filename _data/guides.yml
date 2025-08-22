@@ -1,0 +1,32 @@
+- group: Ferramentas
+  items:
+    - title: Kraken2
+      url: /guias/ferramentas/kraken2/
+    - title: QIIME2
+      url: /guias/ferramentas/qiime2/
+    - title: BioBakery
+      url: /guias/ferramentas/biobakery/
+
+- group: Gerenciamento de ambientes
+  items:
+    - title: Anaconda
+      url: /guias/ambientes/anaconda/
+
+- group: Conversor de arquivos
+  items:
+    - title: BCL2FASTQ
+      url: /guias/conversores/bcl2fastq/
+
+- group: Plataforma
+  items:
+    - title: WSL
+      url: /guias/plataforma/wsl/
+
+- group: Qualidade de dados
+  items:
+    - title: FASTQ
+      url: /guias/qualidade/fastq/
+    - title: FASTP
+      url: /guias/qualidade/fastp/
+    - title: FALCO
+      url: /guias/qualidade/falco/

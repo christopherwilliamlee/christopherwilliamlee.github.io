@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="system">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bioinfo na Prática — Guias</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <style>
+    /* Layout com sidebar fixa */
+    .guides-shell{display:grid;grid-template-columns:280px 1fr;gap:24px;padding:24px 0}
+    .sidebar{
+      background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;height:fit-content;
+      position:sticky;top:76px;
+    }
+    .side-group{margin-bottom:14px}
+    .side-group h3{margin:4px 0 10px;font-size:16px}
+    .side-item{display:block;padding:8px 10px;border-radius:10px;color:var(--text-dim);text-decoration:none}
+    .side-item:hover{background:rgba(148,163,184,.12);color:var(--text)}
+    .side-item.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
+    .reader{
+      background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;min-height:50vh;box-shadow:var(--shadow)
+    }
+    .reader h1,.reader h2,.reader h3{margin-top:1.1em}
+    .reader pre{overflow:auto;padding:12px;border:1px solid var(--border);border-radius:10px;background:rgba(148,163,184,.08)}
+    @media (max-width: 900px){ .guides-shell{grid-template-columns:1fr} .sidebar{position:static} }
+    /* Cabeçalho igual ao da home (mesmas classes do seu main.css) */
+    header .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));}
+    .links{display:flex;gap:18px;align-items:center}
+    .links a{color:var(--text);opacity:.9;text-decoration:none}
+    .links a:hover{opacity:1}
+    .theme-toggle{border:1px solid var(--border);background:transparent;border-radius:12px;padding:8px 10px;cursor:pointer}
+  </style>
+</head>
+<body>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <!-- HEADER igual ao index.html -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Página inicial">
+        <span class="logo">🧬</span>
+        <strong>Christopher William Lee</strong>
+      </a>
+      <nav class="links" aria-label="Navegação primária">
+        <a href="/#projetos">Projetos</a>
+        <a href="/#publicacoes">Publicações</a>
+        <a href="/#sobre">Sobre</a>
+        <a href="/#contato">Contato</a>
+        <a href="/guias/index.html"
+           class="active">Guias</a>
+        <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="guides-shell">
+      <!-- SIDEBAR (o antigo “menu” virou lateral) -->
+      <aside class="sidebar" aria-label="Índice dos guias">
+        <div class="side-group">
+          <h3>Ferramentas</h3>
+          <a href="/guias/ferramentas/kraken2.html" class="side-item ">Kraken2</a>
+          <a href="/guias/ferramentas/qiime2.html" class="side-item ">QIIME2</a>
+          <a href="/guias/ferramentas/biobakery.html" class="side-item ">BioBakery</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Gerenciamento de ambientes</h3>
+          <a href="/guias/ambientes/anaconda.html" class="side-item ">Anaconda</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Conversor de arquivos</h3>
+          <a href="/guias/conversores/bcl2fastq.html" class="side-item ">BCL2fastq</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Plataforma</h3>
+          <a href="/guias/plataforma/wsl.html" class="side-item ">WSL</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Qualidade de dados</h3>
+          <a href="/guias/qualidade/fastq.html" class="side-item ">FASTQ</a>
+          <a href="/guias/qualidade/fastp.html" class="side-item ">FASTP</a>
+          <a href="/guias/qualidade/falco.html" class="side-item ">FALCO</a>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO -->
+      <section class="reader" id="reader">
+        <h1>Bioinfo na Prática</h1>
+        <!-- WRAPPER da coluna direita (limita à largura do grid) -->
+<div class="main-right">
+
+  <!-- ======= Apresentação curta ======= -->
+  <section id="apresentacao" class="card" style="margin-top:24px">
+    <p style="font-size:1.05rem; line-height:1.7">
+      <strong>Bem-vindo ao meu espaço de Bioinformática e Ciência de Dados!</strong>
+      Aqui você encontra guias práticos, dicas e tutoriais sobre ferramentas como
+      <strong>Kraken2, QIIME2, Biobakery</strong>, gerenciamento de ambientes
+      (<strong>Anaconda, WSL</strong>) e muito mais — sempre com foco em clareza e
+      aplicabilidade para quem pesquisa ou estuda.
+    </p>
+  </section>
+
+  <!-- ======= Destaques da Semana (em linhas) ======= -->
+  <section id="destaques" style="margin-top:28px">
+    <h2 style="margin-bottom:14px">Destaques da Semana</h2>
+
+    <div class="card" style="padding:0">
+      <!-- Linha 1 -->
+      <a href="/guias/ferramentas/kraken2.html"
+         class="highlight-row"
+         style="display:block;padding:14px 16px;border-bottom:1px solid var(--border);text-decoration:none">
+        <div style="font-weight:600">🔬 Kraken2</div>
+        <div style="opacity:.8">Guia prático para classificação taxonômica de metagenomas.</div>
+      </a>
+
+      <!-- Linha 2 -->
+      <a href="/guias/ferramentas/qiime2.html"
+         class="highlight-row"
+         style="display:block;padding:14px 16px;border-bottom:1px solid var(--border);text-decoration:none">
+        <div style="font-weight:600">📊 QIIME2</div>
+        <div style="opacity:.8">Pipeline essencial para análises em microbioma (16S/ITS).</div>
+      </a>
+
+      <!-- Linha 3 -->
+      <a href="/guias/ambientes/anaconda.html"
+         class="highlight-row"
+         style="display:block;padding:14px 16px;text-decoration:none">
+        <div style="font-weight:600">⚙️ Anaconda &amp; WSL</div>
+        <div style="opacity:.8">Ambientes reprodutíveis no Linux/WSL para bioinformática.</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======= Carrossel de Logos ======= -->
+  <section id="logos" style="margin-top:28px">
+    <h2 style="margin-bottom:12px">Ferramentas</h2>
+
+    <div class="carousel-wrap">
+      <div class="logo-carousel" id="logoCarousel" aria-live="polite">
+        <div class="logo-pill">Kraken2</div>
+        <div class="logo-pill">QIIME2</div>
+        <div class="logo-pill">BioBakery</div>
+        <div class="logo-pill">Anaconda</div>
+        <div class="logo-pill">BCL2FASTQ</div>
+        <div class="logo-pill">WSL</div>
+        <div class="logo-pill">FASTQ</div>
+        <div class="logo-pill">FASTP</div>
+        <div class="logo-pill">FALCO</div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="btn ghost" id="logoPrev" aria-label="Anterior">◀</button>
+        <button class="btn ghost" id="logoNext" aria-label="Próximo">▶</button>
+      </div>
+    </div>
+  </section>
+
+</div> <!-- /main-right -->
+
+<style>
+  /* === LIMITES DA COLUNA DIREITA (chave para não “estourar”) === */
+  .main-right {
+    max-width: 100%;   /* nunca maior que a coluna do grid */
+    min-width: 0;      /* permite encolher dentro do grid/flex */
+    box-sizing: border-box;
+  }
+
+  /* todos os blocos dentro também respeitam a coluna */
+  .main-right > section,
+  .main-right .card,
+  .main-right .carousel-wrap,
+  .main-right .logo-carousel {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* refinamentos visuais */
+  .highlight-row:hover { background: rgba(148,163,184,.10); }
+
+  /* Carrossel: não depende de overflow; usa translateX */
+  .carousel-wrap {
+    position: relative;
+    overflow: hidden;  /* clipa o translateX */
+    width: 100%;
+  }
+  .logo-carousel {
+    display: flex;
+    gap: 12px;
+    padding: 8px 2px;
+    will-change: transform;
+    transition: transform .4s ease;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .logo-pill {
+    flex: 0 0 auto;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    font-weight: 600;
+    min-width: 120px;
+    text-align: center;
+    /* limite opcional para não “engordar” demais */
+    max-width: 180px;
+  }
+
+  .carousel-controls {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+  }
+  .carousel-controls .btn,
+  .carousel-controls button { cursor: pointer; }
+</style>
+
+<script>
+/* Carrossel robusto por translateX (independente de overflow) */
+document.addEventListener('DOMContentLoaded', function () {
+  const strip = document.getElementById('logoCarousel');
+  const prev  = document.getElementById('logoPrev');
+  const next  = document.getElementById('logoNext');
+  if (!strip || !prev || !next) return;
+
+  const GAP_FALLBACK = 12;
+  let index = 0;
+  let cardW = 150;
+  let gapPx = GAP_FALLBACK;
+
+  function firstItem() {
+    return strip.querySelector('.logo-pill, img, a.logo-pill') || strip.firstElementChild;
+  }
+
+  function measure() {
+    const el1 = firstItem();
+    if (!el1) return;
+
+    // gap real do CSS (ex.: "12px")
+    const cs = getComputedStyle(strip);
+    const gstr = (cs.columnGap && cs.columnGap !== 'normal') ? cs.columnGap : cs.gap;
+    const parsed = parseFloat(gstr);
+    gapPx = Number.isFinite(parsed) ? parsed : GAP_FALLBACK;
+
+    // largura do cartão (inclui padding/borda)
+    const w = el1.offsetWidth;
+    cardW = Math.ceil(w + gapPx);
+  }
+
+  function clampIndex(i) {
+    const total = strip.children.length;
+    if (total === 0) return 0;
+    // quantos cabem visíveis, baseado na largura da área útil do carrossel
+    const viewport = strip.parentElement.clientWidth; // .carousel-wrap
+    const visible = Math.max(1, Math.floor(viewport / Math.max(1, cardW)));
+    const maxIndex = Math.max(0, total - visible);
+    return Math.min(Math.max(0, i), maxIndex);
+  }
+
+  function render() {
+    const x = -(index * cardW);
+    strip.style.transform = `translateX(${x}px)`;
+  }
+
+  function step(dir) {
+    index = clampIndex(index + (dir > 0 ? 1 : -1));
+    render();
+  }
+
+  // Controles
+  prev.addEventListener('click', () => step(-1));
+  next.addEventListener('click', () => step(+1));
+
+  // Acessibilidade teclado nas setas
+  prev.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') step(-1); });
+  next.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') step(+1); });
+
+  // Auto‑scroll (opcional)
+  let timer = null;
+  const SPEED_MS = 2800;
+  function startAuto(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!timer) timer = setInterval(() => {
+      const before = index;
+      step(+1);
+      if (index === before) { index = 0; render(); } // loop no fim
+    }, SPEED_MS);
+  }
+  function stopAuto(){ if (timer){ clearInterval(timer); timer = null; } }
+
+  strip.addEventListener('mouseenter', stopAuto);
+  strip.addEventListener('mouseleave', startAuto);
+  strip.addEventListener('focusin', stopAuto);
+  strip.addEventListener('focusout', startAuto);
+
+  // Resize e fontes
+  let rid = null;
+  function onResize(){
+    clearTimeout(rid);
+    rid = setTimeout(() => {
+      const cur = index;
+      measure();
+      index = clampIndex(cur);
+      render();
+    }, 100);
+  }
+  window.addEventListener('resize', onResize);
+
+  function init(){
+    measure();
+    index = clampIndex(0);
+    render();
+    startAuto();
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => requestAnimationFrame(init));
+  } else {
+    requestAnimationFrame(init);
+  }
+});
+</script>
+
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
+  </footer>
+
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Alternância de tema (claro/escuro/sistema) — igual à home
+    (function () {
+      const btn = document.getElementById('themeBtn');
+      if(!btn) return;
+      const root = document.documentElement;
+      const KEY = 'cwlee-theme';
+      const saved = localStorage.getItem(KEY) || 'system';
+      root.setAttribute('data-theme', saved);
+      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || 'system';
+        const next = nextTheme(current);
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(KEY, next);
+        btn.textContent = '🌗';
+      });
+    })();
+  </script>
+</body>
+</html>
