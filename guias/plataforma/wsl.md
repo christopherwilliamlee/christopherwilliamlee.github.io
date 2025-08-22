@@ -128,5 +128,5 @@ Boa sorte na jornada de vocês e qualquer coisa que precisarem podem me enviar e
 
 ## Referências
 
-1. [Documentação oficial do WSL](https://learn.microsoft.com/pt-br/windows/wsl/)
-2. [Download do kernel atualizado](https://aka.ms/wsl2kernel)
+1. <a href="https://learn.microsoft.com/pt-br/windows/wsl/" target="_blank">Documentação oficial do WSL</a>
+2. <a href="https://aka.ms/wsl2kernel" target="_blank">Download do kernel atualizado</a>
