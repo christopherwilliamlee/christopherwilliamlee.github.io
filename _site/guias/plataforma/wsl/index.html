@@ -3,49 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> — Guias</title>
+  <title>Windows Subsystem for Linux — Guias</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="/assets/css/main.css" />
-  <style>
-    /* Layout com sidebar fixa */
-    .guides-shell{display:grid;grid-template-columns:280px 1fr;gap:24px;padding:24px 0}
-    .sidebar{
-      background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;height:fit-content;
-      position:sticky;top:76px;
-    }
-    .side-group{margin-bottom:14px}
-    .side-group h3{margin:4px 0 10px;font-size:16px}
-    .side-item{display:block;padding:8px 10px;border-radius:10px;color:var(--text-dim);text-decoration:none}
-    .side-item:hover{background:rgba(148,163,184,.12);color:var(--text)}
-    .side-item.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
-    .reader{
-      background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;min-height:50vh;box-shadow:var(--shadow)
-    }
-    .reader h1,.reader h2,.reader h3{margin-top:1.1em}
-    .reader pre{overflow:auto;padding:12px;border:1px solid var(--border);border-radius:10px;background:rgba(148,163,184,.08)}
-    @media (max-width: 900px){ .guides-shell{grid-template-columns:1fr} .sidebar{position:static} }
-    /* Cabeçalho igual ao da home (mesmas classes do seu main.css) */
-    header .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));}
-    .links{display:flex;gap:18px;align-items:center}
-    .links a{color:var(--text);opacity:.9;text-decoration:none}
-    .links a:hover{opacity:1}
-    .theme-toggle{border:1px solid var(--border);background:transparent;border-radius:12px;padding:8px 10px;cursor:pointer}
-  </style>
+  <link rel="stylesheet" href="/assets/css/guides.css" />
 </head>
-<body>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  <!-- HEADER igual ao index.html -->
+<body><!-- HEADER -->
   <header>
     <div class="container nav">
       <a class="brand" href="/" aria-label="Página inicial">
@@ -57,56 +20,183 @@
         <a href="/#publicacoes">Publicações</a>
         <a href="/#sobre">Sobre</a>
         <a href="/#contato">Contato</a>
-        <a href="/guias/index.html"
-           class="">Guias</a>
+        <a href="/guias/"
+           class=""
+           >Guias</a>
         <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗</button>
       </nav>
     </div>
   </header>
 
+  <!-- CONTEÚDO -->
   <main class="container">
     <section class="guides-shell">
-      <!-- SIDEBAR (o antigo “menu” virou lateral) -->
+      <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
         <div class="side-group">
           <h3>Ferramentas</h3>
-          <a href="/guias/ferramentas/kraken2.html" class="side-item ">Kraken2</a>
-          <a href="/guias/ferramentas/qiime2.html" class="side-item ">QIIME2</a>
-          <a href="/guias/ferramentas/biobakery.html" class="side-item ">BioBakery</a>
+          <a href="/guias/ferramentas/kraken2/" class="side-item ">Kraken2</a>
+          <a href="/guias/ferramentas/qiime2/" class="side-item ">QIIME2</a>
+          <a href="/guias/ferramentas/biobakery/" class="side-item ">BioBakery</a>
         </div>
 
         <div class="side-group">
           <h3>Gerenciamento de ambientes</h3>
-          <a href="/guias/ambientes/anaconda.html" class="side-item ">Anaconda</a>
+          <a href="/guias/ambientes/anaconda/" class="side-item ">Anaconda</a>
         </div>
 
         <div class="side-group">
           <h3>Conversor de arquivos</h3>
-          <a href="/guias/conversores/bcl2fastq.html" class="side-item ">BCL2fastq</a>
+          <a href="/guias/conversores/bcl2fastq/" class="side-item ">BCL2fastq</a>
         </div>
 
         <div class="side-group">
           <h3>Plataforma</h3>
-          <a href="/guias/plataforma/wsl.html" class="side-item active">WSL</a>
+          <a href="/guias/plataforma/wsl/" class="side-item active">WSL</a>
         </div>
 
         <div class="side-group">
           <h3>Qualidade de dados</h3>
-          <a href="/guias/qualidade/fastq.html" class="side-item ">FASTQ</a>
-          <a href="/guias/qualidade/fastp.html" class="side-item ">FASTP</a>
-          <a href="/guias/qualidade/falco.html" class="side-item ">FALCO</a>
+          <a href="/guias/qualidade/fastq/" class="side-item ">FASTQ</a>
+          <a href="/guias/qualidade/fastp/" class="side-item ">FASTP</a>
+          <a href="/guias/qualidade/falco/" class="side-item ">FALCO</a>
         </div>
       </aside>
 
-      <!-- CONTEÚDO -->
+      <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
-        <h1></h1>
-        
+        <h1>Windows Subsystem for Linux</h1>
+        <h1 id="instalação-do-wsl-windows-subsystem-for-linux-no-windows">Instalação do WSL (Windows Subsystem for Linux) no Windows</h1>
+
+<p>Fala pessoal, aqui eu vou ensinar vocês a instalarem o WSL na máquina de vocês. É extremamente útil pra quem não quer trabalhar com dual boot ou máquina virtual (virtual box). Eu mesmo já tentei trabalhar com o ubuntu como sistema operacional principal, só que não foi porque foi uma coisa de outro mundo. É porque existem alguns softwares que não são utilizáveis no ubuntu ou até mesmo jogos (quem não gosta de um GTAV ou até mesmo um lolzinho, né?). Por isso acho muito mais viável trabalhar com o WSL que qualquer outra coisa. Nesse tutorial você vai aprender a fazer a instalação do WSL no SO windows. É bem simples! E nooooo…. como faz diferença!<br /></p>
+
+<p>Mas primeiramente…<br /></p>
+<h1 id="o-que-é-o-wsl">O que é o WSL?</h1>
+<p>O WSL <strong>(Windows Subsystem for Linux)</strong> permite rodar distribuições Linux diretamente no Windows, sem precisar de máquina virtual ou dual boot.<br />
+É extremamente útil para bioinformática e desenvolvimento, pois você pode usar o Ubuntu com as ferramentas de linha de comando e ainda manter seus programas do Windows.</p>
+
+<h2 id="passo-a-passo">Passo a passo</h2>
+<ol>
+  <li>Verificar versão do Windows</li>
+  <li>Instalar o WSL</li>
+  <li>Ativar o WSL</li>
+  <li>Criar um username e password</li>
+</ol>
+
+<h1 id="verifique-a-versão-do-windows">Verifique a versão do windows</h1>
+
+<p>O WSL 2 funciona a partir do <strong>Windows 10 versão 2004 (Build 19041)</strong> ou superior. Para verificar, pressione:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Win + R → digite winver → Enter</code></p>
+
+<p>Algo como isso deverá aparecer:</p>
+
+<p><img src="/assets/img/wsl/wsl_1.png" alt="Exemplo da janela Winver" /></p>
+
+<h1 id="instalar-o-wsl">Instalar o WSL</h1>
+
+<p>Esse passo é bem simples, consiste apenas em entrar no site <a href="https://ubuntu.com/desktop/wsl">Ubuntu</a>.</p>
+
+<p>Depois de ter acessado o site clique em <strong>Download Ubuntu on WSL</strong><br /></p>
+
+<p><img src="/assets/img/wsl/wsl_2.png" alt="Página de download do Ubuntu no WSL" /></p>
+
+<p>Localize o arquivo baixado (geralmente está em downloads).<br /></p>
+
+<p><img src="/assets/img/wsl/wsl_3.png" alt="Arquivo de instalação baixado" /></p>
+
+<p>Clique duas vezes sobre o instalador</p>
+
+<p><img src="/assets/img/wsl/wsl_4.png" alt="Arquivo de instalação baixado" />
+Ele começará a instalar sozinho</p>
+
+<p><img src="/assets/img/wsl/wsl_5.png" alt="Arquivo de instalação baixado" />
+Pra ser sincero, eu não tenho muita certeza se aqui nessa parte continua da mesma forma. Eu instalei o meu wsl faz muito tempo e como era uma versão mais antiga algo pode ter mudado. Mas não se preocupe, se algo der errado aqui, você pode pular para a etapa 8.</p>
+
+<p><img src="/assets/img/wsl/wsl_6.png" alt="Arquivo de instalação baixado" />
+Ao finalizar, ele pedirá para que você insira o nome do usuário e a senha. Note que ao digitar a senha, você não verá a senha sendo digitada, portanto, lembre-se do que você está digitando. Caso não lembre, aperte o backspace como nunca (claro que não precisa ser para sempre, mas aperte o suficiente para apagar tudo aquilo que você escreveu).</p>
+
+<p><img src="/assets/img/wsl/wsl_7.png" alt="Arquivo de instalação baixado" />
+Note que aqui ele dirá:
+<code class="language-plaintext highlighter-rouge">passwd: password updated successfully</code></p>
+
+<p>Isso indica que deu tudo certo! Agora você está pronto para utilizar.</p>
+
+<h2 id="etapa-adicional">Etapa adicional</h2>
+
+<p>Você precisará apenas seguir nessa etapa se deu algum problema nas etapas anteriores.</p>
+
+<p><img src="/assets/img/wsl/wsl_8.png" alt="Etapa - 8 WSL" />
+Abra a lupa do windows ou aperte a tecla windows e digite:
+<code class="language-plaintext highlighter-rouge">powershell</code></p>
+
+<p>Clique com o botão direito em cima do ícone do Windows PowerShell e execute como administrador.</p>
+
+<p><img src="/assets/img/wsl/wsl_9.png" alt="Etapa - 9 WSL" />
+O powershell irá abrir. Agora digite:</p>
+
+<p><code class="language-plaintext highlighter-rouge">wsl --install</code></p>
+
+<p>Ele começará a instalar. Assim que terminar, feche o powershell.</p>
+
+<p><img src="/assets/img/wsl/wsl_10.png" alt="Etapa - 10 WSL" /></p>
+
+<p>Agora vá de novo até a lupa do windows e digite:</p>
+
+<p><code class="language-plaintext highlighter-rouge">painel de controle</code></p>
+
+<p>Clique em cima de programas.</p>
+
+<p><img src="/assets/img/wsl/wsl_11.png" alt="Etapa - 11 WSL" /></p>
+
+<p>Abrindo a pasta de Programas, clique em ativar ou desativar recursos do Windows.</p>
+
+<p><img src="/assets/img/wsl/wsl_12.png" alt="Etapa - 12 WSL" /></p>
+
+<p>Uma janela chamada Recursos do windows irá abrir. Procure pela opção Subsistema do Windows para Linux e ative-a.</p>
+
+<p>Pronto. Reinicie o computador e assim que reiniciar, procure por <strong>Ubuntu</strong> no menu iniciar e inicie o terminal. Agora ele está pronto para ser usado.</p>
+
+<h2 id="erros-comuns">Erros comuns</h2>
+
+<h3 id="erro-0x80070002">Erro 0x80070002</h3>
+<p><img src="/assets/img/wsl/wsl_13.png" alt="Etapa - 13 WSL" />
+Causa: O Windows não consegue encontrar os arquivos necessários para a instalação. Solução:
+<code class="language-plaintext highlighter-rouge">Execute wsl --install novamente.</code></p>
+
+<p>Verifique se o Windows está atualizado. Reinicie o PC e tente novamente.</p>
+
+<h3 id="erro-0x800701bc">Erro 0x800701bc</h3>
+<p><img src="/assets/img/wsl/wsl_14.png" alt="Etapa - 14 WSL" /></p>
+
+<p>Causa: A versão do WSL requer um kernel atualizado. Solução:
+Baixe e instale o kernel mais recente: https://aka.ms/wsl2kerne
+Reinicie o PC e tente novamente.</p>
+
+<h3 id="erro-0x80370102">Erro 0x80370102</h3>
+<p><img src="/assets/img/wsl/wsl_15.png" alt="Etapa - 15 WSL" /></p>
+
+<p>Causa: O WSL 2 exige que a virtualização esteja habilitada no BIOS. Solução:
+Habilite a virtualização no BIOS (Intel VT-x ou AMD-V).
+Ative os recursos do Windows:
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart Reinicie o PC e tente novamente.</p>
+
+<p>Espero que vocês valorizem esse trabalho aqui. Pra poder fazer esse tutorial do 0, eu fiz a cagada de desinstalar o wsl e foi tudo pro beleléu. Perdi todos os meus projetos. A minha sorte é que a maioria tava escrito no github.<br /></p>
+
+<p>Boa sorte na jornada de vocês e qualquer coisa que precisarem podem me enviar e-mail. Um abraço!</p>
+
+<h2 id="referências">Referências</h2>
+
+<ol>
+  <li><a href="https://learn.microsoft.com/pt-br/windows/wsl/">Documentação oficial do WSL</a></li>
+  <li><a href="https://aka.ms/wsl2kernel">Download do kernel atualizado</a></li>
+</ol>
 
       </section>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
   </footer>
@@ -115,7 +205,7 @@
     // Ano no rodapé
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Alternância de tema (claro/escuro/sistema) — igual à home
+    // Alternância de tema
     (function () {
       const btn = document.getElementById('themeBtn');
       if(!btn) return;

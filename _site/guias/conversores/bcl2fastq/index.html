@@ -6,46 +6,9 @@
   <title> — Guias</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="/assets/css/main.css" />
-  <style>
-    /* Layout com sidebar fixa */
-    .guides-shell{display:grid;grid-template-columns:280px 1fr;gap:24px;padding:24px 0}
-    .sidebar{
-      background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;height:fit-content;
-      position:sticky;top:76px;
-    }
-    .side-group{margin-bottom:14px}
-    .side-group h3{margin:4px 0 10px;font-size:16px}
-    .side-item{display:block;padding:8px 10px;border-radius:10px;color:var(--text-dim);text-decoration:none}
-    .side-item:hover{background:rgba(148,163,184,.12);color:var(--text)}
-    .side-item.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff}
-    .reader{
-      background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;min-height:50vh;box-shadow:var(--shadow)
-    }
-    .reader h1,.reader h2,.reader h3{margin-top:1.1em}
-    .reader pre{overflow:auto;padding:12px;border:1px solid var(--border);border-radius:10px;background:rgba(148,163,184,.08)}
-    @media (max-width: 900px){ .guides-shell{grid-template-columns:1fr} .sidebar{position:static} }
-    /* Cabeçalho igual ao da home (mesmas classes do seu main.css) */
-    header .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .logo{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));}
-    .links{display:flex;gap:18px;align-items:center}
-    .links a{color:var(--text);opacity:.9;text-decoration:none}
-    .links a:hover{opacity:1}
-    .theme-toggle{border:1px solid var(--border);background:transparent;border-radius:12px;padding:8px 10px;cursor:pointer}
-  </style>
+  <link rel="stylesheet" href="/assets/css/guides.css" />
 </head>
-<body>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  <!-- HEADER igual ao index.html -->
+<body><!-- HEADER -->
   <header>
     <div class="container nav">
       <a class="brand" href="/" aria-label="Página inicial">
@@ -57,48 +20,50 @@
         <a href="/#publicacoes">Publicações</a>
         <a href="/#sobre">Sobre</a>
         <a href="/#contato">Contato</a>
-        <a href="/guias/index.html"
-           class="">Guias</a>
+        <a href="/guias/"
+           class=""
+           >Guias</a>
         <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗</button>
       </nav>
     </div>
   </header>
 
+  <!-- CONTEÚDO -->
   <main class="container">
     <section class="guides-shell">
-      <!-- SIDEBAR (o antigo “menu” virou lateral) -->
+      <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
         <div class="side-group">
           <h3>Ferramentas</h3>
-          <a href="/guias/ferramentas/kraken2.html" class="side-item ">Kraken2</a>
-          <a href="/guias/ferramentas/qiime2.html" class="side-item ">QIIME2</a>
-          <a href="/guias/ferramentas/biobakery.html" class="side-item ">BioBakery</a>
+          <a href="/guias/ferramentas/kraken2/" class="side-item ">Kraken2</a>
+          <a href="/guias/ferramentas/qiime2/" class="side-item ">QIIME2</a>
+          <a href="/guias/ferramentas/biobakery/" class="side-item ">BioBakery</a>
         </div>
 
         <div class="side-group">
           <h3>Gerenciamento de ambientes</h3>
-          <a href="/guias/ambientes/anaconda.html" class="side-item ">Anaconda</a>
+          <a href="/guias/ambientes/anaconda/" class="side-item ">Anaconda</a>
         </div>
 
         <div class="side-group">
           <h3>Conversor de arquivos</h3>
-          <a href="/guias/conversores/bcl2fastq.html" class="side-item active">BCL2fastq</a>
+          <a href="/guias/conversores/bcl2fastq/" class="side-item active">BCL2fastq</a>
         </div>
 
         <div class="side-group">
           <h3>Plataforma</h3>
-          <a href="/guias/plataforma/wsl.html" class="side-item ">WSL</a>
+          <a href="/guias/plataforma/wsl/" class="side-item ">WSL</a>
         </div>
 
         <div class="side-group">
           <h3>Qualidade de dados</h3>
-          <a href="/guias/qualidade/fastq.html" class="side-item ">FASTQ</a>
-          <a href="/guias/qualidade/fastp.html" class="side-item ">FASTP</a>
-          <a href="/guias/qualidade/falco.html" class="side-item ">FALCO</a>
+          <a href="/guias/qualidade/fastq/" class="side-item ">FASTQ</a>
+          <a href="/guias/qualidade/fastp/" class="side-item ">FASTP</a>
+          <a href="/guias/qualidade/falco/" class="side-item ">FALCO</a>
         </div>
       </aside>
 
-      <!-- CONTEÚDO -->
+      <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
         <h1></h1>
         
@@ -107,6 +72,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
   </footer>
@@ -115,7 +81,7 @@
     // Ano no rodapé
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Alternância de tema (claro/escuro/sistema) — igual à home
+    // Alternância de tema
     (function () {
       const btn = document.getElementById('themeBtn');
       if(!btn) return;

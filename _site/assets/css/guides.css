@@ -1,0 +1,113 @@
+/* ===========================
+   Página de Guias (/guias)
+   =========================== */
+
+/* Grid principal */
+.guides-shell{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:24px;
+  padding:24px 0;
+}
+
+/* Sidebar de índice */
+.sidebar{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  height:fit-content;
+  position:sticky;
+  top:76px;
+}
+.side-group{ margin-bottom:14px; }
+.side-group h3{ margin:4px 0 10px; font-size:16px; }
+.side-item{
+  display:block;
+  padding:8px 10px;
+  border-radius:10px;
+  color:var(--text-dim);
+  text-decoration:none;
+}
+.side-item:hover{ background:rgba(148,163,184,.12); color:var(--text); }
+.side-item.active{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;
+}
+
+/* Leitor/conteúdo da direita */
+.reader{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:22px;
+  min-height:50vh;
+  box-shadow:var(--shadow);
+}
+.reader h1,.reader h2,.reader h3{ margin-top:1.1em; }
+.reader pre{
+  overflow:auto;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:rgba(148,163,184,.08);
+}
+
+/* Limites/fluxo da coluna direita (não “estourar” o grid) */
+.main-right{
+  max-width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+.main-right > section,
+.main-right .card,
+.main-right .carousel-wrap,
+.main-right .logo-carousel{
+  max-width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+
+/* Destaques (linhas clicáveis) */
+.highlight-row:hover{ background:rgba(148,163,184,.10); }
+
+/* Carrossel de logos (translateX) */
+.carousel-wrap{
+  position:relative;
+  overflow:hidden;     /* clipa o translateX */
+  width:100%;
+}
+.logo-carousel{
+  display:flex;
+  gap:12px;
+  padding:8px 2px;
+  will-change:transform;
+  transition:transform .4s ease;
+  max-width:100%;
+  min-width:0;
+}
+.logo-pill{
+  flex:0 0 auto;
+  min-width:120px;
+  max-width:180px;     /* limite opcional */
+  padding:10px 14px;
+  text-align:center;
+  font-weight:600;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:var(--card);
+  box-shadow:var(--shadow);
+}
+.carousel-controls{
+  margin-top:10px;
+  display:flex;
+  gap:8px;
+}
+.carousel-controls .btn,
+.carousel-controls button{ cursor:pointer; }
+
+/* Responsivo */
+@media (max-width:900px){
+  .guides-shell{ grid-template-columns:1fr; }
+  .sidebar{ position:static; }
+}
