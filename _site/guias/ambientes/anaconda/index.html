@@ -3,10 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> — Guias</title>
+  <title>Tutorial de instalação do CONDA — Guias</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/css/guides.css" />
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
+  />
 </head>
 <body><!-- HEADER -->
   <header>
@@ -65,8 +69,149 @@
 
       <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
-        <h1></h1>
-        
+        <h1>Tutorial de instalação do CONDA</h1>
+        <p><img src="/assets/img/conda/conda_logo.png" alt="Conda logo" /></p>
+
+<h1 id="instalação-do-conda-no-wsl">Instalação do CONDA no wsl</h1>
+<p>Fala galera, vamos trocar uma ideia sobre Conda?
+Quem já tentou configurar um projeto em Python sabe como é fácil cair naquele labirinto de dependências quebradas, versões conflitantes e pacotes que simplesmente não querem instalar. Pois é… o Conda veio justamente pra acabar com essa bagunça.</p>
+
+<p>Em vez de misturar tudo no mesmo lugar, ele permite criar ambientes independentes. É como se cada projeto tivesse a sua própria “mini-máquina”, com a versão de Python ou R que ele precisa e todas as bibliotecas certinhas. Resultado: nada de um projeto atrapalhar o outro.</p>
+
+<p>Neste guia, vou te mostrar como instalar o Miniconda (que é a versão mais enxuta e prática) e dar os primeiros passos na criação de ambientes. Depois que você entende a lógica, fica difícil querer trabalhar sem ele.</p>
+
+<p><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHNiNmViZ2E0a3ZvM3A5ODZ6OXE2aWhma2xxNTB1Yzk5ZW0yeG4yYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gLcsVIjtz907b1ngeQ/giphy.gif" alt="gif" width="200" style="display:block; margin:auto;" /></p>
+
+<p>A coisa é bem parecida com o gif acima. É tipo cada um no seu quadrado.</p>
+
+<h1 id="o-que-é-o-conda">O que é o CONDA?</h1>
+<p>O CONDA é um gerenciador de pacotes e ambientes que facilita demais a vida de quem trabalha com ciência de dados, bioinformática ou qualquer projeto que dependa de várias bibliotecas diferentes.</p>
+
+<p>Com ele, você pode criar ambientes isolados, cada um com sua própria versão de Python, R e pacotes específicos. Isso significa que você nunca mais vai passar aperto porque um projeto pede Python 3.8 e outro exige Python 3.11. Cada ambiente fica no seu quadrado, sem conflitos.</p>
+
+<p>Além disso, o Conda não se limita só a Python: ele também instala ferramentas de machine learning, pacotes estatísticos e até softwares mais pesados de bioinfo. Ou seja, é como ter uma prateleira organizada onde cada projeto pega exatamente o que precisa, sem bagunçar o resto do sistema.</p>
+
+<h2 id="passo-a-passo">Passo a passo</h2>
+<ol>
+  <li>Instalação</li>
+  <li>Criando um ambiente</li>
+</ol>
+
+<h1 id="1-instalando-o-conda">1. Instalando o CONDA</h1>
+
+<p><img src="/assets/img/conda/conda_1.png" alt="CONDA 1" /></p>
+
+<p>Para começar, entre no site do 
+<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">CONDA</a> 
+para baixar o instalador e logo em seguida clique em 
+<span style="color:#32CD32; font-weight:bold;">installing on Linux</span> no canto esquerdo.</p>
+
+<p><img src="/assets/img/conda/conda_2.png" alt="CONDA 2" /></p>
+
+<p>Você vai ser redirecionado para a página do Miniconda. É nessa página que você vai fazer o download do instalador do Miniconda.</p>
+
+<p><img src="/assets/img/conda/conda_3.png" alt="CONDA 3" /></p>
+
+<p>No canto esquerdo, na primeira flecha esquerda, clique em <span style="color:#32CD32; font-weight:bold;"><em>Installing Miniconda</em>, depois vá em <em>macOS/Linux Installation</em></span> e logo em seguida vá em <em>Linux terminal installer</em>. Na quarta seta, você tem um comando para copiar, copie-o e abra o seu WSL.</p>
+
+<blockquote>
+  <p>Caso não tenha ideia do que seja o <a href="/guias/plataforma/wsl" target="_blank">WSL</a>, acesse esse link <a href="/guias/plataforma/wsl" target="_blank">WSL</a> e siga o tutorial para saber o que é e para saber como é feita a instalação.</p>
+</blockquote>
+
+<p><img src="/assets/img/conda/conda_5.png" alt="CONDA 5" />
+Cole esse comando no seu terminal.</p>
+
+<pre>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</pre>
+
+<blockquote>
+  <p>Dica: Para colar você pode pressionar o ctrl + shift + v ou então simplesmente apertar o botão direito do mouse.</p>
+</blockquote>
+
+<p><img src="/assets/img/conda/conda_6.png" alt="CONDA 6" /></p>
+
+<p>Depois de baixar o instalador, execute o seguinte comando:</p>
+
+<pre>chmod +x Miniconda3-latest-Linux-x86_64.sh</pre>
+
+<p>Esse comando deixará o seu instalador executável pelo terminal.</p>
+
+<p><img src="/assets/img/conda/conda_7.png" alt="CONDA 7" /></p>
+
+<p>Agora com ele liberado, execute o instalador com o seguinte comando:</p>
+<pre>./Miniconda3-latest-Linux-x86_64.sh</pre>
+<p>Depois de executar, o programa pedirá para que você tecle <em>ENTER</em> para dar continuidade na instalação.</p>
+
+<p><img src="/assets/img/conda/conda_8.png" alt="CONDA 8" /></p>
+
+<p>Nesse passo, o programa pedirá para que você dê yes para que você concorde em vender a sua alma para o CONDA. Brincadeira (kkkkk)! Ele só está pedindo pra você aceitar os termos.</p>
+
+<p>Na segunda seta, ele está confirmando se você quer instalar no caminho que está escrito ali. É só dar enter para confirmar.</p>
+
+<p><img src="/assets/img/conda/conda_9.png" alt="CONDA 9" /></p>
+
+<p>Aqui ele só pergunta se você quer que o conda inicie assim que o terminal iniciar junto, caso contrário, você terá que digitar sempre:</p>
+
+<pre>source ~/miniconda3/etc/profile.d/conda.sh
+conda activate base</pre>
+
+<p>E para reverter esse processo, você deverá digitar:</p>
+
+<pre>conda init --reverse $SHELL</pre>
+
+<p>Vamos pelo caminho mais fácil, né? Apenas tecle ENTER e vida que segue!</p>
+
+<p>Agora, antes de fazer o conda funcionar você vai precisar copiar e digitar o seguinte no seu terminal:</p>
+
+<pre>export PATH=“~/miniconda3/bin:$PATH”</pre>
+
+<p><span style="color:red"><strong>FECHE O TERMINAL!</strong></span></p>
+
+<p><img src="/assets/img/conda/conda_10.png" alt="CONDA 10" /></p>
+
+<p>Abra o terminal de novo e digite agora:</p>
+<pre>Conda</pre>
+<p>Se as opções aparecerem. Parabéns!! Isso quer dizer que o conda foi instalado e já está funcionando!</p>
+
+<p><img src="/assets/img/conda/conda_11.png" alt="CONDA 11" /></p>
+
+<p>Agora digite para aparecer todos os ambientes instalados.</p>
+<pre>conda env list</pre>
+
+<blockquote>
+  <p>Note que somente aparecerá a base como ambiente. Estando na base é onde você se guiará para saber em qual ambiente você está. Você não deve (ou deve, dependendo do seu objetivo) instalar qualquer software na base. Sempre trabalhe em ambientes diferentes.</p>
+</blockquote>
+
+<p>Para criar um ambiente é muito fácil! Basta digitar:</p>
+
+<pre>conda create -n (nome_do_seu_ambiente) </pre>
+
+<p>Aperte ENTER, depois tecle <strong>a</strong>, depois ENTER de novo, <strong>a</strong> e enter de novo.</p>
+
+<p><img src="/assets/img/conda/conda_12.png" alt="CONDA 12" /></p>
+
+<p>Com isso, ele criará o seu ambiente e depois perguntará se deve proceder com a instalação. Basta digitar y e ENTER que ele irá finalizar a criação do ambiente.</p>
+
+<p>Para entrar no seu ambiente recem criado basta digitar:</p>
+
+<pre>conda activate (nome_do_seu_ambiente)</pre>
+
+<p>E pronto! Basta você olhar no canto esquerdo do seu navegador para saber se você está dentro do seu ambiente.</p>
+
+<hr />
+
+<p>E com isso a gente finaliza mais um tutorial de instalação de uma ferramenta muito importante para a ciência de dados e bioinformática. Espero que vocês tenham curtido muito. Ahh, e não deixem de me seguir no <a href="https://www.linkedin.com/in/christopher-lee-390643197/" target="_blank">linkedin</a> e suportar o meu trabalho. Ficarei muito feliz em ter vocês por lá.</p>
+
+<p>Até a próxima!<br /></p>
+
+<p><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHV4N3RkZ2ZsdW1yOGd0bmlzZ3NueXVlOGF1NmNxa3UwZzd2bmJpYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YybKRCSHL1OBW/giphy.gif" alt="gif" width="200" /></p>
+
+<hr />
+
+<h1 id="referências">Referências</h1>
+
+<ol>
+  <li><a href="https://www.anaconda.com/docs/getting-started/miniconda/main" target="_blank">Documentação oficial do CONDA</a></li>
+</ol>
 
       </section>
     </section>

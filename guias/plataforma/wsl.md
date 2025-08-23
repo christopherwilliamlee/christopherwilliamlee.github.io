@@ -34,7 +34,7 @@ O WSL 2 funciona a partir do **Windows 10 versão 2004 (Build 19041)** ou superi
 
 Algo como isso deverá aparecer:
 
-![Exemplo da janela Winver](/assets/img/wsl/wsl_1.png)
+![WSL 1](/assets/img/wsl/wsl_1.png)
 
 # 2. Instalar o WSL
 
@@ -42,18 +42,18 @@ Esse passo é bem simples, consiste apenas em entrar no site <a href="https://ub
 
 Depois de ter acessado o site clique em **Download Ubuntu on WSL**.<br>
 
-![Página de download do Ubuntu no WSL](/assets/img/wsl/wsl_2.png)
+![WSL 2](/assets/img/wsl/wsl_2.png)
 
 Localize o arquivo baixado (geralmente está em downloads).<br>
 
-![Arquivo de instalação baixado](/assets/img/wsl/wsl_3.png)
+![WSL 3](/assets/img/wsl/wsl_3.png)
 
 Clique duas vezes sobre o instalador
 
-![Arquivo de instalação baixado](/assets/img/wsl/wsl_4.png)
+![WSL 4](/assets/img/wsl/wsl_4.png)
 Ele começará a instalar sozinho
 
-![Arquivo de instalação baixado](/assets/img/wsl/wsl_5.png)
+![WSL 5](/assets/img/wsl/wsl_5.png)
 **<u style="color:red">Para ser sincero, eu não tenho muita certeza se aqui nessa parte continua da mesma forma.</u>** Eu instalei o meu wsl há muito tempo e como era uma versão mais antiga algo pode ter mudado. Mas não se preocupe, se algo der errado aqui, você pode pular para a etapa 5.
 
 ## 3. Cadastrar login e senha
@@ -132,12 +132,11 @@ Espero que vocês valorizem esse trabalho aqui. Pra poder fazer esse tutorial do
 
 Boa sorte na jornada de vocês e qualquer coisa que precisarem podem me enviar e-mail.
 
-Te vejo na próxima!<br>
+Até a próxima!<br>
 <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXpybmFyM2EzYmgxcDdwMHVpajExcjJ1aWp0dnh1OXRvZXhyM3lveSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J3CbFgn5o7DGRuE/giphy.gif" alt="gif" width="250">
 
-
+--- 
 ## Referências
 
 1. <a href="https://learn.microsoft.com/pt-br/windows/wsl/" target="_blank">Documentação oficial do WSL</a>
 2. <a href="https://aka.ms/wsl2kernel" target="_blank">Download do kernel atualizado</a>
-
