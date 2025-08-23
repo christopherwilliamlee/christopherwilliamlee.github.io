@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Windows Subsystem for Linux — Guias</title>
+  <title>Tutorial de instalação do Windows Subsystem for Linux (WSL) — Guias</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/css/guides.css" />
@@ -65,10 +65,14 @@
 
       <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
-        <h1>Windows Subsystem for Linux</h1>
-        <h1 id="instalação-do-wsl-windows-subsystem-for-linux-no-windows">Instalação do WSL (Windows Subsystem for Linux) no Windows</h1>
+        <h1>Tutorial de instalação do Windows Subsystem for Linux (WSL)</h1>
+        <p><img src="/assets/img/wsl/wsl_logo_1.png" alt="Etapa - 15 WSL" /></p>
+
+<h1 id="instalação-do-wsl-windows-subsystem-for-linux-no-windows">Instalação do WSL (Windows Subsystem for Linux) no Windows</h1>
 
 <p>Fala pessoal, aqui eu vou ensinar vocês a instalarem o WSL na máquina de vocês. É extremamente útil pra quem não quer trabalhar com dual boot ou máquina virtual (virtual box). Eu mesmo já tentei trabalhar com o ubuntu como sistema operacional principal, só que não foi porque foi uma coisa de outro mundo. É porque existem alguns softwares que não são utilizáveis no ubuntu ou até mesmo jogos (quem não gosta de um GTAV ou até mesmo um lolzinho, né?). Por isso acho muito mais viável trabalhar com o WSL que qualquer outra coisa. Nesse tutorial você vai aprender a fazer a instalação do WSL no SO windows. É bem simples! E nooooo…. como faz diferença!<br /></p>
+
+<p><img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXZkNndpenJjNjhkM3BtcHUwdm14ejM5OHNldWk5ZDZxb2ZoMnU3YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEduZtPOv5OSecubu/giphy.gif" alt="gif" width="200" /></p>
 
 <p>Mas primeiramente…<br /></p>
 <h1 id="o-que-é-o-wsl">O que é o WSL?</h1>
@@ -83,21 +87,21 @@
   <li>Criar um username e password</li>
 </ol>
 
-<h1 id="verifique-a-versão-do-windows">Verifique a versão do windows</h1>
+<h1 id="1-verifique-a-versão-do-windows">1. Verifique a versão do windows</h1>
 
 <p>O WSL 2 funciona a partir do <strong>Windows 10 versão 2004 (Build 19041)</strong> ou superior. Para verificar, pressione:</p>
 
-<p><code class="language-plaintext highlighter-rouge">Win + R → digite winver → Enter</code></p>
+<pre>Win + R → digite winver → Enter</pre>
 
 <p>Algo como isso deverá aparecer:</p>
 
 <p><img src="/assets/img/wsl/wsl_1.png" alt="Exemplo da janela Winver" /></p>
 
-<h1 id="instalar-o-wsl">Instalar o WSL</h1>
+<h1 id="2-instalar-o-wsl">2. Instalar o WSL</h1>
 
-<p>Esse passo é bem simples, consiste apenas em entrar no site <a href="https://ubuntu.com/desktop/wsl">Ubuntu</a>.</p>
+<p>Esse passo é bem simples, consiste apenas em entrar no site <a href="https://ubuntu.com/desktop/wsl" target="_blank">Ubuntu</a>.</p>
 
-<p>Depois de ter acessado o site clique em <strong>Download Ubuntu on WSL</strong><br /></p>
+<p>Depois de ter acessado o site clique em <strong>Download Ubuntu on WSL</strong>.<br /></p>
 
 <p><img src="/assets/img/wsl/wsl_2.png" alt="Página de download do Ubuntu no WSL" /></p>
 
@@ -111,39 +115,41 @@
 Ele começará a instalar sozinho</p>
 
 <p><img src="/assets/img/wsl/wsl_5.png" alt="Arquivo de instalação baixado" />
-Pra ser sincero, eu não tenho muita certeza se aqui nessa parte continua da mesma forma. Eu instalei o meu wsl faz muito tempo e como era uma versão mais antiga algo pode ter mudado. Mas não se preocupe, se algo der errado aqui, você pode pular para a etapa 8.</p>
+<strong><u style="color:red">Para ser sincero, eu não tenho muita certeza se aqui nessa parte continua da mesma forma.</u></strong> Eu instalei o meu wsl há muito tempo e como era uma versão mais antiga algo pode ter mudado. Mas não se preocupe, se algo der errado aqui, você pode pular para a etapa 5.</p>
+
+<h2 id="3-cadastrar-login-e-senha">3. Cadastrar login e senha</h2>
 
 <p><img src="/assets/img/wsl/wsl_6.png" alt="Arquivo de instalação baixado" />
 Ao finalizar, ele pedirá para que você insira o nome do usuário e a senha. Note que ao digitar a senha, você não verá a senha sendo digitada, portanto, lembre-se do que você está digitando. Caso não lembre, aperte o backspace como nunca (claro que não precisa ser para sempre, mas aperte o suficiente para apagar tudo aquilo que você escreveu).</p>
 
 <p><img src="/assets/img/wsl/wsl_7.png" alt="Arquivo de instalação baixado" />
-Note que aqui ele dirá:
-<code class="language-plaintext highlighter-rouge">passwd: password updated successfully</code></p>
+Note que aqui ele dirá:</p>
+<pre>passwd: password updated successfully</pre>
 
 <p>Isso indica que deu tudo certo! Agora você está pronto para utilizar.</p>
 
-<h2 id="etapa-adicional">Etapa adicional</h2>
+<h2 id="4-ativar-o-wsl-etapa-adicional">4. Ativar o WSL (Etapa adicional)</h2>
 
 <p>Você precisará apenas seguir nessa etapa se deu algum problema nas etapas anteriores.</p>
 
 <p><img src="/assets/img/wsl/wsl_8.png" alt="Etapa - 8 WSL" />
-Abra a lupa do windows ou aperte a tecla windows e digite:
-<code class="language-plaintext highlighter-rouge">powershell</code></p>
+Abra a lupa do windows ou aperte a tecla windows e digite:</p>
+<pre>powershell</pre>
 
-<p>Clique com o botão direito em cima do ícone do Windows PowerShell e execute como administrador.</p>
+<p>Clique com o botão direito em cima do ícone do <em>Windows PowerShell</em> e execute como administrador.</p>
 
 <p><img src="/assets/img/wsl/wsl_9.png" alt="Etapa - 9 WSL" />
 O powershell irá abrir. Agora digite:</p>
 
-<p><code class="language-plaintext highlighter-rouge">wsl --install</code></p>
+<pre>wsl --install</pre>
 
-<p>Ele começará a instalar. Assim que terminar, feche o powershell.</p>
+<p>Ele começará a instalar. Assim que terminar, feche o <em>powershell</em>.</p>
 
 <p><img src="/assets/img/wsl/wsl_10.png" alt="Etapa - 10 WSL" /></p>
 
 <p>Agora vá de novo até a lupa do windows e digite:</p>
 
-<p><code class="language-plaintext highlighter-rouge">painel de controle</code></p>
+<pre>painel de controle</pre>
 
 <p>Clique em cima de programas.</p>
 
@@ -157,13 +163,12 @@ O powershell irá abrir. Agora digite:</p>
 
 <p>Pronto. Reinicie o computador e assim que reiniciar, procure por <strong>Ubuntu</strong> no menu iniciar e inicie o terminal. Agora ele está pronto para ser usado.</p>
 
-<h2 id="erros-comuns">Erros comuns</h2>
+<h2 id="5-erros-comuns">5. Erros comuns</h2>
 
 <h3 id="erro-0x80070002">Erro 0x80070002</h3>
 <p><img src="/assets/img/wsl/wsl_13.png" alt="Etapa - 13 WSL" />
-Causa: O Windows não consegue encontrar os arquivos necessários para a instalação. Solução:
-<code class="language-plaintext highlighter-rouge">Execute wsl --install novamente.</code></p>
-
+Causa: O Windows não consegue encontrar os arquivos necessários para a instalação. Solução:</p>
+<pre>wsl --install</pre>
 <p>Verifique se o Windows está atualizado. Reinicie o PC e tente novamente.</p>
 
 <h3 id="erro-0x800701bc">Erro 0x800701bc</h3>
@@ -185,14 +190,18 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 <p>Espero que vocês valorizem esse trabalho aqui. Pra poder fazer esse tutorial do 0, eu fiz a cagada de desinstalar o wsl e foi tudo pro beleléu. Perdi todos os meus projetos. A minha sorte é que a maioria tava escrito no github.<br /></p>
 
-<p>Boa sorte na jornada de vocês e qualquer coisa que precisarem podem me enviar e-mail. Um abraço!</p>
+<p>Boa sorte na jornada de vocês e qualquer coisa que precisarem podem me enviar e-mail.</p>
+
+<p>Te vejo na próxima!<br />
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXpybmFyM2EzYmgxcDdwMHVpajExcjJ1aWp0dnh1OXRvZXhyM3lveSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J3CbFgn5o7DGRuE/giphy.gif" alt="gif" width="250" /></p>
 
 <h2 id="referências">Referências</h2>
 
 <ol>
-  <li><a href="https://learn.microsoft.com/pt-br/windows/wsl/">Documentação oficial do WSL</a></li>
-  <li><a href="https://aka.ms/wsl2kernel">Download do kernel atualizado</a></li>
+  <li><a href="https://learn.microsoft.com/pt-br/windows/wsl/" target="_blank">Documentação oficial do WSL</a></li>
+  <li><a href="https://aka.ms/wsl2kernel" target="_blank">Download do kernel atualizado</a></li>
 </ol>
+
 
       </section>
     </section>
