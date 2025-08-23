@@ -104,6 +104,8 @@ Se as opções aparecerem. Parabéns!! Isso quer dizer que o conda foi instalado
 
 ![CONDA 11](/assets/img/conda/conda_11.png)
 
+# 2. Criando um ambiente
+
 Agora digite para aparecer todos os ambientes instalados.
 <pre>conda env list</pre>
 
