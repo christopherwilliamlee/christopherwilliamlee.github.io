@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="system">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guia completo para um sistema de gerenciamento de dados e amostras para laboratório em Google planilhas — Guias</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/guides.css" />
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
+  />
+</head>
+<body><!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Página inicial">
+        <span class="logo">🧬</span>
+        <strong>Christopher William Lee</strong>
+      </a>
+      <nav class="links" aria-label="Navegação primária">
+        <a href="/#projetos">Projetos</a>
+        <a href="/#publicacoes">Publicações</a>
+        <a href="/#sobre">Sobre</a>
+        <a href="/#contato">Contato</a>
+        <a href="/guias/"
+           class=""
+           >Guias</a>
+        <button class="theme-toggle" id="themeBtn" title="Alternar tema">🌗</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="container">
+    <section class="guides-shell">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" aria-label="Índice dos guias">
+        <div class="side-group">
+          <h3>Ferramentas</h3>
+          <a href="/guias/ferramentas/kraken2/" class="side-item ">Kraken2</a>
+          <a href="/guias/ferramentas/qiime2/" class="side-item ">QIIME2</a>
+          <a href="/guias/ferramentas/biobakery/" class="side-item ">BioBakery</a>
+          <a href="/guias/ferramentas/sra_tools/" class="side-item ">SRA-Tools</a>
+          <a href="/guias/ferramentas/git/" class="side-item ">Git</a>
+          <a href="/guias/ferramentas/github/" class="side-item ">Github</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Ambientes e workflow</h3>
+          <a href="/guias/ambientes/anaconda/" class="side-item ">Anaconda</a>
+          <a href="/guias/ambientes/snakemake/" class="side-item ">Snakemake</a>
+          <a href="/guias/ambientes/nextflow/" class="side-item ">Nextflow</a>
+          <a href="/guias/ambientes/docker/" class="side-item ">Docker</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Conversor de arquivos</h3>
+          <a href="/guias/conversores/bcl2fastq/" class="side-item ">BCL2fastq</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Plataforma</h3>
+          <a href="/guias/plataforma/wsl/" class="side-item ">WSL</a>
+        </div>
+
+        <div class="side-group">
+          <h3>Qualidade de dados</h3>
+          <a href="/guias/qualidade/fastq/" class="side-item ">FASTQ</a>
+          <a href="/guias/qualidade/fastp/" class="side-item ">FASTP</a>
+          <a href="/guias/qualidade/falco/" class="side-item ">FALCO</a>
+        </div>
+        <div class="side-group">
+          <h3>Meus projetos</h3>
+          <a href="/guias/meus_projetos/google_sheets/" class="side-item active">Google Sheets</a>
+        </div>
+        <div class="side-group">
+          <h3>Bitcoin</h3>
+          <a href="/guias/bitcoin/bluewallet/" class="side-item ">Bluewallet</a>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO DO MARKDOWN -->
+      <section class="reader" id="reader">
+        <h1>Guia completo para um sistema de gerenciamento de dados e amostras para laboratório em Google planilhas</h1>
+        <p><img src="/assets/img/google_sheets/google_logo.png" alt="Google Sheets" /></p>
+
+<h1 id="planilha-automatizada-para-controle-de-dados">Planilha automatizada para controle de dados</h1>
+
+<p>Fala pessoal! Decidi trazer um dos meus projetos que mais utilizo e que fez uma diferença na pesquisa do meu doutorado que vocês não têm noção. Tá… eu confesso. Eu tinha um preeeconceitooo com o google planilhas antes de trabalhar no Genomas Paraná. Antes de migrar para o google planilhas, eu trabalhava apenas com Excel. Hoje eu vejo a diferença entre um e outro. Cada um com as suas características, mas foi um caminho sem volta. Graças a minha amiga Monica que também está envolvida nessa pesquisa, foi um passo que dei na minha vida e que mudou por completo. Muito obrigado, Monica por insistir!!! 🫶🫶🫶<br />
+Por que eu digo que isso foi um divisor de águas na minha vida? Porque a partir disso, eu comecei a trabalhar em outros projetos que me renderam um dinheirinho extra mensal. Fiz planilhas para empresas com mais de 400 funcionários assim como empresas de pequeno porte com apenas 3 funcionários, mas com um grande volume de vendas. Tá.. tá… eu sei. As planilhas têm as suas limitações! Mas usem quando puderem e saibam das suas limitações!</p>
+
+<p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGNnbWt0bG5rNnQyZTNtbHg1MzByNGFxeTh4eHhuMjBtcjIzcTR0YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TncmRRvEGVoVcHgaAb/giphy.gif" alt="gif" width="200" style="display:block; margin:auto;" /></p>
+
+<blockquote>
+  <p>May the sheets be with you!</p>
+</blockquote>
+
+<h1 id="o-que-é-o-google-sheets">O que é o Google Sheets?</h1>
+
+<p>O Google Sheets é a planilha online do Google, que funciona direto no navegador e salva tudo na nuvem.</p>
+
+<p>Ele é colaborativo, ou seja, várias pessoas podem editar e acompanhar os dados ao mesmo tempo. Além disso, dá pra usar fórmulas, gráficos, automações e até scripts avançados.</p>
+
+<p>Em resumo: é uma ferramenta leve, gratuita e super versátil — perfeita pra quem quer organizar informações, trabalhar em equipe e ainda ter acesso de qualquer lugar.</p>
+
+<h2 id="passo-a-passo">Passo a passo</h2>
+<ol>
+  <li><a href="#explicacao">Explicação sobre as planilhas</a></li>
+  <li><a href="#copia">Baixando uma cópia</a></li>
+  <li><a href="#cadastros">Planilha de cadastros</a></li>
+  <li><a href="#trabalhos">Planilha de trabalhos</a></li>
+  <li><a href="#intermediacao">Planilha de intermediação</a></li>
+  <li><a href="#tubos">Planilha de impressão de tubos</a></li>
+</ol>
+
+<h1 id="explicacao">1. Explicação sobre as planilhas</h1>
+
+<p>Pra quem já trabalha com excel ou google planilhas, vai pegar rápido o jeito de trabalhar. Para quem tem dificuldades com planilhas ainda, sugiro que assita uma aula sobre google planilhas básico para que não se bata tanto para trabalhar com elas. Aproveite que a planilha está de graça e que você pode fazer cópias à vontade para treinar também!</p>
+
+<p>O sistema é dividido em 4 partes: Planilha de cadastros, trabalhos, intermediação e impressão de tubos.</p>
+
+<h1 id="copia">2. Fazendo uma cópia das planilhas</h1>
+
+<p><img src="/assets/img/google_sheets/g_1.png" alt="G1" />
+Para fazer uma cópia das suas planilhas basta clicar em arquivo e depois clicar em Fazer uma cópia. Ao clicar em Fazer uma cópia, uma nova janela será aberta.</p>
+
+<p><img src="/assets/img/google_sheets/g_2.png" alt="G2" /></p>
+
+<p>Nessa janela você pode mudar o nome da planilha para qualquer nome que você queira, salvar em qualquer pasta no drive que você quiser e clicar em fazer cópia… pronto! Ela está pronta para ser usada.</p>
+
+<h1 id="cadastros">3. Planilha de cadastros</h1>
+
+<p><img src="/assets/img/google_sheets/g_3.png" alt="G3" />
+A planilha de cadastros que eu montei possui algumas informações básicas e necessárias para cadastros de pessoas, como: ID,	Nome, CPF, Sexo, Data de nascimento, Endereço, Bairro, Telefone, Celular, EMAIL, Contato próximo, Fone, contato próximo e Status do participante.</p>
+
+<blockquote>
+  <p>Antes que venham falar: ‘Olhaaa você está usando dados e está expondo eles!!!!’</p>
+  <blockquote>
+    <p>Os dados são fictícios!!!!!</p>
+  </blockquote>
+</blockquote>
+
+<p>O principal e o mais importante é o ID. É através dele que a gente vai localizar o cadastro do indivíduo. Não necessariamente a gente vai usar ele como <a href="https://pt.wikipedia.org/wiki/Chave_prim%C3%A1ria" target="_blank">chave primária (PK)</a>, coisa que poderia ser usado, mas em outras ocasiões, não agora.</p>
+
+<p>O status do participante traz algumas informações valiosas com relação ao status do material biológico do indivíduo. Esses status são: <strong><span style="color:#f4cccc">Aguardando Coleta</span>, <span style="color:#ffe599">Parcialmente Processado</span> e <span style="color:#b7e1cd">Material Coletado</span></strong>. Essas informações vêm da <a href="https://docs.google.com/spreadsheets/d/1W0gjIZneEWdQT-5qUysEhDE1NUAIRCL3ocHLmYVBGmc" target="_blank">Planilha de trabalho - processamento_qualidade</a>. O restante são dados que são preenchidos normalmente conforme o cadastro do indivíduo.</p>
+
+<h1 id="trabalhos">4. Planilha de trabalhos</h1>
+
+<p><img src="/assets/img/google_sheets/g_4.png" alt="G4" />
+Agora vamos destrinchar a <a href="https://docs.google.com/spreadsheets/d/1W0gjIZneEWdQT-5qUysEhDE1NUAIRCL3ocHLmYVBGmc" target="_blank">planilha de trabalho</a>.</p>
+
+<p>A <a href="https://docs.google.com/spreadsheets/d/1W0gjIZneEWdQT-5qUysEhDE1NUAIRCL3ocHLmYVBGmc" target="_blank">planilha de trabalho</a> funciona da seguinte forma.
+Ela possui as seguintes informações: <strong>ID, Status do participante, NOME, SEXO, CPF, NASCIMENTO, ENDEREÇO, BAIRRO	TEL, CEL, KIT LABORATORIAL.</strong> Ela também é formada por algumas abas <strong>participantes, triagem, processamento_qualidade, armazenamento e controle.</strong></p>
+
+<p>A aba participantes possui as informações de ID, NOME, CPF e todo o restante que estão relacionados ao cadastro do participante vem da <a href="https://docs.google.com/spreadsheets/d/1zg4SAq8APtGb8hDer0VHNIu_QlLJTWrr5TfyJuO6AKM" target="_blank">planilha de cadastros</a> de forma automática. Ou seja, você não precisa preencher nada!</p>
+
+<p>Os dados de Status do material vem da <a href="https://docs.google.com/spreadsheets/d/1W0gjIZneEWdQT-5qUysEhDE1NUAIRCL3ocHLmYVBGmc" target="_blank">planilha de trabalho</a> da aba STATUS DO MATERIAL e o KIT LAB é algo que você mesmo tem que alterar conforme o kit ser entregue ou não. O KIT LAB é um dropdown list e possui dois status: Aguardando entrega e Entregue. O próprio status já diz, né? Aguardando entrega, quer dizer que o kit está montado, mas não foi entregue ainda e Entregue quer dizer que o kit já foi entregue para o responsável fazer a coleta.</p>
+
+<h2 id="aba-triagem">Aba Triagem</h2>
+
+<p><img src="/assets/img/google_sheets/g_5.png" alt="G5" /></p>
+
+<p>A aba triagem possui as informações: <strong>ID, TUBO ROXO, TUBO AMARELO, Coletor de saliva, FRASCO FEZES, T °C	RECEBIDO, EM OBSERVAÇÃO.</strong></p>
+
+<p>O ID, como a gente sabe, é o que identifica o indivíduo. Digamos que aqui sim ele funciona como <a href="https://pt.wikipedia.org/wiki/Chave_prim%C3%A1ria" target="_blank">chave primária</a>.</p>
+
+<p>Tubo roxo faz referência ao plasma coletado, o tubo amarelo ao soro, a saliva e frascos de fezes ao próprio indivíduo. Note que as cores dos status muda conforme o que é preenchido. Por exemplo, Coletado aparece em verde, Falta material em laranja e Material inadequado como vermelho. A pessoa que irá cadastrar precisará colocar qualquer uma das colunas para indicar o que já foi feito durante a coleta do material biológico.</p>
+
+<p>A temperatura possui uma fórmula e preenche de forma automática indicando que os materiais vieram a 8 °C (foi o que pediram pra por na época). Recebido em é preenchido também de forma manual, então a pessoa que recebeu esses materiais precisa especificar a data que o material biológico foi coletado e a observação caso haja a necessidade de colocar qualquer observação.</p>
+
+<h2 id="aba-processamento-e-qualidade">Aba Processamento e qualidade</h2>
+
+<p><img src="/assets/img/google_sheets/g_6.png" alt="G6" />
+É aqui que a coisa começa a ficar legal. Na verdade, essa aba foi feita para registrar os resultados de quantificação e qualidade do DNA e RNA. Então, note, essa aba possui as colunas com os nomes: ID, Concentração (ng), 260/280, 260/230. ID faz referência ao ID do participante, concentração é o resultado da quantificação do DNA ou RNA e os parâmetros de absorbância 280 e 230 estão relacionados à análise qualitativa da amostra. Em cima dos nomes das colunas, você tem as regras. Essas regras são condicionais que são aplicadas com fórmulas de maneira automatizada. Ou seja, se você tiver um resultado de absorbância de &gt; 1,6, então aparecerá um fundo verde claro com as letras verde escura; se você tiver um resultado &lt; 1,59, então os resultados colocados nas colunas aparecerão com fundo vermelho claro e letras vermelho escura; e o mesmo vale para os parâmetros de concentração &gt; 20, &lt; 19,9.</p>
+
+<p>A última coluna que é o timestamp é o registro que é feito na hora da primeira inserção do resultado no primeiro registro da quantificação do DNA, célula B7, por exemplo.</p>
+
+<pre>=IFS(B7="";"";N7&lt;&gt;"";N7;1*1;AGORA())</pre>
+
+<h2 id="aba-armazenamento">Aba armazenamento</h2>
+
+<p><img src="/assets/img/google_sheets/g_7.png" alt="G7" />
+Essa aba é bastante simples, ela tem a informação do ID do indivíduo, as especificações se é DNA, RNA, Saliva e etc… Ela é toda preenchida de forma automatizada. Nela temos dois exemplos de fórmula.</p>
+
+<pre>=SE(A5="";"";SE(processamento_qualidade!$D7&lt;&gt;""; "Armazenado"; "Aguardando"))</pre>
+
+<p>Condicionais que indicam que se A5 estiver vazia, então não fazer nada, caso contrário vai aparecer como Armazenado. Ela também pega informações da aba processamento_qualidade. Caso a célula da aba processamento_qualidade estiver vazia, então vai mostrar como Aguardando, caso contrário, vai mostrar como Armazenado.</p>
+
+<pre>=SE(I5="Armazenado"; "Armazenado"; "Aguardando")</pre>
+
+<p>Essa fórmula indica que se a célula I5 estiver como Armazenado, então a célula atual vai estar também como Armazenado, caso contrário fica como Aguardando. Lembrando que essas fórmulas forma projetadas para o atual projeto de pesquisa e elas podem ser modificadas conforme a necessidade.</p>
+
+<h2 id="aba-controle">Aba controle</h2>
+
+<p><img src="/assets/img/google_sheets/g_8.png" alt="G8" />
+A aba controle é bem simples e consiste em algumas colunas como: Aba, Destinatário, PDF, Envio, Data e hora.</p>
+
+<p>A coluna Aba, é a informação da aba que você deseja enviar para algum e-mail. Por exemplo, se você quiser enviar todas as informações da aba triagem, você deve colocar triagem na aba.</p>
+
+<p>A coluna Destinatário vai o e-mail do destinatário; PDF e Envio são preenchidos automaticamente caso haja sucesso no envio do pdf para o destinatário e Data e hora é o timestamp em si.</p>
+
+<h1 id="intermediacao">5. Planilha de intermediação</h1>
+
+<p><img src="/assets/img/google_sheets/g_9.png" alt="G9" />
+Ufa, estamos perto do fim! Essa é a penúltima planilha. Digamos que essa é a planilha que vai ser usada pela recepção. Ela vai fazer o contato com o indivíduo para fazer o agendamento da coleta. Essa planilha contem algumas informações essenciais para o contato direto com o indivíduo. A única diferença vão ser as últimas 3 colunas: Obs. da coleta, Status da amostra e Status.</p>
+
+<p>A coluna de Status da amostra puxa dados de forma automática da <a href="https://docs.google.com/spreadsheets/d/1W0gjIZneEWdQT-5qUysEhDE1NUAIRCL3ocHLmYVBGmc" target="_blank">planilha de trabalho</a>. As únicas colunas que a pessoa deverá mexer são Obs. da coleta e Status. A observação da coleta deverá ser preenchida conforme a necessidade da pessoa e a coluna Status possui um menu dropdown que contem as seguintes informações: Faleceu, Desistiu, Não atende, Sem contato, Sem disponibilidade, Aguardando, Agendado, Parcialmente e coletado. Todos eles deverão ser selecionados conforme o contato com o indivíduo. A única diferença aqui será com relação ao Status Agendado.</p>
+
+<h2 id="aba-agendados">Aba agendados</h2>
+
+<p><img src="/assets/img/google_sheets/g_10.png" alt="G10" />
+Ao selecionar Agendado, a aba Agendados irá coletar a informação do ID do indivíduo, data agendada, número da amostra (Coluna D e H) e as colunas I a Q irão coletar as informações da planilha de trabalho - armazenamento para pegar as informações dos códigos dos tubos das amostras. Isso é muito útil para quem trabalha com aquelas máquinas de imprimir tubo como a do exemplo abaixo.</p>
+
+<p><img src="/assets/img/google_sheets/tubo_imp.png" alt="Impressora de tubos" /></p>
+
+<h1 id="tubos">6. Planilha de impressão de tubos</h1>
+<p>Essa é a última planilha! Essa planilha é importante para quem quer ter uma ideia de como estruturar uma planilha para a impressão de tubos ou tem um equipamento de impressão de tubos igual ao exemplo de cima.</p>
+
+<h2 id="aba-agendados-1">aba agendados</h2>
+
+<p><img src="/assets/img/google_sheets/g_11.png" alt="G11" />
+Na aba agendados, você tem algumas informações básicas indo da coluna A a I que trazem as informações da <a href="https://docs.google.com/spreadsheets/d/1W0gjIZneEWdQT-5qUysEhDE1NUAIRCL3ocHLmYVBGmc" target="_blank">planilha de trabalho</a> da aba Armazenamento que são os códigos referentes aos tubos de coleta que estão armazenados. A coluna J trará a informação da <a href="https://docs.google.com/spreadsheets/d/1rI9qSLrxRDZBFQgidE_4CbiluVz1iSJFRF4o5sBlwYU" target="_blank">planilha de intermedicação</a> da aba agendados. Note que essa coluna (J), trará informação apenas dos tubos que são coletadas na data do dia, ou seja, como se fosse “hoje”.</p>
+
+<h2 id="aba-não-agendados">aba não agendados</h2>
+
+<p><img src="/assets/img/google_sheets/g_12.png" alt="G12" />
+A aba não agendados funciona basicamente da mesma forma. A única coisa qeu você vai ter que acrescentar como informação é na coluna J (ID) que irá trazer de forma automática os códigos referentes aos tubos de coleta.</p>
+
+<hr />
+<p><img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExenRwejZyaHpjOHNpOGxra2R0NW1pODB5OHhxenZncXR2cHM2ZjIweCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dBTGeHJ3aIvtJDe4VV/giphy.gif" alt="gif" width="200" /></p>
+
+<p>sim sim, eu sei… É muita coisa pra aprender em um lugar só. Respire fundo e mantenha a calma! Você vai se acostumando aos poucos, vai se familiarizando e vai pegando o jeito da coisa. Se precisarem de qualquer coisa, entrem em contato.</p>
+
+<p>Até a próxima!! Ahhh, se quiserem deixar também uma pequena caridade em pix ou Bitcoin fiquem à vontade, tá? Ficarei muito grato e com muito mais vontade de postar coisas aqui.</p>
+
+<p>Pix: biologolee@gmail.com<br />
+Bitcoin: bc1qg7qrfhclzt3sm60en53qv8fmwpuacfaxt5v55k</p>
+
+<p><img src="/assets/img/meus_projetos/bluewallet_qrcode.png" alt="QR Code" />
+<img src="/assets/img/meme/hq720.jpg" alt="Dog meme" /></p>
+
+<h1 id="referências">Referências:</h1>
+
+<ol>
+  <li><a href="https://docs.google.com/spreadsheets/d/1zg4SAq8APtGb8hDer0VHNIu_QlLJTWrr5TfyJuO6AKM" target="_blank">Planilha de cadastro</a></li>
+  <li><a href="https://docs.google.com/spreadsheets/d/1W0gjIZneEWdQT-5qUysEhDE1NUAIRCL3ocHLmYVBGmc" target="_blank">Planilha de trabalho</a></li>
+  <li><a href="https://docs.google.com/spreadsheets/d/1rI9qSLrxRDZBFQgidE_4CbiluVz1iSJFRF4o5sBlwYU" target="_blank">Planilha de intermediação</a></li>
+  <li><a href="https://docs.google.com/spreadsheets/d/1mLBU_gLnAlXYlh-WTn0TqFD9AzPBYJhtsq4G6SMFOt0" target="_blank">Planilha de impressão de tubos</a></li>
+</ol>
+
+      </section>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
+  </footer>
+
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Alternância de tema
+    (function () {
+      const btn = document.getElementById('themeBtn');
+      if(!btn) return;
+      const root = document.documentElement;
+      const KEY = 'cwlee-theme';
+      const saved = localStorage.getItem(KEY) || 'system';
+      root.setAttribute('data-theme', saved);
+      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || 'system';
+        const next = nextTheme(current);
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(KEY, next);
+        btn.textContent = '🌗';
+      });
+    })();
+  </script>
+</body>
+</html>

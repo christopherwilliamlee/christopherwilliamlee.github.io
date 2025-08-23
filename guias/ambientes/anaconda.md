@@ -37,12 +37,12 @@ Além disso, o Conda não se limita só a Python: ele também instala ferramenta
 Para começar, entre no site do 
 <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html" target="_blank">CONDA</a> 
 para baixar o instalador e logo em seguida clique em 
-<span style="color:#32CD32; font-weight:bold;">installing on Linux</span> no canto esquerdo.
+<span style="color:#32CD32; font-weight:bold;"><u>Miniconda</u></span>. Bem ali onde a flecha está apontando.
 
 
 ![CONDA 2](/assets/img/conda/conda_2.png)
 
-Você vai ser redirecionado para a página do Miniconda. É nessa página que você vai fazer o download do instalador do Miniconda.
+Você vai ser redirecionado para a página do Miniconda. **É nessa página que você vai fazer o download do instalador do Miniconda.**
 
 ![CONDA 3](/assets/img/conda/conda_3.png)
 
@@ -130,6 +130,10 @@ E pronto! Basta você olhar no canto esquerdo do seu navegador para saber se voc
 ---
 
 E com isso a gente finaliza mais um tutorial de instalação de uma ferramenta muito importante para a ciência de dados e bioinformática. Espero que vocês tenham curtido muito. Ahh, e não deixem de me seguir no <a href="https://www.linkedin.com/in/christopher-lee-390643197/" target="_blank">linkedin</a> e suportar o meu trabalho. Ficarei muito feliz em ter vocês por lá.
+Ahhh! Aproveite para fazer uma doaçãozinha! Pode ser qualquer valor. Isso vai me ajudar a fortalecer e trazer mais conteúdos para vocês!!
+
+Pix: biologolee@gmail.com<br>
+Bitcoin: bc1qg7qrfhclzt3sm60en53qv8fmwpuacfaxt5v55k
 
 Até a próxima!<br>
 

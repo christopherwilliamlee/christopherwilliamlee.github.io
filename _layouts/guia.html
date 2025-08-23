@@ -20,12 +20,20 @@
   {%- assign k2  = '/guias/ferramentas/kraken2/' -%}
   {%- assign q2  = '/guias/ferramentas/qiime2/' -%}
   {%- assign bb  = '/guias/ferramentas/biobakery/' -%}
+  {%- assign git = '/guias/ferramentas/git/' -%}
+  {%- assign gh = '/guias/ferramentas/github/' -%}
+  {%- assign sra = '/guias/ferramentas/sra_tools/' -%}
   {%- assign an  = '/guias/ambientes/anaconda/' -%}
+  {%- assign sm  = '/guias/ambientes/snakemake/' -%}
+  {%- assign nf  = '/guias/ambientes/nextflow/' -%}
+  {%- assign dc  = '/guias/ambientes/docker/' -%}
   {%- assign bcl = '/guias/conversores/bcl2fastq/' -%}
   {%- assign wsl = '/guias/plataforma/wsl/' -%}
   {%- assign fq  = '/guias/qualidade/fastq/' -%}
   {%- assign fqp = '/guias/qualidade/fastp/' -%}
   {%- assign flc = '/guias/qualidade/falco/' -%}
+  {%- assign gs = '/guias/meus_projetos/google_sheets/' -%}
+  {%- assign bw = '/guias/bitcoin/bluewallet/' -%}
 
   <!-- HEADER -->
   <header>
@@ -57,11 +65,17 @@
           <a href="{{ k2 | relative_url }}" class="side-item {% if current == k2 %}active{% endif %}">Kraken2</a>
           <a href="{{ q2 | relative_url }}" class="side-item {% if current == q2 %}active{% endif %}">QIIME2</a>
           <a href="{{ bb | relative_url }}" class="side-item {% if current == bb %}active{% endif %}">BioBakery</a>
+          <a href="{{ sra | relative_url }}" class="side-item {% if current == sra %}active{% endif %}">SRA-Tools</a>
+          <a href="{{ git | relative_url }}" class="side-item {% if current == git %}active{% endif %}">Git</a>
+          <a href="{{ gh | relative_url }}" class="side-item {% if current == gh %}active{% endif %}">Github</a>
         </div>
 
         <div class="side-group">
-          <h3>Gerenciamento de ambientes</h3>
+          <h3>Ambientes e workflow</h3>
           <a href="{{ an | relative_url }}" class="side-item {% if current == an %}active{% endif %}">Anaconda</a>
+          <a href="{{ sm | relative_url }}" class="side-item {% if current == sm %}active{% endif %}">Snakemake</a>
+          <a href="{{ nf | relative_url }}" class="side-item {% if current == nf %}active{% endif %}">Nextflow</a>
+          <a href="{{ dc | relative_url }}" class="side-item {% if current == dc %}active{% endif %}">Docker</a>
         </div>
 
         <div class="side-group">
@@ -79,6 +93,14 @@
           <a href="{{ fq  | relative_url }}" class="side-item {% if current == fq  %}active{% endif %}">FASTQ</a>
           <a href="{{ fqp | relative_url }}" class="side-item {% if current == fqp %}active{% endif %}">FASTP</a>
           <a href="{{ flc | relative_url }}" class="side-item {% if current == flc %}active{% endif %}">FALCO</a>
+        </div>
+        <div class="side-group">
+          <h3>Meus projetos</h3>
+          <a href="{{ gs  | relative_url }}" class="side-item {% if current == gs  %}active{% endif %}">Google Sheets</a>
+        </div>
+        <div class="side-group">
+          <h3>Bitcoin</h3>
+          <a href="{{ bw  | relative_url }}" class="side-item {% if current == bw  %}active{% endif %}">Bluewallet</a>
         </div>
       </aside>
 
