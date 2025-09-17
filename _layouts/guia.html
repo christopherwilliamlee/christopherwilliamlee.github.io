@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="{{ '/assets/css/guides.css' | relative_url }}" />
   <link
     rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
-  />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"/>
 </head>
 <body>
   {%- assign current = page.url | replace:'index.html','' -%}
+  {% comment %} Botão voltar ao topo (global) {% endcomment %}
 
   {%- comment -%} URLs principais {%- endcomment -%}
   {%- assign gui = '/guias/' -%}
@@ -21,6 +21,7 @@
   {%- assign q2  = '/guias/ferramentas/qiime2/' -%}
   {%- assign bb  = '/guias/ferramentas/biobakery/' -%}
   {%- assign git = '/guias/ferramentas/git/' -%}
+  {%- assign fqp = '/guias/ferramentas/fastp/' -%}
   {%- assign gh = '/guias/ferramentas/github/' -%}
   {%- assign sra = '/guias/ferramentas/sra_tools/' -%}
   {%- assign an  = '/guias/ambientes/anaconda/' -%}
@@ -29,12 +30,14 @@
   {%- assign dc  = '/guias/ambientes/docker/' -%}
   {%- assign bcl = '/guias/conversores/bcl2fastq/' -%}
   {%- assign wsl = '/guias/plataforma/wsl/' -%}
-  {%- assign fq  = '/guias/qualidade/fastq/' -%}
-  {%- assign fqp = '/guias/qualidade/fastp/' -%}
+  {%- assign fq  = '/guias/qualidade/fastqc/' -%}
   {%- assign flc = '/guias/qualidade/falco/' -%}
+  {%- assign mqc  = '/guias/qualidade/multiqc/' -%}
   {%- assign gs = '/guias/meus_projetos/google_sheets/' -%}
   {%- assign bw = '/guias/bitcoin/bluewallet/' -%}
-
+  {%- assign tg = '/guias/aparadores/trimgalore/' -%}
+  {%- assign tm = '/guias/aparadores/trimmomatic/' -%}
+  
   <!-- HEADER -->
   <header>
     <div class="container nav">
@@ -60,49 +63,59 @@
     <section class="guides-shell">
       <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
-        <div class="side-group">
-          <h3>Ferramentas</h3>
+        <details class="side-group" open>
+          <summary>Ferramentas</summary>
           <a href="{{ k2 | relative_url }}" class="side-item {% if current == k2 %}active{% endif %}">Kraken2</a>
           <a href="{{ q2 | relative_url }}" class="side-item {% if current == q2 %}active{% endif %}">QIIME2</a>
           <a href="{{ bb | relative_url }}" class="side-item {% if current == bb %}active{% endif %}">BioBakery</a>
           <a href="{{ sra | relative_url }}" class="side-item {% if current == sra %}active{% endif %}">SRA-Tools</a>
           <a href="{{ git | relative_url }}" class="side-item {% if current == git %}active{% endif %}">Git</a>
           <a href="{{ gh | relative_url }}" class="side-item {% if current == gh %}active{% endif %}">Github</a>
-        </div>
+          <a href="{{ fqp | relative_url }}" class="side-item {% if current == fqp %}active{% endif %}">FASTP</a>
+        </details>
 
-        <div class="side-group">
-          <h3>Ambientes e workflow</h3>
+        <details class="side-group" open>
+          <summary>Aparadores</summary>
+          <a href="{{ tg | relative_url }}" class="side-item {% if current == tg %}active{% endif %}">Trimgalore</a>
+          <a href="{{ tm | relative_url }}" class="side-item {% if current == tm %}active{% endif %}">Trimmomatic</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Ambientes e workflow</summary>
           <a href="{{ an | relative_url }}" class="side-item {% if current == an %}active{% endif %}">Anaconda</a>
           <a href="{{ sm | relative_url }}" class="side-item {% if current == sm %}active{% endif %}">Snakemake</a>
           <a href="{{ nf | relative_url }}" class="side-item {% if current == nf %}active{% endif %}">Nextflow</a>
           <a href="{{ dc | relative_url }}" class="side-item {% if current == dc %}active{% endif %}">Docker</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Conversor de arquivos</h3>
+        <details class="side-group">
+          <summary>Conversor de arquivos</summary>
           <a href="{{ bcl | relative_url }}" class="side-item {% if current == bcl %}active{% endif %}">BCL2fastq</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Plataforma</h3>
+        <details class="side-group">
+          <summary>Plataforma</summary>
           <a href="{{ wsl | relative_url }}" class="side-item {% if current == wsl %}active{% endif %}">WSL</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Qualidade de dados</h3>
-          <a href="{{ fq  | relative_url }}" class="side-item {% if current == fq  %}active{% endif %}">FASTQ</a>
-          <a href="{{ fqp | relative_url }}" class="side-item {% if current == fqp %}active{% endif %}">FASTP</a>
+        <details class="side-group">
+          <summary>Qualidade de dados</summary>
+          <a href="{{ fq  | relative_url }}" class="side-item {% if current == fq  %}active{% endif %}">FASTQC</a>
           <a href="{{ flc | relative_url }}" class="side-item {% if current == flc %}active{% endif %}">FALCO</a>
-        </div>
-        <div class="side-group">
-          <h3>Meus projetos</h3>
+          <a href="{{ mqc | relative_url }}" class="side-item {% if current == mqc %}active{% endif %}">MULTIQC</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Meus projetos</summary>
           <a href="{{ gs  | relative_url }}" class="side-item {% if current == gs  %}active{% endif %}">Google Sheets</a>
-        </div>
-        <div class="side-group">
-          <h3>Bitcoin</h3>
+        </details>
+
+        <details class="side-group">
+          <summary>Bitcoin</summary>
           <a href="{{ bw  | relative_url }}" class="side-item {% if current == bw  %}active{% endif %}">Bluewallet</a>
-        </div>
+        </details>
       </aside>
+
 
       <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
@@ -112,32 +125,18 @@
     </section>
   </main>
 
+  <button id="btn-top" aria-label="Voltar ao topo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 4l-7 7h4v9h6v-9h4z"/>
+    </svg>
+    <span class="tooltip">Voltar ao topo</span>
+  </button>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
   </footer>
-
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Alternância de tema
-    (function () {
-      const btn = document.getElementById('themeBtn');
-      if(!btn) return;
-      const root = document.documentElement;
-      const KEY = 'cwlee-theme';
-      const saved = localStorage.getItem(KEY) || 'system';
-      root.setAttribute('data-theme', saved);
-      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') || 'system';
-        const next = nextTheme(current);
-        root.setAttribute('data-theme', next);
-        localStorage.setItem(KEY, next);
-        btn.textContent = '🌗';
-      });
-    })();
-  </script>
+  
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

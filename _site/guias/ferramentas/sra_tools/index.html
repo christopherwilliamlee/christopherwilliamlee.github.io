@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> — Guias</title>
+  <title>Tutorial de instalação do SRA-Tools — Guias</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/css/guides.css" />
   <link
     rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
-  />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"/>
 </head>
 <body><!-- HEADER -->
   <header>
@@ -37,85 +36,277 @@
     <section class="guides-shell">
       <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
-        <div class="side-group">
-          <h3>Ferramentas</h3>
+        <details class="side-group" open>
+          <summary>Ferramentas</summary>
           <a href="/guias/ferramentas/kraken2/" class="side-item ">Kraken2</a>
           <a href="/guias/ferramentas/qiime2/" class="side-item ">QIIME2</a>
           <a href="/guias/ferramentas/biobakery/" class="side-item ">BioBakery</a>
           <a href="/guias/ferramentas/sra_tools/" class="side-item active">SRA-Tools</a>
           <a href="/guias/ferramentas/git/" class="side-item ">Git</a>
           <a href="/guias/ferramentas/github/" class="side-item ">Github</a>
-        </div>
+          <a href="/guias/ferramentas/fastp/" class="side-item ">FASTP</a>
+        </details>
 
-        <div class="side-group">
-          <h3>Ambientes e workflow</h3>
+        <details class="side-group" open>
+          <summary>Aparadores</summary>
+          <a href="/guias/aparadores/trimgalore/" class="side-item ">Trimgalore</a>
+          <a href="/guias/aparadores/trimmomatic/" class="side-item ">Trimmomatic</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Ambientes e workflow</summary>
           <a href="/guias/ambientes/anaconda/" class="side-item ">Anaconda</a>
           <a href="/guias/ambientes/snakemake/" class="side-item ">Snakemake</a>
           <a href="/guias/ambientes/nextflow/" class="side-item ">Nextflow</a>
           <a href="/guias/ambientes/docker/" class="side-item ">Docker</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Conversor de arquivos</h3>
+        <details class="side-group">
+          <summary>Conversor de arquivos</summary>
           <a href="/guias/conversores/bcl2fastq/" class="side-item ">BCL2fastq</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Plataforma</h3>
+        <details class="side-group">
+          <summary>Plataforma</summary>
           <a href="/guias/plataforma/wsl/" class="side-item ">WSL</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Qualidade de dados</h3>
-          <a href="/guias/qualidade/fastq/" class="side-item ">FASTQ</a>
-          <a href="/guias/qualidade/fastp/" class="side-item ">FASTP</a>
+        <details class="side-group">
+          <summary>Qualidade de dados</summary>
+          <a href="/guias/qualidade/fastqc/" class="side-item ">FASTQC</a>
           <a href="/guias/qualidade/falco/" class="side-item ">FALCO</a>
-        </div>
-        <div class="side-group">
-          <h3>Meus projetos</h3>
+          <a href="/guias/qualidade/multiqc/" class="side-item ">MULTIQC</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Meus projetos</summary>
           <a href="/guias/meus_projetos/google_sheets/" class="side-item ">Google Sheets</a>
-        </div>
-        <div class="side-group">
-          <h3>Bitcoin</h3>
+        </details>
+
+        <details class="side-group">
+          <summary>Bitcoin</summary>
           <a href="/guias/bitcoin/bluewallet/" class="side-item ">Bluewallet</a>
-        </div>
+        </details>
       </aside>
+
 
       <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
-        <h1></h1>
-        
+        <h1>Tutorial de instalação do SRA-Tools</h1>
+        <p><img src="/assets/img/sra_tools/sra-tools.png" alt="SRA-TOOLS" /></p>
+
+<h1 id="tutorial-de-instalação-do-sra-tools"><u>Tutorial de instalação do SRA-Tools</u></h1>
+
+<p style="text-align: justify">
+  Fala pessoal, hoje eu vou mostrar pra vocês como instalar o <strong>SRA-Tools</strong> na máquina.  
+  Quem já tentou baixar dados de sequenciamento do NCBI sabe que não é tão simples assim: clicar em “download” direto do site quase nunca funciona bem, principalmente quando os arquivos são gigantes.<br />
+  É justamente aí que o SRA-Tools brilha. Ele permite puxar esses dados direto do servidor e já converter no formato certinho pra você usar nas análises.<br />
+  Eu mesmo já tentei baixar arquivos manualmente e quase sempre dava problema ou quebrava no meio do download, ou vinha num formato meio inútil.<br />
+  Com o SRA-Tools, você roda um comando simples e pronto, os dados já caem na sua máquina do jeito certo.
+  Nesse tutorial eu vou te ensinar a instalar o SRA-Tools e fazer o seu primeiro download.<br />
+  É tranquilo de configurar e, olha... economiza um tempo absurdo quando você precisa trabalhar com dados reais de DNA e RNA.
+</p>
+
+<p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDA0N3p0YXR5ejQ2c3RoazNhbmU5Zjl1eGZqOG90M3F0MWJ1aWNpcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bhQ0fEHzUKLCjnqUUD/giphy.gif" alt="gif" width="220" style="display:block; margin:auto;" /></p>
+
+<p>O que você vai precisar <u>antes</u>:</p>
+
+<ul>
+  <li><strong>Conda</strong> — <a href="/guias/ambientes/anaconda/">instalação aqui</a></li>
+  <li><strong>WSL/Linux</strong> — <a href="/guias/plataforma/wsl">tutorial aqui</a></li>
+  <li><strong>SRA-Tools</strong> — útil para baixar FASTQs públicos (<a href="/guias/ferramentas/sra-tools">guia</a>)</li>
+</ul>
+
+<hr />
+
+<h1 id="o-que-é-o-sra-tools"><u>O que é o SRA-Tools?</u></h1>
+
+<p style="text-align: justify">
+  O <strong>SRA-Tools</strong> é um conjunto de ferramentas desenvolvido pelo NCBI que permite baixar, manipular e converter dados do 
+  <span class="tooltip"><strong>Sequence Read Archive (SRA)</strong>
+    <span class="tooltiptext">Maior repositório público de dados de sequenciamento genômico do mundo.</span>
+  </span>.
+</p>
+
+<p style="text-align: justify">
+  Com ele, você consegue pegar dados brutos de DNA/RNA diretamente da base do NCBI e transformar em formatos mais práticos, como FASTQ, para depois analisar em pipelines de bioinformática.
+</p>
+
+<p style="text-align: justify">
+  Na prática, o SRA-Tools é tipo a “ponte” entre os dados públicos de sequenciamento e a sua análise local.  
+  Seja para montar genomas, rodar metagenômica, RNA-Seq ou testar pipelines, ele é sempre o primeiro passo quando o assunto é buscar dados reais.
+</p>
+
+<hr />
+
+<h2 id="passo-a-passo">Passo a passo</h2>
+<ol>
+  <li><a href="#baixando">Baixando</a></li>
+  <li><a href="#instalando">Instalando</a></li>
+  <li><a href="#sra">Procurando arquivos no SRA</a></li>
+  <li><a href="#kit-sra-tools">O kit que você precisa para sobreviver ao SRA-Tools</a></li>
+</ol>
+
+<hr />
+
+<h2 id="baixando">1. Baixando</h2>
+
+<p style="text-align: justify">
+Antes de começar, você vai precisar do kit básico de sobrevivência do bioinformata: ter o <a href="/guias/ambientes/anaconda/" target="_blank">Bioconda</a> instalado.  
+Se estiver no Windows, será necessário trabalhar com o <a href="/guias/plataforma/wsl/" target="_blank">WSL</a>.  
+Os tutoriais estão disponíveis nesses links: <a href="/guias/plataforma/wsl/" target="_blank">WSL</a> e <a href="/guias/ambientes/anaconda/" target="_blank">Miniconda</a>.
+</p>
+
+<p>
+Tendo o WSL e o Miniconda instalados, a gente pode prosseguir para a instalação.
+</p>
+
+<p><img src="/assets/img/sra_tools/s_1.png" alt="S_1" /></p>
+
+<p>Crie um ambiente no Conda:</p>
+
+<pre>conda create -n (nome_do_seu_ambiente)</pre>
+
+<p><img src="/assets/img/sra_tools/s_2.png" alt="S_2" /></p>
+
+<p>Ative o ambiente criado:</p>
+
+<pre>conda activate (nome_do_seu_ambiente)</pre>
+
+<hr />
+
+<h2 id="o-que-é-o-bioconda">O que é o Bioconda?</h2>
+
+<p><img src="/assets/img/sra_tools/s_3.png" alt="S_3" /></p>
+
+<p style="text-align: justify">
+O <strong>Bioconda</strong> é um repositório de pacotes do Conda voltado para bioinformática.  
+Ele reúne milhares de ferramentas já compiladas e prontas para instalar com um simples comando, sem complicação de dependências.  
+É a forma mais prática de montar ambientes de análise em biociência.
+</p>
+
+<p>
+Para baixar um pacote do Bioconda, basta acessar o repositório desejado e usar o comando indicado.
+</p>
+
+<hr />
+
+<h2 id="instalando">2. Instalando</h2>
+
+<p><img src="/assets/img/sra_tools/s_4.png" alt="S_4" /></p>
+
+<p>Instale o SRA-Tools no ambiente ativo:</p>
+
+<pre>conda install bioconda::sra-tools</pre>
+
+<p><img src="/assets/img/sra_tools/s_5.png" alt="S_5" /></p>
+
+<p>Pronto! O seu <strong>SRA-Tools</strong> está instalado!</p>
+
+<hr />
+
+<h2 id="sra">3. Procurando arquivos no SRA</h2>
+
+<p><img src="/assets/img/sra_tools/s_6.png" alt="S_6" /></p>
+
+<p>Agora com o ambiente configurado, visite o site oficial do<br />
+<a href="https://www.ncbi.nlm.nih.gov/sra" target="_blank">SRA (NCBI)</a>.</p>
+
+<p><img src="/assets/img/sra_tools/s_7.png" alt="S_7" /><br />
+No campo de pesquisa, procure por algo como <em>metagenomics 16S soil</em>.<br />
+Você pode usar sua criatividade para procurar outros tipos de estudo: <em>metagenomic 16S gut</em>, <em>metagenomic shotgun gut</em>, <em>transcriptomic</em>, etc.</p>
+
+<p><img src="/assets/img/sra_tools/s_8.png" alt="S_8" /><br />
+Para fins práticos, escolha um resultado pequeno (ex.: 36 MB).<br />
+Não se preocupe se o mesmo estudo não aparecer para você, pode usar qualquer um leve.</p>
+
+<p><img src="/assets/img/sra_tools/s_9.png" alt="S_9" /><br />
+Ao clicar em <strong>RUN</strong>, você verá os detalhes da amostra.</p>
+
+<p><img src="/assets/img/sra_tools/s_10.png" alt="S_10" /><br />
+Copie o código da corrida (ex.: <u>SRR35046182</u>).</p>
+
+<hr />
+
+<h2 id="kit-sra-tools">4. O kit básico que você precisa para sobreviver ao SRA-Tools</h2>
+
+<p><img src="/assets/img/sra_tools/s_12.png" alt="S_12" /></p>
+
+<p>Baixe o arquivo usando o comando:</p>
+
+<pre>prefetch SRR35046182</pre>
+
+<blockquote class="warning">
+Versões antigas do <code>SRA-Tools</code> (ex.: 2.9.x) podem gerar erros de conexão TLS/SSL ao usar <code>prefetch</code> ou <code>fastq-dump</code>.  
+Antes de usar, confira sua versão com:  
+
+<pre><code>prefetch -V</code></pre>
+
+Para desinstalar a versão antiga basta digitar:
+<pre><code>conda remove sra-tools</code></pre>
+
+Para instalar a versão mais nova no mesmo ambiente basta digitar:
+<pre><code>conda install -c bioconda -c conda-forge sra-tools -y</code></pre>
+</blockquote>
+
+<p><img src="/assets/img/sra_tools/s_11.png" alt="S_11" /><br />
+Se a amostra for paired-end, use o comando para separar os arquivos:</p>
+
+<p><img src="/assets/img/sra_tools/s_13.png" alt="S_13" /></p>
+
+<pre>fastq-dump --gzip --split-files SRR35046182/SRR35046182</pre>
+
+<p>
+Pronto! Agora que você tem os arquivos descompactados e separados, pode começar a fazer a análise com as ferramentas de controle de qualidade 
+<a href="/guias/qualidade/fastqc/" target="_blank">FastQC</a>, 
+<a href="/guias/trimmagem/fastp/" target="_blank">Fastp</a> e 
+<a href="/guias/qualidade/falco/" target="_blank">Falco</a>.
+</p>
+
+<hr />
+
+<p><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFtYTdqaDk2YWU1MTRxemtvcHA2YTZub3pqamZxb2psbW9oMGM1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WY22qampr5P4QDD9ld/giphy.gif" alt="gif" width="220" style="display:block; margin:auto;" /></p>
+
+<p style="text-align: justify">
+Fala sério! Esse tutorial é bem mais tranquilo que os outros, né?  
+Viu como a bioinformática não é um bicho de sete cabeças?  
+Brincadeira... às vezes é sim 😅, mas nada que a gente não possa resolver!  
+O segredo é não desanimar e estudar sempre. Stay focus!!
+</p>
+
+<hr />
+
+<p>Dê um suporte ao meu projeto. Doe um cafézinho ☕.<br />
+Pix: biologolee@gmail.com<br />
+Bitcoin: bc1qg7qrfhclzt3sm60en53qv8fmwpuacfaxt5v55k</p>
+
+<p><img src="/assets/img/meus_projetos/bluewallet_qrcode.png" alt="QR Code" /></p>
+
+<hr />
+
+<h1 id="referências">Referências</h1>
+
+<ol>
+  <li><a href="https://anaconda.org/bioconda/sra-tools" target="_blank">SRA-Tools no Bioconda</a></li>
+  <li><a href="https://www.ncbi.nlm.nih.gov/sra" target="_blank">SRA NCBI</a></li>
+</ol>
 
       </section>
     </section>
   </main>
 
+  <button id="btn-top" aria-label="Voltar ao topo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 4l-7 7h4v9h6v-9h4z"/>
+    </svg>
+    <span class="tooltip">Voltar ao topo</span>
+  </button>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
   </footer>
-
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Alternância de tema
-    (function () {
-      const btn = document.getElementById('themeBtn');
-      if(!btn) return;
-      const root = document.documentElement;
-      const KEY = 'cwlee-theme';
-      const saved = localStorage.getItem(KEY) || 'system';
-      root.setAttribute('data-theme', saved);
-      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') || 'system';
-        const next = nextTheme(current);
-        root.setAttribute('data-theme', next);
-        localStorage.setItem(KEY, next);
-        btn.textContent = '🌗';
-      });
-    })();
-  </script>
+  
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

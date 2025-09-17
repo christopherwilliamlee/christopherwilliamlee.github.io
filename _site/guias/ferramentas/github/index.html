@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> — Guias</title>
+  <title>Tutorial rápido do GitHub — Guias</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/css/guides.css" />
   <link
     rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
-  />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"/>
 </head>
 <body><!-- HEADER -->
   <header>
@@ -37,85 +36,238 @@
     <section class="guides-shell">
       <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
-        <div class="side-group">
-          <h3>Ferramentas</h3>
+        <details class="side-group" open>
+          <summary>Ferramentas</summary>
           <a href="/guias/ferramentas/kraken2/" class="side-item ">Kraken2</a>
           <a href="/guias/ferramentas/qiime2/" class="side-item ">QIIME2</a>
           <a href="/guias/ferramentas/biobakery/" class="side-item ">BioBakery</a>
           <a href="/guias/ferramentas/sra_tools/" class="side-item ">SRA-Tools</a>
           <a href="/guias/ferramentas/git/" class="side-item ">Git</a>
           <a href="/guias/ferramentas/github/" class="side-item active">Github</a>
-        </div>
+          <a href="/guias/ferramentas/fastp/" class="side-item ">FASTP</a>
+        </details>
 
-        <div class="side-group">
-          <h3>Ambientes e workflow</h3>
+        <details class="side-group" open>
+          <summary>Aparadores</summary>
+          <a href="/guias/aparadores/trimgalore/" class="side-item ">Trimgalore</a>
+          <a href="/guias/aparadores/trimmomatic/" class="side-item ">Trimmomatic</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Ambientes e workflow</summary>
           <a href="/guias/ambientes/anaconda/" class="side-item ">Anaconda</a>
           <a href="/guias/ambientes/snakemake/" class="side-item ">Snakemake</a>
           <a href="/guias/ambientes/nextflow/" class="side-item ">Nextflow</a>
           <a href="/guias/ambientes/docker/" class="side-item ">Docker</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Conversor de arquivos</h3>
+        <details class="side-group">
+          <summary>Conversor de arquivos</summary>
           <a href="/guias/conversores/bcl2fastq/" class="side-item ">BCL2fastq</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Plataforma</h3>
+        <details class="side-group">
+          <summary>Plataforma</summary>
           <a href="/guias/plataforma/wsl/" class="side-item ">WSL</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Qualidade de dados</h3>
-          <a href="/guias/qualidade/fastq/" class="side-item ">FASTQ</a>
-          <a href="/guias/qualidade/fastp/" class="side-item ">FASTP</a>
+        <details class="side-group">
+          <summary>Qualidade de dados</summary>
+          <a href="/guias/qualidade/fastqc/" class="side-item ">FASTQC</a>
           <a href="/guias/qualidade/falco/" class="side-item ">FALCO</a>
-        </div>
-        <div class="side-group">
-          <h3>Meus projetos</h3>
+          <a href="/guias/qualidade/multiqc/" class="side-item ">MULTIQC</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Meus projetos</summary>
           <a href="/guias/meus_projetos/google_sheets/" class="side-item ">Google Sheets</a>
-        </div>
-        <div class="side-group">
-          <h3>Bitcoin</h3>
+        </details>
+
+        <details class="side-group">
+          <summary>Bitcoin</summary>
           <a href="/guias/bitcoin/bluewallet/" class="side-item ">Bluewallet</a>
-        </div>
+        </details>
       </aside>
+
 
       <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
-        <h1></h1>
-        
+        <h1>Tutorial rápido do GitHub</h1>
+        <p><img src="/assets/img/github/github_logo.jpg" alt="GitHub _logo" /></p>
+
+<h1 id="tutorial-rápido-do-github"><u>Tutorial rápido do GitHub</u></h1>
+
+<p>
+  Fala pessoal, hoje eu vou mostrar o <strong>básico do GitHub</strong>.<br />
+  Se o Git é a máquina do tempo dos seus projetos, o GitHub é a “nuvem” onde você guarda e compartilha essa máquina do tempo com o mundo.
+</p>
+
+<p>
+  É nele que você vai criar repositórios, trabalhar em equipe e ainda mostrar seus projetos pro universo. 🌍🚀
+</p>
+
+<p><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWc4NXZucTMxbDd4ZnZ6bGk1ejVkYXVvNGE2b2N2Y3oyb3RxbmczbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/78XCFBGOlS6keY1Bil/giphy.gif" alt="gif" width="220" style="display:block; margin:1rem auto;" /></p>
+
+<p>O que você vai precisar <u>antes</u>:</p>
+
+<ul>
+  <li><a href="/guias/plataforma/wsl/" target="_blank"><strong>WSL/Ubuntu</strong> configurado</a></li>
+  <li><a href="/guias/ferramentas/git/" target="_blank"><strong>Git instalado</strong></a></li>
+  <li>Conta no <a href="https://github.com" target="_blank"><strong>GitHub</strong></a></li>
+</ul>
+
+<hr />
+
+<h2 id="passo-a-passo">Passo a passo</h2>
+<ol>
+  <li><a href="#conta">Criando sua conta</a></li>
+  <li><a href="#repositorio">Criando um repositório</a></li>
+  <li><a href="#ligando">Ligando seu Git local ao GitHub</a></li>
+  <li><a href="#push">Primeiro push</a></li>
+  <li><a href="#erros">Erros comuns</a></li>
+</ol>
+
+<hr />
+
+<h2 id="conta">1. Criando sua conta</h2>
+
+<p><img src="/assets/img/github/github_1.png" alt="GH_1" /></p>
+
+<ol>
+  <li>Acesse <a href="https://github.com" target="_blank">github.com</a>.</li>
+  <li>Clique em <strong>Sign up</strong>.</li>
+  <li>Escolha um nome de usuário (será seu endereço no GitHub).</li>
+  <li>Informe seu e-mail e senha.</li>
+  <li>Confirme sua conta pelo e-mail enviado.</li>
+</ol>
+
+<p>Pronto, você já tem uma conta no GitHub!</p>
+
+<hr />
+
+<h2 id="repositorio">2. Criando um repositório</h2>
+
+<p><img src="/assets/img/github/github_2.png" alt="GH_2" /></p>
+
+<ol>
+  <li>No canto superior direito, clique em <strong>+ → New repository</strong>.</li>
+</ol>
+
+<p><img src="/assets/img/github/github_3.png" alt="GH_3" /></p>
+<ol>
+  <li>Escolha o nome do repositório (ex.: <code>meu_projeto</code>).</li>
+  <li>Marque se será público ou privado (deixe público por enquanto).</li>
+</ol>
+
+<p><img src="/assets/img/github/github_4.png" alt="GH_4" /></p>
+<ol>
+  <li>Clique em <strong>Create repository</strong>.</li>
+</ol>
+
+<hr />
+
+<h2 id="ligando">3. Ligando seu Git local ao GitHub</h2>
+
+<p>No terminal, dentro da pasta do seu projeto:</p>
+
+<pre>
+git remote add origin https://github.com/usuario/meu_projeto.git
+git branch -M main
+</pre>
+
+<p>Esse comando conecta o repositório que você criou no GitHub com o seu projeto local.</p>
+
+<blockquote class="info">
+<strong>HTTPS vs SSH:</strong> você pode usar HTTPS (mais simples no começo) ou configurar chaves SSH para não precisar digitar token sempre.
+</blockquote>
+
+<hr />
+
+<h2 id="push">4. Primeiro push</h2>
+
+<p>Agora basta enviar seus arquivos para o GitHub:</p>
+
+<pre>
+git push -u origin main
+</pre>
+
+<p>Se tudo deu certo, seus arquivos já estão no GitHub!<br />
+Entre no site e veja seu repositório.</p>
+
+<hr />
+<h2 id="erros">5. Erros comuns</h2>
+
+<p>Alguns perrengues que você provavelmente vai encontrar no começo:</p>
+
+<ul>
+  <li>
+    <p><strong>Erro:</strong> <code style="color:red"><strong>fatal: Authentication failed</strong></code><br />
+O GitHub não aceita mais login com senha via HTTPS.<br />
+<strong>Solução:</strong> crie um <em>Personal Access Token (PAT)</em> e use no lugar da senha.<br />
+<a href="https://docs.github.com/pt/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank">Como gerar um token</a></p>
+  </li>
+  <li><strong>Erro:</strong> <code style="color:red"><strong>Permission denied (publickey)</strong></code><br />
+Tentando usar SSH sem chave configurada.<br />
+<strong>Solução:</strong> gere uma chave e adicione ao GitHub:
+    <pre>ssh-keygen -t ed25519 -C "seu@email.com"</pre>
+    <p>Depois adicione a chave pública em <em>Settings → SSH and GPG keys</em>.</p>
+  </li>
+  <li><strong>Erro:</strong> <code style="color:red"><strong>repository not found</strong></code><br />
+O link do remoto está errado ou você não tem acesso.<br />
+<strong>Solução:</strong> verifique a URL no GitHub e rode:
+    <pre>git remote set-url origin https://github.com/usuario/repositorio.git</pre>
+  </li>
+  <li><strong>Erro:</strong> <code style="color:red"><strong>Updates were rejected</strong></code> / <code style="color:red"><strong>failed to push some refs</strong></code><br />
+O repositório remoto já tem commits que não estão no seu.<br />
+<strong>Solução:</strong>
+    <pre>git pull --rebase origin main</pre>
+    <p>Depois, tente o <code>git push</code> novamente.</p>
+  </li>
+</ul>
+
+<hr />
+
+<p><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzBhZWo2M3J3OWE3Zm0yc29nczduZGFqdTl2MWw2bHRzcDVkZ216dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cnhpl4IeYgU7MCBdV2/giphy.gif" alt="gif" width="200" style="display:block; margin:1rem auto;" /></p>
+
+<p>
+  E é isso!<br />
+  Com o GitHub você consegue mostrar seus projetos, trabalhar em equipe e guardar o histórico na nuvem.<br />
+  Daqui pra frente é só evoluir.
+</p>
+
+<hr />
+
+<p>Dê um suporte ao meu projeto. Doe um cafézinho ☕.<br />
+Pix: biologolee@gmail.com<br />
+Bitcoin: bc1qg7qrfhclzt3sm60en53qv8fmwpuacfaxt5v55k</p>
+
+<p><img src="/assets/img/meus_projetos/bluewallet_qrcode.png" alt="QR Code" /></p>
+
+<hr />
+
+<h1 id="referências">Referências</h1>
+
+<ol>
+  <li><a href="https://github.com" target="_blank">Site oficial do GitHub</a></li>
+  <li><a href="https://docs.github.com/pt/get-started/quickstart" target="_blank">Guia rápido do GitHub Docs</a></li>
+</ol>
 
       </section>
     </section>
   </main>
 
+  <button id="btn-top" aria-label="Voltar ao topo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 4l-7 7h4v9h6v-9h4z"/>
+    </svg>
+    <span class="tooltip">Voltar ao topo</span>
+  </button>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
   </footer>
-
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Alternância de tema
-    (function () {
-      const btn = document.getElementById('themeBtn');
-      if(!btn) return;
-      const root = document.documentElement;
-      const KEY = 'cwlee-theme';
-      const saved = localStorage.getItem(KEY) || 'system';
-      root.setAttribute('data-theme', saved);
-      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') || 'system';
-        const next = nextTheme(current);
-        root.setAttribute('data-theme', next);
-        localStorage.setItem(KEY, next);
-        btn.textContent = '🌗';
-      });
-    })();
-  </script>
+  
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

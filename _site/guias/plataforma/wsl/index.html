@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="/assets/css/guides.css" />
   <link
     rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
-  />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"/>
 </head>
 <body><!-- HEADER -->
   <header>
@@ -37,75 +36,108 @@
     <section class="guides-shell">
       <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
-        <div class="side-group">
-          <h3>Ferramentas</h3>
+        <details class="side-group" open>
+          <summary>Ferramentas</summary>
           <a href="/guias/ferramentas/kraken2/" class="side-item ">Kraken2</a>
           <a href="/guias/ferramentas/qiime2/" class="side-item ">QIIME2</a>
           <a href="/guias/ferramentas/biobakery/" class="side-item ">BioBakery</a>
           <a href="/guias/ferramentas/sra_tools/" class="side-item ">SRA-Tools</a>
           <a href="/guias/ferramentas/git/" class="side-item ">Git</a>
           <a href="/guias/ferramentas/github/" class="side-item ">Github</a>
-        </div>
+          <a href="/guias/ferramentas/fastp/" class="side-item ">FASTP</a>
+        </details>
 
-        <div class="side-group">
-          <h3>Ambientes e workflow</h3>
+        <details class="side-group" open>
+          <summary>Aparadores</summary>
+          <a href="/guias/aparadores/trimgalore/" class="side-item ">Trimgalore</a>
+          <a href="/guias/aparadores/trimmomatic/" class="side-item ">Trimmomatic</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Ambientes e workflow</summary>
           <a href="/guias/ambientes/anaconda/" class="side-item ">Anaconda</a>
           <a href="/guias/ambientes/snakemake/" class="side-item ">Snakemake</a>
           <a href="/guias/ambientes/nextflow/" class="side-item ">Nextflow</a>
           <a href="/guias/ambientes/docker/" class="side-item ">Docker</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Conversor de arquivos</h3>
+        <details class="side-group">
+          <summary>Conversor de arquivos</summary>
           <a href="/guias/conversores/bcl2fastq/" class="side-item ">BCL2fastq</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Plataforma</h3>
+        <details class="side-group">
+          <summary>Plataforma</summary>
           <a href="/guias/plataforma/wsl/" class="side-item active">WSL</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Qualidade de dados</h3>
-          <a href="/guias/qualidade/fastq/" class="side-item ">FASTQ</a>
-          <a href="/guias/qualidade/fastp/" class="side-item ">FASTP</a>
+        <details class="side-group">
+          <summary>Qualidade de dados</summary>
+          <a href="/guias/qualidade/fastqc/" class="side-item ">FASTQC</a>
           <a href="/guias/qualidade/falco/" class="side-item ">FALCO</a>
-        </div>
-        <div class="side-group">
-          <h3>Meus projetos</h3>
+          <a href="/guias/qualidade/multiqc/" class="side-item ">MULTIQC</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Meus projetos</summary>
           <a href="/guias/meus_projetos/google_sheets/" class="side-item ">Google Sheets</a>
-        </div>
-        <div class="side-group">
-          <h3>Bitcoin</h3>
+        </details>
+
+        <details class="side-group">
+          <summary>Bitcoin</summary>
           <a href="/guias/bitcoin/bluewallet/" class="side-item ">Bluewallet</a>
-        </div>
+        </details>
       </aside>
+
 
       <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
         <h1>Tutorial de instalação do Windows Subsystem for Linux (WSL)</h1>
         <p><img src="/assets/img/wsl/wsl_logo_1.png" alt="Etapa - 15 WSL" /></p>
 
-<h1 id="instalação-do-wsl-windows-subsystem-for-linux-no-windows">Instalação do WSL (Windows Subsystem for Linux) no Windows</h1>
+<h1 id="instalação-do-wsl-windows-subsystem-for-linux-no-windows"><u>Instalação do WSL (Windows Subsystem for Linux) no Windows</u></h1>
 
-<p>Fala pessoal, aqui eu vou ensinar vocês a instalarem o WSL na máquina de vocês. É extremamente útil pra quem não quer trabalhar com dual boot ou máquina virtual (virtual box). Eu mesmo já tentei trabalhar com o ubuntu como sistema operacional principal, só que não foi porque foi uma coisa de outro mundo. É porque existem alguns softwares que não são utilizáveis no ubuntu ou até mesmo jogos (quem não gosta de um GTAV ou até mesmo um lolzinho, né?). Por isso acho muito mais viável trabalhar com o WSL que qualquer outra coisa. Nesse tutorial você vai aprender a fazer a instalação do WSL no SO windows. É bem simples! E nooooo…. como faz diferença!<br /></p>
+<p style="text-align: justify">
+  Fala pessoal, aqui eu vou ensinar vocês a instalarem o <strong>WSL</strong> na máquina de vocês.  
+  Ele é extremamente útil pra quem não quer trabalhar com dual boot ou máquina virtual.  
+  Eu mesmo já tentei usar o Ubuntu como sistema principal, mas tive problemas com alguns softwares e jogos (quem nunca, né?).  
+  Por isso, acho muito mais viável trabalhar com o WSL.  
+  Nesse tutorial você vai aprender a instalar o WSL no Windows. É bem simples e, sério, faz muita diferença!
+</p>
 
-<p><img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXZkNndpenJjNjhkM3BtcHUwdm14ejM5OHNldWk5ZDZxb2ZoMnU3YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEduZtPOv5OSecubu/giphy.gif" alt="gif" width="200" /></p>
+<p><img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXZkNndpenJjNjhkM3BtcHUwdm14ejM5OHNldWk5ZDZxb2ZoMnU3YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEduZtPOv5OSecubu/giphy.gif" alt="gif" width="220" style="display:block; margin:auto;" /></p>
 
-<p>Mas primeiramente…<br /></p>
-<h1 id="o-que-é-o-wsl">O que é o WSL?</h1>
-<p>O WSL <strong>(Windows Subsystem for Linux)</strong> permite rodar distribuições Linux diretamente no Windows, sem precisar de máquina virtual ou dual boot.<br />
-É extremamente útil para bioinformática e desenvolvimento, pois você pode usar o Ubuntu com as ferramentas de linha de comando e ainda manter seus programas do Windows.</p>
+<p>O que você vai precisar <u>antes</u>:</p>
+
+<ul>
+  <li><strong>Windows 10 versão 2004 (Build 19041)</strong> ou superior</li>
+  <li><strong>Conta de administrador no Windows</strong></li>
+  <li><strong>Conexão com internet</strong> para baixar pacotes</li>
+</ul>
+
+<hr />
+
+<h1 id="o-que-é-o-wsl"><u>O que é o WSL?</u></h1>
+
+<p>
+  O <strong>WSL (Windows Subsystem for Linux)</strong> permite rodar distribuições Linux diretamente no Windows, sem precisar de máquina virtual ou dual boot.  
+  É extremamente útil para bioinformática e desenvolvimento, pois você pode usar o Ubuntu com as ferramentas de linha de comando e ainda manter seus programas do Windows.
+</p>
+
+<hr />
 
 <h2 id="passo-a-passo">Passo a passo</h2>
 <ol>
-  <li>Verificar versão do Windows</li>
-  <li>Instalar o WSL</li>
-  <li>Ativar o WSL</li>
-  <li>Criar um username e password</li>
+  <li><a href="#verificar-versao">Verificar versão do Windows</a></li>
+  <li><a href="#instalar-wsl">Instalar o WSL</a></li>
+  <li><a href="#cadastrar-login">Cadastrar login e senha</a></li>
+  <li><a href="#ativar-wsl">Ativar o WSL (caso dê erro)</a></li>
+  <li><a href="#erros">Erros comuns</a></li>
 </ol>
 
-<h1 id="1-verifique-a-versão-do-windows">1. Verifique a versão do windows</h1>
+<hr />
+
+<h2 id="verificar-versao">1. Verificar versão do Windows</h2>
 
 <p>O WSL 2 funciona a partir do <strong>Windows 10 versão 2004 (Build 19041)</strong> ou superior. Para verificar, pressione:</p>
 
@@ -115,105 +147,139 @@
 
 <p><img src="/assets/img/wsl/wsl_1.png" alt="WSL 1" /></p>
 
-<h1 id="2-instalar-o-wsl">2. Instalar o WSL</h1>
+<hr />
 
-<p>Esse passo é bem simples, consiste apenas em entrar no site <a href="https://ubuntu.com/desktop/wsl" target="_blank">Ubuntu</a>.</p>
+<h2 id="instalar-wsl">2. Instalar o WSL</h2>
 
-<p>Depois de ter acessado o site clique em <strong>Download Ubuntu on WSL</strong>.<br /></p>
+<p>Acesse o site oficial do <a href="https://ubuntu.com/desktop/wsl" target="_blank">Ubuntu</a>.<br />
+Clique em <strong>Download Ubuntu on WSL</strong>.</p>
 
 <p><img src="/assets/img/wsl/wsl_2.png" alt="WSL 2" /></p>
 
-<p>Localize o arquivo baixado (geralmente está em downloads).<br /></p>
+<p>Localize o arquivo baixado (geralmente na pasta Downloads).</p>
 
 <p><img src="/assets/img/wsl/wsl_3.png" alt="WSL 3" /></p>
 
-<p>Clique duas vezes sobre o instalador</p>
+<p>Clique duas vezes sobre o instalador:</p>
 
-<p><img src="/assets/img/wsl/wsl_4.png" alt="WSL 4" />
-Ele começará a instalar sozinho</p>
+<p><img src="/assets/img/wsl/wsl_4.png" alt="WSL 4" /></p>
 
-<p><img src="/assets/img/wsl/wsl_5.png" alt="WSL 5" />
-<strong><u style="color:red">Para ser sincero, eu não tenho muita certeza se aqui nessa parte continua da mesma forma.</u></strong> Eu instalei o meu wsl há muito tempo e como era uma versão mais antiga algo pode ter mudado. Mas não se preocupe, se algo der errado aqui, você pode pular para a etapa 5.</p>
+<p>Ele começará a instalar automaticamente.</p>
 
-<h2 id="3-cadastrar-login-e-senha">3. Cadastrar login e senha</h2>
+<p><img src="/assets/img/wsl/wsl_5.png" alt="WSL 5" /></p>
 
-<p><img src="/assets/img/wsl/wsl_6.png" alt="Arquivo de instalação baixado" />
-Ao finalizar, ele pedirá para que você insira o nome do usuário e a senha. Note que ao digitar a senha, você não verá a senha sendo digitada, portanto, lembre-se do que você está digitando. Caso não lembre, aperte o backspace como nunca (claro que não precisa ser para sempre, mas aperte o suficiente para apagar tudo aquilo que você escreveu).</p>
+<blockquote class="info">
+<strong>Nota:</strong> Algumas telas podem ter mudado nas versões mais recentes do WSL.  
+Se algo der errado aqui, pule para a etapa <a href="#ativar-wsl">Ativar o WSL</a>.
+</blockquote>
 
-<p><img src="/assets/img/wsl/wsl_7.png" alt="Arquivo de instalação baixado" />
-Note que aqui ele dirá:</p>
+<hr />
+
+<h2 id="cadastrar-login">3. Cadastrar login e senha</h2>
+
+<p><img src="/assets/img/wsl/wsl_6.png" alt="Arquivo de instalação baixado" /></p>
+
+<p>Ao finalizar, o Ubuntu pedirá que você insira um nome de usuário e senha.</p>
+<blockquote class="info">
+A senha não aparece na tela quando digitada, mas está sendo registrada. Digite com atenção!
+</blockquote>
+
+<p><img src="/assets/img/wsl/wsl_7.png" alt="Arquivo de instalação baixado" /></p>
+
+<p>Se aparecer a mensagem:</p>
+
 <pre>passwd: password updated successfully</pre>
 
-<p>Isso indica que deu tudo certo! Agora você está pronto para utilizar.</p>
+<p>Pronto! Seu WSL está pronto para uso.</p>
 
-<h2 id="4-ativar-o-wsl-etapa-adicional">4. Ativar o WSL (Etapa adicional)</h2>
+<hr />
 
-<p>Você precisará apenas seguir nessa etapa se deu algum problema nas etapas anteriores.</p>
+<h2 id="ativar-wsl">4. Ativar o WSL (Etapa adicional)</h2>
 
-<p><img src="/assets/img/wsl/wsl_8.png" alt="Etapa - 8 WSL" />
-Abra a lupa do windows ou aperte a tecla windows e digite:</p>
-<pre>powershell</pre>
+<p>Caso as etapas anteriores não funcionem, siga este processo:</p>
 
-<p>Clique com o botão direito em cima do ícone do <em>Windows PowerShell</em> e execute como administrador.</p>
+<p><img src="/assets/img/wsl/wsl_8.png" alt="Etapa - 8 WSL" /><br />
+Pesquise por <code>powershell</code>, clique com o botão direito e execute como administrador.</p>
 
-<p><img src="/assets/img/wsl/wsl_9.png" alt="Etapa - 9 WSL" />
-O powershell irá abrir. Agora digite:</p>
+<p><img src="/assets/img/wsl/wsl_9.png" alt="Etapa - 9 WSL" /><br />
+No PowerShell, rode:</p>
 
 <pre>wsl --install</pre>
-
-<p>Ele começará a instalar. Assim que terminar, feche o <em>powershell</em>.</p>
 
 <p><img src="/assets/img/wsl/wsl_10.png" alt="Etapa - 10 WSL" /></p>
 
-<p>Agora vá de novo até a lupa do windows e digite:</p>
+<p>Depois, vá no <strong>Painel de Controle → Programas → Ativar ou desativar recursos do Windows</strong>.</p>
 
-<pre>painel de controle</pre>
+<p><img src="/assets/img/wsl/wsl_11.png" alt="Etapa - 11 WSL" /><br />
+<img src="/assets/img/wsl/wsl_12.png" alt="Etapa - 12 WSL" /></p>
 
-<p>Clique em cima de programas.</p>
+<p>Ative a opção <strong>Subsistema do Windows para Linux</strong>.<br />
+Reinicie o computador e procure por <strong>Ubuntu</strong> no menu iniciar.</p>
 
-<p><img src="/assets/img/wsl/wsl_11.png" alt="Etapa - 11 WSL" /></p>
+<hr />
 
-<p>Abrindo a pasta de Programas, clique em ativar ou desativar recursos do Windows.</p>
+<h2 id="erros">5. Erros comuns</h2>
 
-<p><img src="/assets/img/wsl/wsl_12.png" alt="Etapa - 12 WSL" /></p>
+<ul>
+  <li>Erro 0x80070002
+<img src="/assets/img/wsl/wsl_13.png" alt="Etapa - 13 WSL" /></li>
+</ul>
 
-<p>Uma janela chamada Recursos do windows irá abrir. Procure pela opção Subsistema do Windows para Linux e ative-a.</p>
-
-<p>Pronto. Reinicie o computador e assim que reiniciar, procure por <strong>Ubuntu</strong> no menu iniciar e inicie o terminal. Agora ele está pronto para ser usado.</p>
-
-<h2 id="5-erros-comuns">5. Erros comuns</h2>
-
-<h3 id="erro-0x80070002">Erro 0x80070002</h3>
-<p><img src="/assets/img/wsl/wsl_13.png" alt="Etapa - 13 WSL" />
-Causa: O Windows não consegue encontrar os arquivos necessários para a instalação. Solução:</p>
+<p>Causa: O Windows não encontra os arquivos necessários.<br />
+Solução:</p>
 <pre>wsl --install</pre>
-<p>Verifique se o Windows está atualizado. Reinicie o PC e tente novamente.</p>
+<p>Atualize o Windows, reinicie o PC e tente novamente.</p>
 
-<h3 id="erro-0x800701bc">Erro 0x800701bc</h3>
-<p><img src="/assets/img/wsl/wsl_14.png" alt="Etapa - 14 WSL" /></p>
+<hr />
 
-<p>Causa: A versão do WSL requer um kernel atualizado. Solução:
-Baixe e instale o kernel mais recente: https://aka.ms/wsl2kerne
+<ul>
+  <li>Erro 0x800701bc
+<img src="/assets/img/wsl/wsl_14.png" alt="Etapa - 14 WSL" /></li>
+</ul>
+
+<p>Causa: Kernel do WSL desatualizado.<br />
+Solução:<br />
+Baixe o kernel mais recente: <a href="https://aka.ms/wsl2kernel" target="_blank">https://aka.ms/wsl2kernel</a><br />
 Reinicie o PC e tente novamente.</p>
 
-<h3 id="erro-0x80370102">Erro 0x80370102</h3>
-<p><img src="/assets/img/wsl/wsl_15.png" alt="Etapa - 15 WSL" /></p>
+<hr />
 
-<p>Causa: O WSL 2 exige que a virtualização esteja habilitada no BIOS. Solução:
-Habilite a virtualização no BIOS (Intel VT-x ou AMD-V).
-Ative os recursos do Windows:
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart Reinicie o PC e tente novamente.</p>
+<ul>
+  <li>Erro 0x80370102
+<img src="/assets/img/wsl/wsl_15.png" alt="Etapa - 15 WSL" /></li>
+</ul>
+
+<p>Causa: Virtualização não habilitada no BIOS.<br />
+Solução:<br />
+Habilite Intel VT-x ou AMD-V no BIOS.<br />
+Ative também os recursos do Windows com:</p>
+<pre>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart</pre>
+<p>Reinicie o PC e tente novamente.</p>
 
 <hr />
 
-<p>Espero que vocês valorizem esse trabalho aqui. Pra poder fazer esse tutorial do 0, eu fiz a cagada de desinstalar o wsl e foi tudo pro beleléu. Perdi todos os meus projetos. A minha sorte é que a maioria tava escrito no github.<br /></p>
+<p>
+Espero que vocês valorizem esse trabalho aqui.  
+Pra fazer esse tutorial do zero, eu precisei reinstalar o WSL e acabei perdendo meus projetos locais.  
+Ainda bem que a maioria estava no GitHub! 😅  
+Boa sorte na jornada de vocês e qualquer dúvida, podem me enviar e-mail.
+</p>
 
-<p>Boa sorte na jornada de vocês e qualquer coisa que precisarem podem me enviar e-mail.</p>
+<p>Até a próxima!</p>
 
-<p>Até a próxima!<br />
-<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXpybmFyM2EzYmgxcDdwMHVpajExcjJ1aWp0dnh1OXRvZXhyM3lveSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J3CbFgn5o7DGRuE/giphy.gif" alt="gif" width="250" /></p>
+<p><img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXpybmFyM2EzYmgxcDdwMHVpajExcjJ1aWp0dnh1OXRvZXhyM3lveSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J3CbFgn5o7DGRuE/giphy.gif" alt="gif" width="250" style="display:block; margin:auto;" /></p>
 
 <hr />
+
+<p>Se curtiu, dá aquele apoio no <a href="https://www.linkedin.com/in/christopher-lee-390643197/" target="_blank">LinkedIn</a> e considere um cafézinho ☕ para manter o projeto vivo. Valeu!</p>
+
+<p>Pix: <a href="mailto:biologolee@gmail.com">biologolee@gmail.com</a><br />
+Bitcoin: bc1qg7qrfhclzt3sm60en53qv8fmwpuacfaxt5v55k</p>
+
+<p><img src="/assets/img/meus_projetos/bluewallet_qrcode.png" alt="QR Code" /></p>
+
+<hr />
+
 <h2 id="referências">Referências</h2>
 
 <ol>
@@ -225,32 +291,18 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
     </section>
   </main>
 
+  <button id="btn-top" aria-label="Voltar ao topo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 4l-7 7h4v9h6v-9h4z"/>
+    </svg>
+    <span class="tooltip">Voltar ao topo</span>
+  </button>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
   </footer>
-
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Alternância de tema
-    (function () {
-      const btn = document.getElementById('themeBtn');
-      if(!btn) return;
-      const root = document.documentElement;
-      const KEY = 'cwlee-theme';
-      const saved = localStorage.getItem(KEY) || 'system';
-      root.setAttribute('data-theme', saved);
-      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') || 'system';
-        const next = nextTheme(current);
-        root.setAttribute('data-theme', next);
-        localStorage.setItem(KEY, next);
-        btn.textContent = '🌗';
-      });
-    })();
-  </script>
+  
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

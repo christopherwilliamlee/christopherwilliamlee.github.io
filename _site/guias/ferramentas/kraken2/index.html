@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="/assets/css/guides.css" />
   <link
     rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
-  />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"/>
 </head>
 <body><!-- HEADER -->
   <header>
@@ -37,49 +36,59 @@
     <section class="guides-shell">
       <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
-        <div class="side-group">
-          <h3>Ferramentas</h3>
+        <details class="side-group" open>
+          <summary>Ferramentas</summary>
           <a href="/guias/ferramentas/kraken2/" class="side-item active">Kraken2</a>
           <a href="/guias/ferramentas/qiime2/" class="side-item ">QIIME2</a>
           <a href="/guias/ferramentas/biobakery/" class="side-item ">BioBakery</a>
           <a href="/guias/ferramentas/sra_tools/" class="side-item ">SRA-Tools</a>
           <a href="/guias/ferramentas/git/" class="side-item ">Git</a>
           <a href="/guias/ferramentas/github/" class="side-item ">Github</a>
-        </div>
+          <a href="/guias/ferramentas/fastp/" class="side-item ">FASTP</a>
+        </details>
 
-        <div class="side-group">
-          <h3>Ambientes e workflow</h3>
+        <details class="side-group" open>
+          <summary>Aparadores</summary>
+          <a href="/guias/aparadores/trimgalore/" class="side-item ">Trimgalore</a>
+          <a href="/guias/aparadores/trimmomatic/" class="side-item ">Trimmomatic</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Ambientes e workflow</summary>
           <a href="/guias/ambientes/anaconda/" class="side-item ">Anaconda</a>
           <a href="/guias/ambientes/snakemake/" class="side-item ">Snakemake</a>
           <a href="/guias/ambientes/nextflow/" class="side-item ">Nextflow</a>
           <a href="/guias/ambientes/docker/" class="side-item ">Docker</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Conversor de arquivos</h3>
+        <details class="side-group">
+          <summary>Conversor de arquivos</summary>
           <a href="/guias/conversores/bcl2fastq/" class="side-item ">BCL2fastq</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Plataforma</h3>
+        <details class="side-group">
+          <summary>Plataforma</summary>
           <a href="/guias/plataforma/wsl/" class="side-item ">WSL</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Qualidade de dados</h3>
-          <a href="/guias/qualidade/fastq/" class="side-item ">FASTQ</a>
-          <a href="/guias/qualidade/fastp/" class="side-item ">FASTP</a>
+        <details class="side-group">
+          <summary>Qualidade de dados</summary>
+          <a href="/guias/qualidade/fastqc/" class="side-item ">FASTQC</a>
           <a href="/guias/qualidade/falco/" class="side-item ">FALCO</a>
-        </div>
-        <div class="side-group">
-          <h3>Meus projetos</h3>
+          <a href="/guias/qualidade/multiqc/" class="side-item ">MULTIQC</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Meus projetos</summary>
           <a href="/guias/meus_projetos/google_sheets/" class="side-item ">Google Sheets</a>
-        </div>
-        <div class="side-group">
-          <h3>Bitcoin</h3>
+        </details>
+
+        <details class="side-group">
+          <summary>Bitcoin</summary>
           <a href="/guias/bitcoin/bluewallet/" class="side-item ">Bluewallet</a>
-        </div>
+        </details>
       </aside>
+
 
       <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
@@ -90,32 +99,18 @@
     </section>
   </main>
 
+  <button id="btn-top" aria-label="Voltar ao topo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 4l-7 7h4v9h6v-9h4z"/>
+    </svg>
+    <span class="tooltip">Voltar ao topo</span>
+  </button>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
   </footer>
-
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Alternância de tema
-    (function () {
-      const btn = document.getElementById('themeBtn');
-      if(!btn) return;
-      const root = document.documentElement;
-      const KEY = 'cwlee-theme';
-      const saved = localStorage.getItem(KEY) || 'system';
-      root.setAttribute('data-theme', saved);
-      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') || 'system';
-        const next = nextTheme(current);
-        root.setAttribute('data-theme', next);
-        localStorage.setItem(KEY, next);
-        btn.textContent = '🌗';
-      });
-    })();
-  </script>
+  
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

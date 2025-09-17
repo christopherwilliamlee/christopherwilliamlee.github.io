@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="system">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Christopher William Lee — Portfólio</title>
 
-    <meta
-      name="description"
-      content="Portfólio de Christopher William Lee — Bioinformática, Python, R, Genômica e projetos de dados."
-    />
+    <title>Christopher William Lee — Portfólio</title>
+    <meta name="description" content="Portfólio de Christopher William Lee — Bioinformática, Python, R, Genômica e projetos de dados." />
+
+    <!-- Social -->
     <meta property="og:title" content="Christopher William Lee — Portfólio" />
-    <meta
-      property="og:description"
-      content="Bioinformática, Python, R, Genômica e projetos de dados."
-    />
+    <meta property="og:description" content="Bioinformática, Python, R, Genômica e projetos de dados." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/img/og_image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Preferências de cor para UA -->
     <meta name="color-scheme" content="light dark" />
 
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
-    />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>" />
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
 
   <body>
+    <!-- Skip link -->
+    <a href="#home" class="sr-only-focusable" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+      Ir para o conteúdo principal
+    </a>
+
     <header>
       <div class="container nav">
         <a class="brand" href="#home" aria-label="Página inicial">
@@ -37,6 +39,7 @@
           <a href="#publicacoes">Publicações</a>
           <a href="#sobre">Sobre</a>
           <a href="#contato">Contato</a>
+          <a href="#eventos">Eventos</a>
           <a href="/guias/">Guias</a>
           <button
             class="theme-toggle"
@@ -44,9 +47,7 @@
             type="button"
             title="Alternar tema"
             aria-label="Alternar tema claro/escuro/sistema"
-          >
-            🌗
-          </button>
+          >🌗</button>
         </nav>
       </div>
     </header>
@@ -57,55 +58,23 @@
         <div>
           <span class="badge">Bioinformática • Genômica • Python</span>
           <h1>Análises Metagenômicas, Pipelines e Visualização de Dados</h1>
-          <p>
-            Sou bioinformata focado em metagenômica, variantes genéticas e
-            automações. Aqui você encontra projetos, tutoriais e um pouco sobre
-            mim.
-          </p>
+          <p>Sou bioinformata focado em metagenômica, variantes genéticas e automações. Aqui você encontra projetos, tutoriais e um pouco sobre mim.</p>
 
-          <div
-            class="actions"
-            style="flex-direction: column; gap: 16px; align-items: flex-start"
-          >
+          <div class="actions actions--column">
             <a class="btn" href="#projetos">🚀 Ver projetos</a>
-
-            <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <div class="actions__row">
               <a class="btn ghost" href="/kraken-guide/">Guia: Kraken2 →</a>
               <a class="btn ghost" href="/qiime2-guide/">Guia: QIIME2 →</a>
               <a class="btn ghost" href="/biobakery-guide/">Guia: BioBakery →</a>
             </div>
           </div>
 
-          <div class="chips" style="margin-top: 10px">
+          <div class="chips chips--wrap">
             <span class="chip">📍 Brasil</span>
-            <a
-              class="chip"
-              href="https://github.com/christopherwilliamlee"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-            <a
-              class="chip"
-              href="https://www.linkedin.com/in/christopher-lee-390643197/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >LinkedIn</a
-            >
-            <a
-              class="chip"
-              href="https://lattes.cnpq.br/5196836637403621"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Lattes</a
-            >
-            <a
-              class="chip"
-              href="https://medium.com/@krakenomics"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Medium</a
-            >
+            <a class="chip" href="https://github.com/christopherwilliamlee" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="chip" href="https://www.linkedin.com/in/christopher-lee-390643197/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="chip" href="https://lattes.cnpq.br/5196836637403621" target="_blank" rel="noopener noreferrer">Lattes</a>
+            <a class="chip" href="https://medium.com/@krakenomics" target="_blank" rel="noopener noreferrer">Medium</a>
           </div>
         </div>
 
@@ -115,25 +84,46 @@
               src="assets/img/minha_foto.jpg"
               alt="Foto de Christopher William Lee"
               class="profile-pic"
-              loading="lazy"
+              width="300" height="300"
+              decoding="async"
             />
 
             <div class="card">
               <h3>Stack rápida</h3>
               <div class="chips" aria-label="Competências principais">
-                <span class="chip">Kraken2</span>
-                <span class="chip">Bracken</span>
-                <span class="chip">Nextflow DSL2</span>
-                <span class="chip">Docker</span>
-                <span class="chip">Python</span>
-                <span class="chip">R</span>
-                <span class="chip">Bash</span>
-                <span class="chip">Google Sheets API</span>
+                <span class="chip">Kraken2</span><span class="chip">Bracken</span><span class="chip">MetaPhlAn4</span><span class="chip">QIIME2</span>
+                <span class="chip">Nextflow DSL2</span><span class="chip">Snakemake</span>
+                <span class="chip">Docker</span><span class="chip">Python</span>
+                <span class="chip">R</span><span class="chip">Bash</span>
+                <span class="chip">CSS</span><span class="chip">html</span>
+                <span class="chip">Google Sheets</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Sobre -->
+      <section id="sobre">
+        <h2>Sobre mim</h2>
+        <div class="card">
+          <p>
+            Bacharel em Ciências Biológicas e Mestre em Ciências (ênfase em genética, mutações e terapia gênica, 2020). 
+            Atualmente sou doutorando em Ciências Farmacêuticas pela UNICENTRO, vinculado ao projeto Genomas Paraná. 
+            Tenho experiência sólida em genética molecular, citogenética, análises clínicas, terapia celular e medicina regenerativa com células-tronco mesenquimais.
+          </p>
+          <p>
+            Atuo também na área de bioinformática aplicada à genômica e metagenômica, com foco em análises de microbiomas, anotação de genomas bacterianos e identificação de genes de resistência antimicrobiana. 
+            Desenvolvo e aplico pipelines automatizados que abrangem desde o pré-processamento de dados de sequenciamento até montagem, anotação funcional e visualização de genomas, utilizando R, Python e Bash em ambiente Linux.
+          </p>
+          <p>
+            Tenho ainda familiaridade com bancos de dados relacionais (PostgreSQL, MySQL) e desenvolvimento de soluções web. 
+            Sou proficiente no uso do Google Planilhas, explorando recursos avançados para automação, cruzamento e análise de dados de forma visual e integrada.
+          </p>
+          <p class="meta">Aberto a colaborações, consultorias e aulas práticas.</p>
+        </div>
+      </section>
+
 
       <!-- Projetos -->
       <section id="projetos">
@@ -142,13 +132,10 @@
         <div class="grid cards">
           <article class="card">
             <h3>KrakenSmith — pipeline para bancos customizados (Kraken2 &amp; Bracken)</h3>
-            <p>
-              Instalação, construção de bancos, classificação e visualização
-              (Krona).
-            </p>
+            <p>Instalação, construção de bancos, classificação e visualização (Krona).</p>
             <div class="meta">
               <span>Kraken2, Bracken</span>
-              <a href="#">Abrir →</a>
+              <a href="#" aria-disabled="true" tabindex="-1">Abrir → (em construção)</a>
             </div>
           </article>
 
@@ -157,8 +144,9 @@
             <img
               src="assets/img/meus_projetos/google-sheets.png"
               alt="Logo do Google Sheets"
-              style="width: 450px; height: auto; margin-bottom: 8px"
-              loading="lazy"
+              width="450" height="252"
+              loading="lazy" decoding="async"
+              style="margin-bottom:8px"
             />
             <p>Gerenciamento de cadastros e amostras</p>
             <div class="meta">
@@ -175,89 +163,72 @@
 
         <div class="carousel-wrap">
           <div class="pub-carousel" id="pubCarousel" aria-live="polite">
-            <!-- Card 1 -->
-            <article class="card">
-              <h3>Microbiota x Microbioma: são a mesma coisa?</h3>
-              <p>
-                Vamos dar uma descontraída e desmistificar esses termos que
-                confundem até aquele amigo que faz kombucha e kefir!
-              </p>
-              <div class="meta">
-                <span>Metagenômica</span>
-                <a
-                  href="https://medium.com/@krakenomics/microbiota-x-microbioma-s%C3%A3o-a-mesma-coisa-c3ed7848d8e7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Ler</a
-                >
-              </div>
-            </article>
-
-            <!-- Card 2 -->
-            <article class="card">
-              <h3>O que existe aqui?</h3>
-              <p>
-                Imagina descobrir centenas de microrganismos em um único
-                pedacinho de terra (ou tudo o que tiver superfície kkkk) sem
-                precisar cultivar nada em laboratório.
-              </p>
-              <div class="meta">
-                <span>Metagenômica</span>
-                <a
-                  href="https://krakenomics.medium.com/quem-est%C3%A1-na-festa-metataxonomia-metabarcoding-e-metagen%C3%B4mica-explicados-sem-mist%C3%A9rio-95bd5dcd1582"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Ler</a
-                >
-              </div>
-            </article>
-
-            <!-- Card 3 -->
-            <article class="card">
-              <h3>
-                Quem está na festa? Metataxonomia, Metabarcoding e Metagenômica
-                explicados sem mistério
-              </h3>
-              <p>
-                Vamos tirar a poeira desses nomes cabeludos e deixar claro de
-                uma vez por todas o que é metataxonomia, metabarcoding e
-                metagenômica!
-              </p>
-              <div class="meta">
-                <span>Metagenômica</span>
-                <a
-                  href="https://krakenomics.medium.com/-d81782e94e67"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Ler</a
-                >
-              </div>
-            </article>
           </div>
 
           <!-- Controles -->
           <div class="carousel-controls">
-            <button class="btn ghost" id="pubPrev" type="button" aria-label="Voltar">
-              ◀
-            </button>
-            <button class="btn ghost" id="pubNext" type="button" aria-label="Avançar">
-              ▶
-            </button>
+            <button class="btn ghost" id="pubPrev" type="button" aria-label="Voltar">◀</button>
+            <button class="btn ghost" id="pubNext" type="button" aria-label="Avançar">▶</button>
           </div>
         </div>
       </section>
 
-      <!-- Sobre -->
-      <section id="sobre">
-        <h2>Sobre mim</h2>
-        <div class="card">
-          <p>
-            PhD em andamento em Ciências Farmacêuticas (UNICENTRO). Atuo com
-            pipelines automatizados, metagenômica
-            (Kraken2/Bracken/Biobakery/Qiime2) e integrações de dados (APIs,
-            Google Sheets).
-          </p>
-          <p class="meta">Disponível para colaborações, consultorias e aulas práticas.</p>
+
+      <!-- Eventos -->
+      <section id="eventos" aria-label="Eventos">
+        <h2>Eventos</h2>
+
+        <div class="carousel-wrap">
+          <div class="pub-carousel" id="eventCarousel" aria-live="polite">
+            <!-- Card 1 -->
+            <article class="card">
+              <a
+                href="https://www.sympla.com.br/evento/2-simposio-de-medicina-de-precisao-do-vale-do-genoma/2998470"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir post do LinkedIn sobre evento de PCR"
+              >
+                <img
+                  src="/assets/img/eventos/med_precisao.jpg"
+                  alt="Divulgação do evento simposio de medicina de precisão"
+                  width="900" height="1600"
+                  loading="lazy" decoding="async"
+                />
+              </a>
+            </article>
+                        <!-- Card 2 -->
+            <article class="card">
+              <a
+                href="https://www.linkedin.com/posts/molecularbiotec_biotecnologia-cienciadamolecula-pcr-activity-7364760737849761794-KjV1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir post do LinkedIn sobre evento de PCR"
+              >
+                <img
+                  src="/assets/img/eventos/1755895789064.jpg"
+                  alt="Divulgação de evento sobre PCR"
+                  width="900" height="1600"
+                  loading="lazy" decoding="async"
+                />
+              </a>
+            </article>
+                        <!-- Card 3 -->
+            <article class="card">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="introbioinfo"
+              >
+                <img
+                  src="/assets/img/eventos/intro_bioinfo.jpg"
+                  alt="Divulgação de evento sobre PCR"
+                  width="900" height="1600"
+                  loading="lazy" decoding="async"
+                />
+              </a>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -266,19 +237,64 @@
         <h2>Projetos que estou envolvido</h2>
 
         <div class="carousel-wrap">
-          <div class="circle-carousel" id="circleCarousel" aria-live="polite"></div>
+          <div class="circle-carousel" id="circleCarousel" aria-live="polite">
+            <!-- Página 1 -->
+            <div class="circle-item">
+              <a class="circle-link" href="https://medepigen.ufpr.br/" target="_blank" rel="noopener noreferrer" aria-label="MedEpiGen">
+                <span class="circle-tag">Atual</span>
+                <img class="circle-thumb" src="/assets/img/projetos_envolvidos/medepigen.png" alt="MedEpiGen" width="140" height="140" loading="lazy" decoding="async">
+                <div class="circle-caption">MedEpiGen</div>
+              </a>
+            </div>
+
+            <div class="circle-item">
+              <a class="circle-link" href="https://medepigen.ufpr.br/mennogen/" target="_blank" rel="noopener noreferrer" aria-label="Mennogen">
+                <span class="circle-tag">Atual</span>
+                <img class="circle-thumb" src="/assets/img/projetos_envolvidos/mennogen.png" alt="Mennogen" width="140" height="140" loading="lazy" decoding="async">
+                <div class="circle-caption">Mennogen</div>
+              </a>
+            </div>
+
+            <div class="circle-item">
+              <a class="circle-link" href="https://ipec.org.br/genomas-parana/" target="_blank" rel="noopener noreferrer" aria-label="Genomas PR">
+                <span class="circle-tag">Atual</span>
+                <img class="circle-thumb" src="/assets/img/projetos_envolvidos/genomas_parana.png" alt="Genomas PR" width="140" height="140" loading="lazy" decoding="async">
+                <div class="circle-caption">Genomas PR</div>
+              </a>
+            </div>
+
+            <div class="circle-item">
+              <a class="circle-link" href="https://www.gov.br/saude/pt-br/assuntos/noticias/2024/julho/no-para-nisia-participa-da-inauguracao-de-centro-ancora-da-amazonia-do-projeto-genomas-sus" target="_blank" rel="noopener noreferrer" aria-label="Genomas SUS">
+                <span class="circle-tag">Atual</span>
+                <img class="circle-thumb" src="/assets/img/projetos_envolvidos/genomas_sus.png" alt="Genomas SUS" width="140" height="140" loading="lazy" decoding="async">
+                <div class="circle-caption">Genomas SUS</div>
+              </a>
+            </div>
+
+            <!-- Página 2 -->
+            <div class="circle-item">
+              <a class="circle-link" href="https://portal.unila.edu.br/noticias/em-missal-pesquisadores-apresentam-primeiros-dados-coletados-em-pesquisa-sobre-cancer" target="_blank" rel="noopener noreferrer" aria-label="S.M.I.L">
+                <span class="circle-tag">Anterior</span>
+                <img class="circle-thumb" src="/assets/img/projetos_envolvidos/unila.jpg" alt="S.M.I.L" width="140" height="140" loading="lazy" decoding="async">
+                <div class="circle-caption">S.M.I.L</div>
+              </a>
+            </div>
+
+            <div class="circle-item">
+              <a class="circle-link" href="https://documentos.unila.edu.br/sites/default/files/plano_de_trabalho_assinado_micropoluentes_ii.pdf" target="_blank" rel="noopener noreferrer" aria-label="Micropoluentes e biodiversidade">
+                <span class="circle-tag">Anterior</span>
+                <img class="circle-thumb" src="/assets/img/projetos_envolvidos/itaipu.png" alt="Micropoluentes e biodiversidade" width="140" height="140" loading="lazy" decoding="async">
+                <div class="circle-caption">Micropoluentes e biodiversidade</div>
+              </a>
+            </div>
+          </div>
 
           <div class="carousel-controls">
-            <button class="btn ghost" id="prevPg" type="button" aria-label="Projetos anteriores">
-              ◀
-            </button>
-            <button class="btn ghost" id="nextPg" type="button" aria-label="Próximos projetos">
-              ▶
-            </button>
+            <button class="btn ghost" id="envolvidosPrev" type="button" aria-label="Projetos anteriores">◀</button>
+            <button class="btn ghost" id="envolvidosNext" type="button" aria-label="Próximos projetos">▶</button>
           </div>
-        </div>
-
         <p class="carousel-note">Passe o mouse para pausar a rotação automática.</p>
+        </div>
       </section>
 
       <!-- Contato -->
@@ -287,255 +303,34 @@
         <div class="card">
           <p>Prefere falar comigo? Envie um e-mail ou conecte-se nas redes.</p>
 
-          <div class="chips">
+          <div class="chips" role="group" aria-label="Canais de contato">
             <a class="btn" href="mailto:contato_bioinfo.garbage278@passinbox.com">✉️ Enviar e-mail</a>
-            <a
-              class="btn ghost"
+
+            <a class="btn ghost"
               href="https://github.com/christopherwilliamlee"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-            <a
-              class="btn ghost"
-              href="https://api.whatsapp.com/send/?phone=45998147794&text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20o%20Christopher.&type=phone_number&app_absent=0"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Whatsapp</a
-            >
+              target="_blank" rel="noopener noreferrer"
+            >GitHub</a>
+
+            <!-- WhatsApp: formato wa.me com DDI 55 -->
+            <a class="btn ghost"
+              href="https://wa.me/5545998147794?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20o%20Christopher."
+              target="_blank" rel="noopener noreferrer"
+            >WhatsApp</a>
           </div>
         </div>
       </section>
-    </main>
 
-    <footer class="footer">
-      <div class="container">© <span id="year"></span> Christopher William Lee</div>
-    </footer>
+      <button id="btn-top" aria-label="Voltar ao topo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 4l-7 7h4v9h6v-9h4z"/>
+        </svg>
+        <span class="tooltip">Voltar ao topo</span>
+      </button>
 
-    <!-- Ano no rodapé -->
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+      <footer class="footer">
+        <div class="container">© <span id="year"></span> Christopher William Lee</div>
+      </footer>
 
-    <!-- Alternância de tema (claro/escuro/sistema) -->
-    <script>
-      (function () {
-        const btn = document.getElementById('themeBtn');
-        const root = document.documentElement;
-        const KEY = 'cwlee-theme';
-
-        // aplica tema salvo (ou 'system')
-        const saved = localStorage.getItem(KEY) || 'system';
-        root.setAttribute('data-theme', saved);
-
-        function nextTheme(current) {
-          return current === 'light' ? 'dark' : current === 'dark' ? 'system' : 'light';
-        }
-
-        btn.addEventListener('click', () => {
-          const current = root.getAttribute('data-theme') || 'system';
-          const next = nextTheme(current);
-          root.setAttribute('data-theme', next);
-          localStorage.setItem(KEY, next);
-          btn.textContent = '🌗';
-        });
-      })();
-    </script>
-
-    <!-- Carousel “Envolvidos” -->
-    <script>
-      (function () {
-        // ---- Lista fixa de projetos envolvidos (atuais e anteriores) ----
-        const envolvidos = [
-          {
-            title: 'MedEpiGen',
-            tag: 'Atual',
-            link: 'https://medepigen.ufpr.br/',
-            img: 'assets/img/projetos_envolvidos/medepigen.png'
-          },
-          {
-            title: 'Mennogen',
-            tag: 'Atual',
-            link: 'https://medepigen.ufpr.br/mennogen/',
-            img: 'assets/img/projetos_envolvidos/mennogen.png'
-          },
-          {
-            title: 'Genomas PR',
-            tag: 'Atual',
-            link: 'https://ipec.org.br/genomas-parana/',
-            img: 'assets/img/projetos_envolvidos/genomas_parana.png'
-          },
-          {
-            title: 'Genomas SUS',
-            tag: 'Atual',
-            link: 'https://www.gov.br/saude/pt-br/assuntos/noticias/2024/julho/no-para-nisia-participa-da-inauguracao-de-centro-ancora-da-amazonia-do-projeto-genomas-sus',
-            img: 'assets/img/projetos_envolvidos/genomas_sus.png'
-          },
-          {
-            title: 'S.M.I.L',
-            tag: 'Anterior',
-            link: 'https://portal.unila.edu.br/noticias/em-missal-pesquisadores-apresentam-primeiros-dados-coletados-em-pesquisa-sobre-cancer',
-            img: 'assets/img/projetos_envolvidos/unila.jpg'
-          },
-          {
-            title: 'Micropoluentes e biodiversidade',
-            tag: 'Anterior',
-            link: 'https://documentos.unila.edu.br/sites/default/files/plano_de_trabalho_assinado_micropoluentes_ii.pdf',
-            img: 'assets/img/projetos_envolvidos/itaipu.png'
-          }
-        ];
-
-        // ---- Utilitários ----
-        function paginar(arr, size = 4) {
-          const out = [];
-          for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-          return out.length ? out : [[]];
-        }
-
-        function gerarAvatar(title) {
-          const initials = title
-            .split(/\s+/)
-            .map((w) => w[0])
-            .slice(0, 2)
-            .join('')
-            .toUpperCase();
-
-          const cnv = document.createElement('canvas');
-          cnv.width = 300;
-          cnv.height = 300;
-          const ctx = cnv.getContext('2d');
-
-          const get = (k) => getComputedStyle(document.documentElement).getPropertyValue(k).trim();
-          const grad = ctx.createLinearGradient(0, 0, 300, 300);
-          grad.addColorStop(0, get('--accent'));
-          grad.addColorStop(1, get('--accent-2'));
-
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, 300, 300);
-
-          ctx.fillStyle = '#fff';
-          ctx.font = 'bold 120px system-ui, sans-serif';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText(initials, 150, 160);
-
-          return cnv.toDataURL('image/png');
-        }
-
-        function criarItem({ title, tag, link, img }) {
-          const wrap = document.createElement('div');
-          wrap.className = 'circle-item';
-
-          const a = document.createElement('a');
-          a.className = 'circle-link';
-          a.href = link || '#';
-          if (link && !link.startsWith('#')) {
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-          }
-
-          const im = document.createElement('img');
-          im.className = 'circle-thumb';
-          im.alt = title;
-          im.loading = 'lazy';
-          im.src = img || gerarAvatar(title);
-
-          const caption = document.createElement('div');
-          caption.className = 'circle-caption';
-          caption.textContent = title;
-
-          if (tag) {
-            const badge = document.createElement('span');
-            badge.className = 'circle-tag';
-            badge.textContent = tag;
-            a.appendChild(badge);
-          }
-
-          a.appendChild(im);
-          a.appendChild(caption);
-          wrap.appendChild(a);
-          return wrap;
-        }
-
-        function renderPagina(container, pagina) {
-          container.innerHTML = '';
-          if (!pagina.length) {
-            const msg = document.createElement('div');
-            msg.style.opacity = 0.7;
-            msg.textContent = 'Nenhum projeto encontrado.';
-            container.appendChild(msg);
-            return;
-          }
-          pagina.forEach((p) => container.appendChild(criarItem(p)));
-        }
-
-        // ---- Init: páginas de 4, rotação e controles ----
-        const pages = paginar(envolvidos, 4);
-        const container = document.getElementById('circleCarousel');
-        const prevBtn = document.getElementById('prevPg');
-        const nextBtn = document.getElementById('nextPg');
-
-        let idx = 0;
-        let timer = null;
-        const TEMPO = 4000;
-
-        function show(i) {
-          idx = (i + pages.length) % pages.length;
-          renderPagina(container, pages[idx]);
-        }
-
-        function start() {
-          if (!timer && pages.length > 1) {
-            timer = setInterval(() => show(idx + 1), TEMPO);
-          }
-        }
-
-        function stop() {
-          if (timer) {
-            clearInterval(timer);
-            timer = null;
-          }
-        }
-
-        prevBtn.addEventListener('click', () => {
-          stop();
-          show(idx - 1);
-          start();
-        });
-
-        nextBtn.addEventListener('click', () => {
-          stop();
-          show(idx + 1);
-          start();
-        });
-
-        container.addEventListener('mouseenter', stop);
-        container.addEventListener('mouseleave', start);
-        container.addEventListener('focusin', stop);
-        container.addEventListener('focusout', start);
-
-        show(0);
-        start();
-      })();
-    </script>
-
-    <!-- Carousel de Publicações (scroll) -->
-    <script>
-      (function () {
-        const carousel = document.getElementById('pubCarousel');
-        const prev = document.getElementById('pubPrev');
-        const next = document.getElementById('pubNext');
-
-        const cardWidth = () => carousel.querySelector('.card').offsetWidth + 16; // largura + gap
-
-        prev.addEventListener('click', () => {
-          carousel.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
-        });
-
-        next.addEventListener('click', () => {
-          carousel.scrollBy({ left: cardWidth(), behavior: 'smooth' });
-        });
-      })();
-    </script>
+      <script defer src="/assets/js/main.js"></script>
   </body>
 </html>

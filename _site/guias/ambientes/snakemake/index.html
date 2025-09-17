@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> — Guias</title>
+  <title>Tutorial prático de Snakemake (WSL) — Guias</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="/assets/css/main.css" />
   <link rel="stylesheet" href="/assets/css/guides.css" />
   <link
     rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"
-  />
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧬</text></svg>"/>
 </head>
 <body><!-- HEADER -->
   <header>
@@ -37,85 +36,887 @@
     <section class="guides-shell">
       <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
-        <div class="side-group">
-          <h3>Ferramentas</h3>
+        <details class="side-group" open>
+          <summary>Ferramentas</summary>
           <a href="/guias/ferramentas/kraken2/" class="side-item ">Kraken2</a>
           <a href="/guias/ferramentas/qiime2/" class="side-item ">QIIME2</a>
           <a href="/guias/ferramentas/biobakery/" class="side-item ">BioBakery</a>
           <a href="/guias/ferramentas/sra_tools/" class="side-item ">SRA-Tools</a>
           <a href="/guias/ferramentas/git/" class="side-item ">Git</a>
           <a href="/guias/ferramentas/github/" class="side-item ">Github</a>
-        </div>
+          <a href="/guias/ferramentas/fastp/" class="side-item ">FASTP</a>
+        </details>
 
-        <div class="side-group">
-          <h3>Ambientes e workflow</h3>
+        <details class="side-group" open>
+          <summary>Aparadores</summary>
+          <a href="/guias/aparadores/trimgalore/" class="side-item ">Trimgalore</a>
+          <a href="/guias/aparadores/trimmomatic/" class="side-item ">Trimmomatic</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Ambientes e workflow</summary>
           <a href="/guias/ambientes/anaconda/" class="side-item ">Anaconda</a>
           <a href="/guias/ambientes/snakemake/" class="side-item active">Snakemake</a>
           <a href="/guias/ambientes/nextflow/" class="side-item ">Nextflow</a>
           <a href="/guias/ambientes/docker/" class="side-item ">Docker</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Conversor de arquivos</h3>
+        <details class="side-group">
+          <summary>Conversor de arquivos</summary>
           <a href="/guias/conversores/bcl2fastq/" class="side-item ">BCL2fastq</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Plataforma</h3>
+        <details class="side-group">
+          <summary>Plataforma</summary>
           <a href="/guias/plataforma/wsl/" class="side-item ">WSL</a>
-        </div>
+        </details>
 
-        <div class="side-group">
-          <h3>Qualidade de dados</h3>
-          <a href="/guias/qualidade/fastq/" class="side-item ">FASTQ</a>
-          <a href="/guias/qualidade/fastp/" class="side-item ">FASTP</a>
+        <details class="side-group">
+          <summary>Qualidade de dados</summary>
+          <a href="/guias/qualidade/fastqc/" class="side-item ">FASTQC</a>
           <a href="/guias/qualidade/falco/" class="side-item ">FALCO</a>
-        </div>
-        <div class="side-group">
-          <h3>Meus projetos</h3>
+          <a href="/guias/qualidade/multiqc/" class="side-item ">MULTIQC</a>
+        </details>
+
+        <details class="side-group">
+          <summary>Meus projetos</summary>
           <a href="/guias/meus_projetos/google_sheets/" class="side-item ">Google Sheets</a>
-        </div>
-        <div class="side-group">
-          <h3>Bitcoin</h3>
+        </details>
+
+        <details class="side-group">
+          <summary>Bitcoin</summary>
           <a href="/guias/bitcoin/bluewallet/" class="side-item ">Bluewallet</a>
-        </div>
+        </details>
       </aside>
+
 
       <!-- CONTEÚDO DO MARKDOWN -->
       <section class="reader" id="reader">
-        <h1></h1>
-        
+        <h1>Tutorial prático de Snakemake (WSL)</h1>
+        <p><img src="/assets/img/snakemake/snakemake_logo.png" alt="Snakemake logo" /></p>
+
+<h1 id="workflow-com-snakemake-wsl--baixando-sra-e-gerando-fastq"><u>Workflow com Snakemake (WSL) — baixando SRA e gerando FASTQ</u></h1>
+
+<p style="align-text: justify">
+  Fala, pessoal! Se você já cansou de rodar comandos soltos no terminal e quer 
+  <strong>organizar sua análise em etapas reprodutíveis</strong>, 
+  o <span class="badge badge--snakemake">Snakemake</span> é exatamente o que você precisa. 
+  Ele transforma sua pipeline em um 
+  <span class="tooltip">arquivo declarativo
+    <span class="tooltiptext">Descreve o que fazer, não como fazer.</span>
+  </span> 
+  (o <span class="badge badge--snakemake">Snakemake</span>) e cuida de dependências, paralelismo e repetição automática só do que falta. 
+  Ele é maravilhosoo!! 🥹🥹🥹
+</p>
+
+<p>Neste guia, vamos montar um <strong>workflow básico</strong> para:</p>
+
+<ul>
+  <li><strong>Baixar dados do SRA</strong> (via <code class="language-plaintext highlighter-rouge">sra-tools</code>);</li>
+  <li><strong>Converter para FASTQ</strong> (<code class="language-plaintext highlighter-rouge">fasterq-dump</code>);</li>
+  <li><strong>Compactar e contar reads</strong> (para QC simples);</li>
+  <li>Fazer tudo isso <strong>no WSL</strong>.</li>
+  <li>No final tenho um desafio!!</li>
+</ul>
+
+<p>A ideia é: você define as regras e deixa o <span class="badge badge--snakemake">Snakemake</span> fazer o trabalho pesado.</p>
+
+<p><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjB5cjE1NjByNmY1cG0yOTJod2Z6NjhmdTM5NDVzeTIzYXRxMWNjMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRPVW5a4hx275Vm/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;" /></p>
+
+<hr />
+
+<h1 id="o-que-é-o-snakemake">O que é o Snakemake?</h1>
+
+<ul>
+  <li>
+    O <span class="badge badge--snakemake">Snakemake</span> é inspirado no 
+    <a href="https://en.wikipedia.org/wiki/Make_(software)" target="_blank">
+      <span class="tooltip">make
+        <span class="tooltiptext">GNU Make é um programa para automatizar processos.</span>
+      </span>
+    </a>, mas foi pensado para ciência de dados e bioinformática.
+  </li>
+
+  <li>
+    Você descreve 
+    <span class="tooltip"><strong>alvos finais</strong>
+      <span class="tooltiptext">Arquivos ou resultados finais que você quer gerar, como um FASTQ processado ou uma tabela.</span>
+    </span> 
+    e 
+    <span class="tooltip"><strong>regras</strong>
+      <span class="tooltiptext">Instruções que explicam como transformar arquivos de entrada em saída.</span>
+    </span> 
+    usando 
+    <span class="tooltip"><em>inputs</em>
+      <span class="tooltiptext">Arquivos de entrada necessários para executar a regra.</span>
+    </span> 
+    e 
+    <span class="tooltip"><em>outputs</em>
+      <span class="tooltiptext">Arquivos de saída produzidos pela regra.</span>
+    </span>.
+  </li>
+
+  <li>
+    O <span class="badge badge--snakemake">Snakemake</span> resolve a ordem certa, executa em paralelo e evita retrabalho.
+  </li>
+
+  <li>
+    É perfeito para garantir 
+    <span class="tooltip"><strong>reprodutibilidade</strong>
+      <span class="tooltiptext">Capacidade de repetir a análise e obter os mesmos resultados em qualquer computador.</span>
+    </span> 
+    e 
+    <span class="tooltip"><strong>organização</strong>
+      <span class="tooltiptext">Estrutura clara dos arquivos e etapas, sem precisar relembrar comandos manuais.</span>
+    </span>.
+  </li>
+</ul>
+
+<p>O que você vai precisar <u>antes</u>:</p>
+
+<ul>
+  <li><strong>WSL</strong> (Linux no Windows) — <a href="/guias/plataforma/wsl">tutorial</a></li>
+  <li><strong>sra-tools</strong> (prefetch / fasterq-dump) — <a href="/guias/ferramentas/sra-tools">sra-tools</a></li>
+  <li><strong>Conda (opcional, mas recomendado)</strong> para instalar o <span class="badge badge--snakemake">Snakemake</span> — <a href="/guias/ambientes/anaconda/">Conda</a></li>
+</ul>
+
+<blockquote class="info">
+  Você pode instalar o <span class="badge badge--snakemake">Snakemake</span> via <strong>conda</strong> (recomendado) ou <strong>pip</strong>. Aqui vamos de conda.
+</blockquote>
+
+<hr />
+
+<h2 id="passo-a-passo">Passo a passo</h2>
+<ol>
+  <li><a href="#instalacao-do-snakemake">Instalação do Snakemake</a></li>
+  <li><a href="#estrutura-do-projeto">Estrutura do projeto</a></li>
+  <li><a href="#configuracao-configyaml">Configuração (config.yaml)</a></li>
+  <li><a href="#snakefile-regras">Snakefile (regras)</a></li>
+  <li><a href="#executar-inspecionar-e-atualizar-o-workflow">Executar e atualizar o workflow</a></li>
+  <li><a href="#explicacao-do-codigo">Explicação do código</a></li>
+</ol>
+
+<hr />
+
+<h2 id="instalacao-do-snakemake">1. Instalação do Snakemake</h2>
+<p>Com o <strong>Conda</strong> instalado no WSL, crie um ambiente dedicado:</p>
+
+<pre>conda create -n smk -c conda-forge -c bioconda snakemake=8.* sra-tools pigz -y</pre>
+<pre>conda activate smk</pre>
+
+<blockquote class="tip">
+Incluímos sra-tools e pigz (compactação paralela). Se preferir, dá pra instalar <span class="badge badge--snakemake">Snakemake</span> via <code class="codeStyle">pip install snakemake</code>, mas o ecossistema bio costuma ficar mais estável via conda.
+</blockquote>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Elemento</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>conda create</td>
+        <td>Cria um novo ambiente Conda.</td>
+      </tr>
+      <tr>
+        <td>-n smk</td>
+        <td>Define o nome do ambiente como "smk".</td>
+      </tr>
+      <tr>
+        <td>-c conda-forge</td>
+        <td>Usa o canal conda-forge (repositório comunitário).</td>
+      </tr>
+      <tr>
+        <td>-c bioconda</td>
+        <td>Usa o canal bioconda (bioinformática).</td>
+      </tr>
+      <tr>
+        <td>snakemake=8.*</td>
+        <td>Instala o Snakemake versão 8.</td>
+      </tr>
+      <tr>
+        <td>sra-tools</td>
+        <td>Ferramentas do SRA (download/convert).</td>
+      </tr>
+      <tr>
+        <td>pigz</td>
+        <td>gzip paralelo (compactação rápida).</td>
+      </tr>
+      <tr>
+        <td>-y</td>
+        <td>Aceita confirmações automaticamente.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="estrutura-do-projeto">2. Estrutura do projeto</h2>
+<p>Crie uma pastinha para o workflow:</p>
+
+<pre>mkdir -p ~/smk_demo/smk-sra-demo/{config,fastq,logs,sra,tmp}</pre>
+<pre>cd smk_demo/smk-sra-demo</pre>
+
+<blockquote class="info">
+  <code>mkdir -p ~/smk_demo/smk-sra-demo/{config,fastq,logs,sra,tmp}</code>
+  <br /><br />
+  Esse comando cria a estrutura de pastas necessária para o projeto <span class="badge badge--snakemake">Snakemake</span>:
+  <ul>
+    <li><strong>config</strong> → onde ficam os arquivos de configuração (ex: YAML com parâmetros).</li>
+    <li><strong>fastq</strong> → diretório para armazenar os arquivos FASTQ brutos.</li>
+    <li><strong>logs</strong> → registros de execução (logs de cada regra).</li>
+    <li><strong>sra</strong> → downloads originais do SRA (formato .sra).</li>
+    <li><strong>tmp</strong> → arquivos temporários usados durante o workflow.</li>
+  </ul>
+  A opção <code>-p</code> garante que as pastas sejam criadas de forma recursiva, sem erro caso já existam.
+</blockquote>
+
+<h2 id="configuracao-configyaml">3. Configuração (<code>config.yaml</code>)</h2>
+<p>Vamos listar os acessos SRA que queremos baixar. Crie o arquivo:</p>
+
+<pre>nano config/config.yaml</pre>
+
+<p>Cole o conteúdo abaixo e salve:</p>
+
+<pre># config/config.yaml
+samples:
+  - SRR34840432      # &lt;-- troque por seus SRRs
+
+# Opções para fasterq-dump
+fasterq:
+  threads: 4
+  tmpdir: "tmp"
+
+# Gzip paralelo (pigz)
+pigz_threads: 4 </pre>
+
+<blockquote class="tip">
+  <strong>Dicas rápidas do <code>nano</code></strong><br /><br />
+  O <code>nano</code> é um editor de texto simples no terminal. Alguns atalhos úteis:
+  <ul>
+    <li><code>Ctrl + O</code> → Salvar (escrever alterações no arquivo).</li>
+    <li><code>Ctrl + X</code> → Sair do <code>nano</code> (pede para salvar antes, se houve mudanças).</li>
+    <li><code>Ctrl + W</code> → Buscar texto dentro do arquivo.</li>
+    <li><code>Ctrl + K</code> → Cortar a linha atual.</li>
+    <li><code>Ctrl + U</code> → Colar a linha cortada.</li>
+    <li><code>Ctrl + G</code> → Ajuda (mostra todos os comandos).</li>
+  </ul>
+  Dica: a barra inferior do <code>nano</code> mostra os principais atalhos — o símbolo <code>^</code> significa “Ctrl”.
+</blockquote>
+
+<h2 id="snakefile-regras">4. Snakefile (regras)</h2>
+<p>Crie o Snakefile na raiz do projeto:</p>
+
+<pre>nano Snakefile</pre>
+
+<p>Cole o conteúdo:</p>
+
+<pre># Snakefile
+
+configfile: "config/config.yaml"
+
+SAMPLES = config["samples"]
+FASTERQ_THREADS = int(config.get("fasterq", {}).get("threads", 4))
+TMPDIR = config.get("fasterq", {}).get("tmpdir", "tmp")
+PIGZ_THREADS = int(config.get("pigz_threads", 4))
+
+# (Opcional) Validar wildcards: SRR + dígitos
+wildcard_constraints:
+    s = r"SRR[0-9]+"
+
+# Alvo final: FASTQ compactados + contagem simples de reads
+rule all:
+    input:
+        expand("fastq/{s}_1.fastq.gz", s=SAMPLES),
+        expand("fastq/{s}_2.fastq.gz", s=SAMPLES),
+        expand("logs/{s}.reads.txt", s=SAMPLES)
+
+# 1) Baixar o .sra (cache local em ./sra/{s}/{s}.sra)
+rule prefetch:
+    output:
+        "sra/{s}/{s}.sra"    # se quiser economizar espaço: temp("sra/{s}/{s}.sra")
+    log:
+        "logs/{s}.prefetch.log"
+    shell:
+        "prefetch {wildcards.s} -O sra &amp;&gt; {log}"
+
+# 2) Converter .sra em FASTQ pareado (sem compressão)
+rule fasterq_dump:
+    input:
+        "sra/{s}/{s}.sra"
+    output:
+        temp("fastq/{s}_1.fastq"),
+        temp("fastq/{s}_2.fastq")
+    threads: FASTERQ_THREADS
+    params:
+        tmp = TMPDIR
+    log:
+        "logs/{s}.fasterq.log"
+    benchmark:
+        "logs/{s}.fasterq.benchmark.tsv"
+    shell:
+        r"""
+        mkdir -p {params.tmp} fastq
+        fasterq-dump --split-files --threads {threads} --temp {params.tmp} -O fastq {input} &amp;&gt; {log}
+        """
+
+# 3) Compactar com pigz
+rule gzip_fastq:
+    input:
+        r1 = "fastq/{s}_1.fastq",
+        r2 = "fastq/{s}_2.fastq"
+    output:
+        r1_gz = "fastq/{s}_1.fastq.gz",
+        r2_gz = "fastq/{s}_2.fastq.gz"
+    threads: PIGZ_THREADS
+    log:
+        "logs/{s}.pigz.log"
+    benchmark:
+        "logs/{s}.pigz.benchmark.tsv"
+    shell:
+        r"""
+        ( pigz -p {threads} -f {input.r1}
+          pigz -p {threads} -f {input.r2} ) &amp;&gt; {log}
+        """
+
+# 4) QC simples: contar reads (linhas/4)
+rule count_reads:
+    input:
+        r1 = "fastq/{s}_1.fastq.gz",
+        r2 = "fastq/{s}_2.fastq.gz"
+    output:
+        "logs/{s}.reads.txt"
+    log:
+        "logs/{s}.count_reads.log"
+    shell:
+        r"""
+        set -euo pipefail
+        mkdir -p logs
+        r1=$(( $(pigz -dc {input.r1} | wc -l) / 4 ))
+        r2=$(( $(pigz -dc {input.r2} | wc -l) / 4 ))
+        (
+          printf "Sample\tR1_reads\tR2_reads\n" &gt; {output}
+          printf "%s\t%s\t%s\n" "{wildcards.s}" "$r1" "$r2" &gt;&gt; {output}
+        ) &amp;&gt; {log}
+        """
+</pre>
+
+<h2 id="executar-inspecionar-e-atualizar-o-workflow">5. Executar e atualizar o workflow</h2>
+<p>Ative o ambiente (se ainda não estiver ativo) e rode:</p>
+
+<pre>conda activate smk
+snakemake -j 4</pre>
+
+<blockquote class="tip">
+  <code>-j 4</code> → Define que o <span class="badge badge--snakemake">Snakemake</span> pode executar até <strong>4 tarefas em paralelo</strong>.  
+  Ajuste esse número de acordo com a quantidade de <strong>núcleos da sua CPU</strong> para aproveitar melhor o desempenho da máquina.
+</blockquote>
+
+<p>Você deverá ter algo assim:</p>
+
+<p><img src="/assets/img/snakemake/snakemake_1.png" alt="Snakemake 1" /></p>
+
+<p>Você poderá ver os seus resultados aqui:</p>
+
+<p><img src="/assets/img/snakemake/snakemake_2.png" alt="Snakemake 2" /></p>
+
+<p>Re-executar somente o que está faltando (Snakemake já faz isso!):</p>
+
+<pre>snakemake -j 4</pre>
+
+<p>Limpar outputs gerados (cuidado!):</p>
+
+<pre>snakemake --delete-all-output</pre>
+
+<h2 id="onde-ficam-os-arquivos">Onde ficam os arquivos?</h2>
+<p>SRA: sra/SRRxxxxx/SRRxxxxx.sra
+FASTQ gz: fastq/SRRxxxxx_1.fastq.gz e fastq/SRRxxxxx_2.fastq.gz
+Leituras contadas: logs/SRRxxxxx.reads.txt</p>
+
+<h3 id="abra-o-readstxt-para-ver-um-resumo-rápido">Abra o .reads.txt para ver um resumo rápido:</h3>
+<pre>column -t logs/*.reads.txt | less -S</pre>
+
+<blockquote class="tip">
+Dicas (WSL + SRA-Tools)
+Se faltar espaço em /tmp, use o tmpdir do config.yaml (já configurado para tmp/)
+</blockquote>
+
+<blockquote class="tip">
+Se o prefetch estiver lento, configure o cache do SRA na sua home (vdb-config --interactive)
+</blockquote>
+
+<blockquote class="tip">
+Para testar rápido, use um SRR e depois aumente a lista
+</blockquote>
+
+<blockquote class="tip">
+Personalizando
+Edite config/config.yaml e adicione/remova SRRs.
+</blockquote>
+
+<h3 id="quer-rodar-apenas-um-sample">Quer rodar apenas um sample?</h3>
+
+<pre>snakemake -j 4 fastq/SRR34840432_1.fastq.gz fastq/SRR34840432_2.fastq.gz</pre>
+
+<ul>
+  <li>Ver o que <strong>seria</strong> executado (sem rodar): <code class="language-plaintext highlighter-rouge">snakemake -n -p</code></li>
+  <li>Ver o DAG: <code class="language-plaintext highlighter-rouge">snakemake --dag | dot -Tsvg &gt; dag.svg</code></li>
+  <li>Resumo/estado: <code class="language-plaintext highlighter-rouge">snakemake --summary</code></li>
+  <li>Relatório reproduzível: <code class="language-plaintext highlighter-rouge">snakemake --report report.zip</code></li>
+  <li>Reexecutar alvos incompletos: <code class="language-plaintext highlighter-rouge">snakemake --rerun-incomplete</code></li>
+  <li>FS lento? <code class="language-plaintext highlighter-rouge">snakemake -j 4 --latency-wait 60</code></li>
+  <li>Lembrete: <code class="language-plaintext highlighter-rouge">-j</code> = jobs concorrentes; <code class="language-plaintext highlighter-rouge">threads:</code> = CPUs <strong>por</strong> job.</li>
+</ul>
+
+<h2 id="explicacao-do-codigo">6. Explicação do código</h2>
+<h2 id="1-configfile-configconfigyaml">1. configfile: “config/config.yaml”</h2>
+
+<ul>
+  <li>
+    Diz ao <span class="badge badge--snakemake">Snakemake</span> para ler um 
+    <span class="tooltip"><strong>arquivo YAML</strong>
+      <span class="tooltiptext">Formato de configuração simples e legível, usado para organizar parâmetros.</span>
+    </span> 
+    de configuração.
+  </li>
+
+  <li>
+    Isso mantém os 
+    <span class="tooltip"><strong>parâmetros</strong>
+      <span class="tooltiptext">Valores como lista de amostras (SRRs), número de threads ou diretórios temporários.</span>
+    </span> 
+    fora do código, deixando o workflow mais limpo e fácil de ajustar.
+  </li>
+</ul>
+
+<h3 id="exemplo-de-configconfigyaml">Exemplo de config/config.yaml:</h3>
+
+<pre>
+samples:
+  - SRR34840432   # pode ter 1 ou várias entradas
+
+fasterq:
+  threads: 4 # Núcleos a serem utilizados
+  tmpdir: "tmp"
+
+pigz_threads: 4
+</pre>
+
+<h2 id="2-variáveis-python-lidas-do-yaml">2. Variáveis Python lidas do YAML</h2>
+
+<pre>
+SAMPLES = config["samples"]
+FASTERQ_THREADS = int(config.get("fasterq", {}).get("threads", 4))
+TMPDIR = config.get("fasterq", {}).get("tmpdir", "tmp")
+PIGZ_THREADS = int(config.get("pigz_threads", 4))
+</pre>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Elemento</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>YAML</strong></td>
+        <td>Formato de arquivo usado para guardar informações de configuração de forma organizada e fácil de ler.</td>
+      </tr>
+      <tr>
+        <td><strong>SAMPLES</strong></td>
+        <td>Lista de acessos 
+          <span class="tooltip"><strong>SRA</strong>
+            <span class="tooltiptext">Repositório Sequence Read Archive, onde ficam armazenados dados públicos de sequenciamento.</span>
+          </span> 
+          (ex.: <code>["SRR34840432"]</code>).
+        </td>
+      </tr>
+      <tr>
+        <td><strong>FASTERQ_THREADS</strong></td>
+        <td>Número de threads para o <code>fasterq-dump</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>TMPDIR</strong></td>
+        <td>Pasta para arquivos temporários do SRA-tools (evita encher <code>/tmp</code>).</td>
+      </tr>
+      <tr>
+        <td><strong>PIGZ_THREADS</strong></td>
+        <td>Número de threads do <code>pigz</code> (gzip paralelo).</td>
+      </tr>
+      <tr>
+        <td><em>Observação</em></td>
+        <td>Essas variáveis podem ser usadas dentro das regras (como em <code>threads:</code> ou <code>params:</code>).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="3-rule-all--o-alvo-agregado">3. rule all — o alvo agregado</h2>
+
+<pre>
+rule all:
+    input:
+        expand("fastq/{s}_1.fastq.gz", s=SAMPLES),
+        expand("fastq/{s}_2.fastq.gz", s=SAMPLES),
+        expand("logs/{s}.reads.txt", s=SAMPLES)
+</pre>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Elemento</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>rule all</strong></td>
+        <td>
+          Define os 
+          <span class="tooltip"><strong>alvos finais</strong>
+            <span class="tooltiptext">Arquivos ou resultados finais que você quer gerar.</span>
+          </span> 
+          que o workflow precisa gerar.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>expand</strong></td>
+        <td>
+          Cria automaticamente a lista desses resultados para todas as amostras, substituindo 
+          <code>{s}</code> pelos nomes em <code>SAMPLES</code> 
+          (ex.: 1 amostra gera 3 arquivos, 100 amostras geram 300).
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<blockquote class="info">
+  <p>O <span class="badge badge--snakemake">Snakemake</span> então monta a sequência lógica de etapas (
+  <span class="tooltip">DAG
+    <span class="tooltiptext">Mapa que mostra a ordem e dependências das etapas.</span>
+  </span>
+  ) para chegar nesses resultados e executa apenas o que ainda não foi feito ou está desatualizado.</p>
+</blockquote>
+
+<h2 id="4-rule-prefetch--baixar-o-sra">4. rule prefetch — baixar o .sra</h2>
+
+<pre>
+rule prefetch:
+    output:
+        "sra/{s}/{s}.sra"
+    shell:
+        """
+        prefetch {wildcards.s} -O sra
+        """
+</pre>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Elemento</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>output</strong></td>
+        <td>Indica onde o arquivo final deve existir ao término da regra.</td>
+      </tr>
+      <tr>
+        <td><code>{s}</code></td>
+        <td>
+          É um 
+          <span class="tooltip"><strong>wildcard</strong>
+            <span class="tooltiptext">Um curinga que assume valores diferentes, como os nomes das amostras (ex.: SRR34840432).</span>
+          </span>, 
+          substituído automaticamente por cada SRR da lista.
+        </td>
+      </tr>
+      <tr>
+        <td><code>prefetch</code></td>
+        <td>Baixa o acesso e cria uma subpasta (<code>sra/SRR.../SRR....sra</code>).</td>
+      </tr>
+      <tr>
+        <td><em>Dependência</em></td>
+        <td>O <span class="badge badge--snakemake">Snakemake</span> entende que, se <code>fastq/...</code> depende de <code>sra/{s}/{s}.sra</code>, esta regra precisa rodar primeiro.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<blockquote class="info">
+Se sua versão do SRA-tools não criasse subpastas, bastaria apontar para sra/{s}.sra. Aqui usamos o comportamento mais comum/estável.
+</blockquote>
+
+<h2 id="5-rule-fasterq_dump--converter-sra-em-fastq">5. rule fasterq_dump — converter .sra em FASTQ</h2>
+
+<pre>
+rule fasterq_dump:
+    input:
+        "sra/{s}/{s}.sra"
+    output:
+        temp("fastq/{s}_1.fastq"),
+        temp("fastq/{s}_2.fastq")
+    threads: FASTERQ_THREADS
+    params:
+        tmp=TMPDIR
+    log:
+        "logs/{s}.fasterq.log"
+    benchmark:
+        "logs/{s}.fasterq.benchmark.tsv"
+    shell:
+        r"""
+        mkdir -p {params.tmp} fastq
+        fasterq-dump --split-files --threads {threads} --temp {params.tmp} -O fastq {input} &amp;&gt; {log}
+        """
+</pre>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Elemento</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>input</strong></td>
+        <td>Exige o arquivo <code>.sra</code> já baixado. Assim o <span class="badge badge--snakemake">Snakemake</span> garante a ordem de execução.</td>
+      </tr>
+      <tr>
+        <td><strong>output</strong></td>
+        <td>Produz <code>R1</code> e <code>R2</code> não compactados.</td>
+      </tr>
+      <tr>
+        <td><code>temp(...)</code></td>
+        <td>
+          Marca os arquivos como 
+          <span class="tooltip"><strong>intermediários</strong>
+            <span class="tooltiptext">Gerados no meio do processo; são removidos automaticamente quando o pipeline termina com sucesso.</span>
+          </span>; mantém o projeto limpo e economiza espaço.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>threads</strong></td>
+        <td>
+          Informa ao <span class="badge badge--snakemake">Snakemake</span> quantas 
+          <span class="tooltip"><strong>CPUs</strong>
+            <span class="tooltiptext">Número de núcleos alocados para a regra; útil para paralelizar e escalar.</span>
+          </span> a regra pode usar.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>params.tmp</strong></td>
+        <td>
+          Pasta temporária do 
+          <span class="tooltip"><strong>SRA-tools</strong>
+            <span class="tooltiptext">Conjunto de utilitários do NCBI (ex.: prefetch, fasterq-dump) para baixar e converter dados do SRA.</span>
+          </span> (evita gargalos em <code>/tmp</code>).
+        </td>
+      </tr>
+      <tr>
+        <td><code>--split-files</code></td>
+        <td>
+          Separa leituras 
+          <span class="tooltip"><strong>paired-end</strong>
+            <span class="tooltiptext">Biblioteca com duas leituras por fragmento (R1 e R2), uma de cada extremidade.</span>
+          </span> em <code>R1/R2</code>.
+        </td>
+      </tr>
+      <tr>
+        <td><code>{input}</code></td>
+        <td>Passa o caminho do <code>.sra</code> explicitamente para o comando (também funciona passando apenas o acesso).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<blockquote class="info">
+Se for single-end, troque a regra para gerar um FASTQ e ajuste as regras seguintes.
+</blockquote>
+
+<h2 id="6-rule-gzip_fastq--compactar-com-pigz">6. rule gzip_fastq — compactar com pigz</h2>
+
+<pre>
+rule gzip_fastq:
+    input:
+        r1="fastq/{s}_1.fastq",
+        r2="fastq/{s}_2.fastq"
+    output:
+        r1_gz="fastq/{s}_1.fastq.gz",
+        r2_gz="fastq/{s}_2.fastq.gz"
+    threads: PIGZ_THREADS
+    shell:
+        r"""
+        pigz -p {threads} -f {input.r1}
+        pigz -p {threads} -f {input.r2}
+        """
+</pre>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Elemento</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>pigz</strong></td>
+        <td>
+          É um <code>gzip</code> paralelo. Comprime arquivos usando várias 
+          <span class="tooltip"><strong>CPUs</strong>
+            <span class="tooltiptext">Quantidade de núcleos: executa várias tarefas.</span>
+          </span>, ficando bem mais rápido que o <code>gzip</code> tradicional.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>threads</strong></td>
+        <td>Comunica ao escalonador do <span class="badge badge--snakemake">Snakemake</span> quantas CPUs reservar para essa regra.</td>
+      </tr>
+      <tr>
+        <td><code>-f</code></td>
+        <td>Força a sobrescrita de arquivos existentes (útil ao relançar trechos do workflow).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="7-rule-count_reads--qc-simples">7. rule count_reads — QC simples</h2>
+
+<pre>
+rule count_reads:
+    input:
+        r1="fastq/{s}_1.fastq.gz",
+        r2="fastq/{s}_2.fastq.gz"
+    output:
+        "logs/{s}.reads.txt"
+    shell:
+        r"""
+        mkdir -p logs
+        r1=$(( $(pigz -dc {input.r1} | wc -l) / 4 ))
+        r2=$(( $(pigz -dc {input.r2} | wc -l) / 4 ))
+        echo -e "Sample\tR1_reads\tR2_reads" &gt; {output}
+        echo -e "{wildcards.s}\t$r1\t$r2" &gt;&gt; {output}
+        """
+</pre>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Elemento</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>zcat | wc -l</code></td>
+        <td>
+          Conta o número de linhas de um arquivo FASTQ compactado; como cada 
+          <span class="tooltip"><strong>read</strong>
+            <span class="tooltiptext">Read individual produzida pelo sequenciador; em FASTQ cada read ocupa 4 linhas.</span>
+          </span> 
+          ocupa 4 linhas, o total de reads é <code>linhas ÷ 4</code>.
+        </td>
+      </tr>
+      <tr>
+        <td><em>Relatório TSV</em></td>
+        <td>Gera um relatório tabular simples por amostra no formato <code>TSV</code> (valores separados por tabulação).</td>
+      </tr>
+      <tr>
+        <td><code>mkdir -p logs</code></td>
+        <td>Garante que a pasta <code>logs</code> exista (cria se não existir).</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="como-o-snakemake-decide-a-ordem-dag">Como o Snakemake decide a ordem (DAG)</h2>
+
+<ul>
+  <li>
+    Ao rodar <code>snakemake -j 4</code>, o <span class="badge badge--snakemake">Snakemake</span> olha os 
+    <span class="tooltip"><strong>alvos finais</strong>
+      <span class="tooltiptext">Arquivos ou resultados finais que você quer gerar, como um FASTQ processado ou uma tabela.</span>
+    </span> definidos em <code>rule all</code>.
+  </li>
+
+  <li>
+    Para cada arquivo que ainda não existe, ele rastreia para trás qual regra produz aquela saída.
+  </li>
+
+  <li>
+    Monta um 
+    <span class="tooltip"><strong>DAG</strong>
+      <span class="tooltiptext">Mapa que mostra a ordem e dependências das etapas.</span>
+    </span> (grafo acíclico dirigido) e executa as regras na ordem correta, em paralelo até o limite de jobs definido por <code>-j</code>.
+  </li>
+
+  <li>
+    Se você relançar o workflow, ele pula o que já está pronto — evitando retrabalho.
+  </li>
+
+  <li>
+    Quer trocar o número de threads? Ajuste <code>FASTERQ_THREADS</code> e <code>PIGZ_THREADS</code> no <code>config.yaml</code>.
+  </li>
+</ul>
+
+<hr />
+<p>Vamos de novos desafios?
+Eu não vou ensinar aqui quero que você aprenda sozinho a como
+adicionar FastQC/MultiQC como novas regras.</p>
+
+<p>Cada ferramenta extra que você incluir pode ter o respectivo tutorial nos seus guias. Ex.: <a href="/guias/ferramentas/sra-tools" target="_blank">sra-tools</a>, <a href="/guias/ambientes/anaconda/" target="_blank">Conda</a>, <a href="/guias/plataforma/wsl" target="_blank">WSL</a>.</p>
+
+<p>Qualquer dúvida que você tiver, pode me chamar no linkedin ou qualquer outra rede social ou até por e-mail ou sinal de fumaça! 
+Que os jogos comecem!</p>
+
+<p>Até a próxima!<br /></p>
+
+<p><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjllNzQ0MmRwajRpZG9veXY5YTExeGE2NTd3Y25qZDJ2c2k5ZmozaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/146VPTjfO0tKG4/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;" /></p>
+
+<hr />
+
+<p>Dê um suporte ao meu projeto. Doe um cafézinho ☕.<br />
+Pix: biologolee@gmail.com<br />
+Bitcoin: bc1qg7qrfhclzt3sm60en53qv8fmwpuacfaxt5v55k</p>
+
+<p><img src="/assets/img/meus_projetos/bluewallet_qrcode.png" alt="QR Code" /></p>
+
+<hr />
+
+<p>Referências:</p>
+
+<p><a href="https://snakemake.readthedocs.io" target="_blank">Documentação oficial do Snakemake</a></p>
+
+<p><a href="https://github.com/ncbi/sra-tools" target="_blank">NCBI SRA-Tools</a></p>
 
       </section>
     </section>
   </main>
 
+  <button id="btn-top" aria-label="Voltar ao topo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 4l-7 7h4v9h6v-9h4z"/>
+    </svg>
+    <span class="tooltip">Voltar ao topo</span>
+  </button>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">© <span id="year"></span> Christopher William Lee — Guias</div>
   </footer>
-
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Alternância de tema
-    (function () {
-      const btn = document.getElementById('themeBtn');
-      if(!btn) return;
-      const root = document.documentElement;
-      const KEY = 'cwlee-theme';
-      const saved = localStorage.getItem(KEY) || 'system';
-      root.setAttribute('data-theme', saved);
-      const nextTheme = c => c === 'light' ? 'dark' : c === 'dark' ? 'system' : 'light';
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') || 'system';
-        const next = nextTheme(current);
-        root.setAttribute('data-theme', next);
-        localStorage.setItem(KEY, next);
-        btn.textContent = '🌗';
-      });
-    })();
-  </script>
+  
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
