@@ -21,7 +21,6 @@
   {%- assign q2  = '/guias/ferramentas/qiime2/' -%}
   {%- assign bb  = '/guias/ferramentas/biobakery/' -%}
   {%- assign git = '/guias/ferramentas/git/' -%}
-  {%- assign fqp = '/guias/ferramentas/fastp/' -%}
   {%- assign gh = '/guias/ferramentas/github/' -%}
   {%- assign sra = '/guias/ferramentas/sra_tools/' -%}
   {%- assign an  = '/guias/ambientes/anaconda/' -%}
@@ -37,7 +36,8 @@
   {%- assign bw = '/guias/bitcoin/bluewallet/' -%}
   {%- assign tg = '/guias/aparadores/trimgalore/' -%}
   {%- assign tm = '/guias/aparadores/trimmomatic/' -%}
-  
+  {%- assign fqp = '/guias/aparadores/fastp/' -%}
+
   <!-- HEADER -->
   <header>
     <div class="container nav">
@@ -71,13 +71,13 @@
           <a href="{{ sra | relative_url }}" class="side-item {% if current == sra %}active{% endif %}">SRA-Tools</a>
           <a href="{{ git | relative_url }}" class="side-item {% if current == git %}active{% endif %}">Git</a>
           <a href="{{ gh | relative_url }}" class="side-item {% if current == gh %}active{% endif %}">Github</a>
-          <a href="{{ fqp | relative_url }}" class="side-item {% if current == fqp %}active{% endif %}">FASTP</a>
         </details>
 
         <details class="side-group" open>
           <summary>Aparadores</summary>
           <a href="{{ tg | relative_url }}" class="side-item {% if current == tg %}active{% endif %}">Trimgalore</a>
           <a href="{{ tm | relative_url }}" class="side-item {% if current == tm %}active{% endif %}">Trimmomatic</a>
+          <a href="{{ fqp | relative_url }}" class="side-item {% if current == fqp %}active{% endif %}">FASTP</a>
         </details>
 
         <details class="side-group">
