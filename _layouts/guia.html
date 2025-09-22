@@ -17,9 +17,9 @@
 
   {%- comment -%} URLs principais {%- endcomment -%}
   {%- assign gui = '/guias/' -%}
-  {%- assign k2  = '/guias/ferramentas/kraken2/' -%}
-  {%- assign q2  = '/guias/ferramentas/qiime2/' -%}
-  {%- assign bb  = '/guias/ferramentas/biobakery/' -%}
+  {%- assign k2  = '/guias/metaomicas/kraken2/' -%}
+  {%- assign q2  = '/guias/metaomicas/qiime2/' -%}
+  {%- assign bb  = '/guias/metaomicas/biobakery/' -%}
   {%- assign git = '/guias/ferramentas/git/' -%}
   {%- assign gh = '/guias/ferramentas/github/' -%}
   {%- assign sra = '/guias/ferramentas/sra_tools/' -%}
@@ -64,10 +64,14 @@
       <!-- SIDEBAR -->
       <aside class="sidebar" aria-label="Índice dos guias">
         <details class="side-group" open>
-          <summary>Ferramentas</summary>
+          <summary>Metaômicas</summary>
           <a href="{{ k2 | relative_url }}" class="side-item {% if current == k2 %}active{% endif %}">Kraken2</a>
           <a href="{{ q2 | relative_url }}" class="side-item {% if current == q2 %}active{% endif %}">QIIME2</a>
           <a href="{{ bb | relative_url }}" class="side-item {% if current == bb %}active{% endif %}">BioBakery</a>
+        </details>
+
+        <details class="side-group" open>
+          <summary>Ferramentas</summary>
           <a href="{{ sra | relative_url }}" class="side-item {% if current == sra %}active{% endif %}">SRA-Tools</a>
           <a href="{{ git | relative_url }}" class="side-item {% if current == git %}active{% endif %}">Git</a>
           <a href="{{ gh | relative_url }}" class="side-item {% if current == gh %}active{% endif %}">Github</a>

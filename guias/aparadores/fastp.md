@@ -1,7 +1,7 @@
 ---
 layout: guia
 title: Tutorial prático do Fastp (Conda)
-permalink: /guias/ferramentas/fastp/
+permalink: /guias/aparadores/fastp/
 ---
 
 ![Fastp logo](/assets/img/fastp/fastp_logo.png)
