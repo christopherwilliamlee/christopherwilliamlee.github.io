@@ -64,7 +64,7 @@ Neste guia, <u>você vai</u>:
 - Classificar as reads, entender o relatório e estimar a abundância por espécie,
 - Gerar um gráfico interativo e rodar tudo para várias amostras de uma vez.
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzc3ODZjNXE1aWp2M2x1aTViZWdxMTZ5MWJsOXlqNzRuem9rbXM4bCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ggVzx0w0umA5ozxTfu/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczc4aXRnMTM0cHZ5azdnYXYzYmRmaDd2aWUzczlvejdzZnM1NGthbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BUr2bF47czHJTpEuZs/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
 
 ---
 
@@ -486,7 +486,7 @@ Com a tabela <code>abundancia_todas.tsv</code> em mãos, dá pra partir para o R
 
 Até a próxima!
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWl3cGxwdGR2dXIydGkwNmI0ZHRocGZ2eXR1Y2llZWxoNWo2cnNrMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0Iyl55kTeh71nTXy/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3Nldzd5aHNteXpnOHE2a2hvdXR0Z3pzNjl2MjJ3NHIwM3F5bHVzbSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fWfowxJtHySJ0SGCgN/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
 
 ---
 

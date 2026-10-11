@@ -55,7 +55,7 @@ Neste guia, <u>você vai</u>:
 - Entender o que são os arquivos <code>.qza</code> e <code>.qzv</code>,
 - Rodar o fluxo completo com dados reais de 16S: DADA2 → classificação taxonômica → gráfico de barras → diversidade.
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzc3ODZjNXE1aWp2M2x1aTViZWdxMTZ5MWJsOXlqNzRuem9rbXM4bCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ggVzx0w0umA5ozxTfu/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
+<img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZXNyMGl5ZWJwa3pkcGxmcmhqN3dybDQwb3AwZ21kM3I1dHB0cnhqMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3osxYeymtCD76SeQjC/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
 
 ---
 
@@ -449,7 +449,7 @@ E tudo isso com o histórico guardado dentro de cada <code>.qza</code>. Seu "eu 
 
 Até a próxima!
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaThteTQ3M3lyZTE2NmQ3bmd1aDZuaG5ybDQ4Mm1keHRheGhtdDg4NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/VhWVAa7rUtT3xKX6Cd/giphy.gif" alt="gif" width="200" style="display:block; margin:auto;">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDBrMGdzbmx6cDh4MjF6anMzbzltNXpzY3Zia21hdDl6bmpsMzBsciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/bCFrooOBnpd276aY7r/giphy.gif" alt="gif" width="200" style="display:block; margin:auto;">
 
 ---
 

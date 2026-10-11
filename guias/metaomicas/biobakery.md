@@ -63,7 +63,7 @@ Neste guia, <u>você vai</u>:
 - Juntar várias amostras numa tabela só,
 - Comparar o MetaPhlAn com o Kraken2.
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzc3ODZjNXE1aWp2M2x1aTViZWdxMTZ5MWJsOXlqNzRuem9rbXM4bCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ggVzx0w0umA5ozxTfu/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2NzZnZ2enk2a3N5YnNkd2VlNTY4aTg4NzM0N2RqZWxkMzVuM2w1cyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/RGpTyXMjpTkIg/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
 
 ---
 
@@ -369,7 +369,7 @@ Você gerou o <strong>perfil taxonômico</strong> de metagenomas com o MetaPhlAn
 
 Até a próxima!
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWl3cGxwdGR2dXIydGkwNmI0ZHRocGZ2eXR1Y2llZWxoNWo2cnNrMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0Iyl55kTeh71nTXy/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
+<img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3d3g1YzYwenJyM3UwdGIyZmlwNm5rcXV4aG5qaWY1bXo0c3g0bXRvNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/VkpfO6W4D7yB7vSjXy/giphy.gif" alt="gif" width="300" style="display:block; margin:auto;">
 
 ---
 
