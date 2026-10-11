@@ -4,6 +4,8 @@ title: Tutorial prático do Kraken2 + Bracken (Conda)
 permalink: /guias/metaomicas/kraken2/
 ---
 
+![Fastp logo](/assets/img/kraken2/kraken_logo.jpg)
+
 # <u>Quem está na sua amostra? Classificação taxonômica com Kraken2, Bracken e Krona</u>
 
 <p style="align-text: justify">

@@ -4,6 +4,8 @@ title: Tutorial prático do bioBakery — MetaPhlAn 4 (Conda)
 permalink: /guias/metaomicas/biobakery/
 ---
 
+![Fastp logo](/assets/img/biobakery/biobakery_logo.png)
+
 # <u>Perfil taxonômico com MetaPhlAn 4, a estrela do bioBakery</u>
 
 <p style="align-text: justify">

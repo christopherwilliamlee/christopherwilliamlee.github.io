@@ -4,6 +4,8 @@ title: Tutorial prático do QIIME 2 (16S, Conda)
 permalink: /guias/metaomicas/qiime2/
 ---
 
+![Fastp logo](/assets/img/qiime2/qiime2_logo.png)
+
 # <u>Metabarcoding com QIIME 2: das reads ao gráfico de diversidade</u>
 
 <p style="align-text: justify">
